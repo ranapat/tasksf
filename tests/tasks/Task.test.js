@@ -14,6 +14,25 @@ describe('Test Task', () => {
     expect(task.done).to.equal(true);
   });
 
+  it('to be not running before run', () => {
+    const task = new Task();
+    expect(task.running).to.equal(false);
+  });
+
+  it('to be not running after complete', () => {
+    const task = new Task();
+    task.run();
+    expect(task.running).to.equal(false);
+  });
+
+  it('to be running during run', () => {
+    const task = new Task(() => {
+      return 1;
+    });
+    task.run();
+    expect(task.running).to.equal(true);
+  });
+
   it('to not recover by default', () => {
     const task = new Task();
     task.recover();
@@ -53,6 +72,67 @@ describe('Test Task', () => {
     task.run();
     expect(task.done).to.equal(false);
     setTimeout(() => { expect(task.done).to.equal(true); done(); }, 1);
+  });
+
+  it('to be running during run and not running on complete', (done) => {
+    const task = new Task(
+      (self) => {
+        setTimeout(() => { self.complete(); }, 1);
+        return 'something';
+      },
+      undefined, undefined
+    );
+    task.run();
+    expect(task.running).to.equal(true);
+    setTimeout(() => { expect(task.running).to.equal(false); done(); }, 1);
+  });
+
+  it('to resolve exceptions and not crash', () => {
+    const task = new Task(
+      () => {
+        throw new Error('error')
+      },
+      () => {
+        throw new Error('error')
+      },
+      () => {
+        throw new Error('error')
+      }
+    );
+    task.run();
+    task.recover();
+  });
+
+  it('to collect exceptions and report as failed', () => {
+    const task = new Task(
+      () => {
+        throw new Error('run error')
+      },
+      () => {
+        throw new Error('complete error')
+      },
+      () => {
+        throw new Error('recover error')
+      }
+    );
+    task.run();
+    task.recover();
+    expect(task.failed).to.equal(true);
+    expect(task.exceptions.run.message).to.equal('run error');
+    expect(task.exceptions.complete.message).to.equal('complete error');
+    expect(task.exceptions.recover.message).to.equal('recover error');
+  });
+
+  it('to pass errors from run to complete', () => {
+    const task = new Task(
+      () => {
+        throw new Error('run error')
+      },
+      (self, error) => {
+        expect(error.message).to.equal('run error');
+      }
+    );
+    task.run();
   });
 
 });
