@@ -1,3 +1,5 @@
+import RawMap from './RawMap';
+
 class Factory {
   static maps = [];
   static initialized = false;
@@ -21,11 +23,13 @@ class Factory {
     return match;
   }
 
-  static initialize() {
-    if (!Factory.initialized) {
+  static initialize(force = false) {
+    if (!Factory.initialized || force) {
       Factory.initialized = true;
 
-      Factory.unregisterAll();
+      Factory.maps = [
+        new RawMap()
+      ];
     }
   }
 
