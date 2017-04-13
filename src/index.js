@@ -1,3 +1,4 @@
 import Task from './tasks/Task';
+import TimeoutTask from './tasks/TimeoutTask';
 
-export { Task };
+export { Task, TimeoutTask };
