@@ -123,13 +123,14 @@ describe('Test Task', () => {
     expect(task.exceptions.recover.message).to.equal('recover error');
   });
 
-  it('to pass errors from run to complete', () => {
+  it('to pass errors from run to complete', (done) => {
     const task = new Task(
       () => {
-        throw new Error('run error')
+        throw new Error('run error');
       },
       (self, error) => {
         expect(error.message).to.equal('run error');
+        done();
       }
     );
     task.run();
