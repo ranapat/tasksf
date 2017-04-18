@@ -6,7 +6,7 @@ class Factory {
   static maps = [];
   static initialized = false;
 
-  static get(...args) {
+  static task(...args) {
     Factory.initialize();
 
     let match;
@@ -37,20 +37,20 @@ class Factory {
     }
   }
 
-  static register(map) {
+  static map(map) {
     if (Factory.maps.indexOf(map) === -1) {
       Factory.maps.push(map);
     }
   }
 
-  static unregister(map) {
+  static unmap(map) {
     const index = Factory.maps.indexOf(map);
     if (index !== -1) {
       Factory.maps.splice(index, 1);
     }
   }
 
-  static unregisterAll() {
+  static unmapAll() {
     Factory.maps = [];
   }
 }

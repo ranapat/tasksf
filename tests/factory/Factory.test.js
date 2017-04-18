@@ -15,43 +15,43 @@ describe('Test Factory', () => {
   });
 
   it('to be initialized on the first get', () => {
-    tf.get();
+    tf.task();
     expect(tf.initialized).to.equal(true);
 
     mapsByDefault = tf.maps.length;
   });
 
   it('to unregister all maps', () => {
-    tf.unregisterAll();
+    tf.unmapAll();
     expect(tf.maps.length).to.equal(0);
     const map = new Map();
-    tf.register(map);
+    tf.map(map);
     expect(tf.maps.length).to.equal(1);
-    tf.unregisterAll();
+    tf.unmapAll();
     expect(tf.maps.length).to.equal(0);
   });
 
   it('to register and unregister maps', () => {
-    tf.unregisterAll();
+    tf.unmapAll();
     expect(tf.maps.length).to.equal(0);
     const map = new Map();
-    tf.register(map);
+    tf.map(map);
     expect(tf.maps.length).to.equal(1);
-    tf.unregister(map);
+    tf.unmap(map);
     expect(tf.maps.length).to.equal(0);
   });
 
   it('to register and unregister maps', () => {
-    tf.unregisterAll();
+    tf.unmapAll();
     expect(tf.maps.length).to.equal(0);
     const map = new Map();
-    tf.register(map);
-    tf.register(map);
+    tf.map(map);
+    tf.map(map);
     expect(tf.maps.length).to.equal(1);
   });
 
   it('to force initialize', () => {
-    tf.unregisterAll();
+    tf.unmapAll();
     expect(tf.maps.length).to.equal(0);
     tf.initialize();
     expect(tf.maps.length).to.equal(0);
@@ -61,7 +61,7 @@ describe('Test Factory', () => {
 
   it('to get Task from 3 functions', () => {
     tf.initialize(true);
-    const task = tf.get(
+    const task = tf.task(
       () => {}, () => {}, () => {}
     );
     expect(task).to.be.an.instanceof(Task);
@@ -69,7 +69,7 @@ describe('Test Factory', () => {
 
   it('to get Task from 2 functions', () => {
     tf.initialize(true);
-    const task = tf.get(
+    const task = tf.task(
       () => {}, () => {}
     );
     expect(task).to.be.an.instanceof(Task);
@@ -77,7 +77,7 @@ describe('Test Factory', () => {
 
   it('to get Task from 1 function', () => {
     tf.initialize(true);
-    const task = tf.get(
+    const task = tf.task(
       () => {}
     );
     expect(task).to.be.an.instanceof(Task);
@@ -85,14 +85,14 @@ describe('Test Factory', () => {
 
   it('to get no TriggerTask from undefined', () => {
     tf.initialize(true);
-    const task = tf.get(
+    const task = tf.task(
     );
     expect(task).to.be.an.instanceof(TriggerTask);
   });
 
   it('to get TimeoutTask from timeout and 3 functions', () => {
     tf.initialize(true);
-    const task = tf.get(
+    const task = tf.task(
       1,
       () => {}, () => {}, () => {}
     );
@@ -101,7 +101,7 @@ describe('Test Factory', () => {
 
   it('to get TimeoutTask from timeout and 2 functions', () => {
     tf.initialize(true);
-    const task = tf.get(
+    const task = tf.task(
       1,
       () => {}, () => {}
     );
@@ -110,7 +110,7 @@ describe('Test Factory', () => {
 
   it('to get TimeoutTask from timeout and 1 function', () => {
     tf.initialize(true);
-    const task = tf.get(
+    const task = tf.task(
       1,
       () => {}
     );
@@ -119,7 +119,7 @@ describe('Test Factory', () => {
 
   it('to get TimeoutTask from timeout', () => {
     tf.initialize(true);
-    const task = tf.get(
+    const task = tf.task(
       1
     );
     expect(task).to.be.an.instanceof(TimeoutTask);
@@ -152,11 +152,11 @@ describe('Test Factory', () => {
       }
     };
 
-    tf.register(mapA);
-    tf.register(mapB);
-    tf.register(mapC);
+    tf.map(mapA);
+    tf.map(mapB);
+    tf.map(mapC);
 
-    const task = tf.get();
+    const task = tf.task();
     expect(task).to.be.an.instanceof(TaskB);
   });
 
