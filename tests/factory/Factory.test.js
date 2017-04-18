@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import { Factory, tf } from '../../src';
+import { Map, Match } from '../../src';
 import { Task, TimeoutTask } from '../../src';
 
 describe('Test Factory', () => {
@@ -122,6 +123,41 @@ describe('Test Factory', () => {
       1
     );
     expect(task).to.be.an.instanceof(TimeoutTask);
+  });
+
+  it('to get task with better priority', () => {
+    tf.initialize(true);
+
+    const TaskA = class extends Task {};
+    const TaskB = class extends Task {};
+    const TaskC = class extends Task {};
+
+    const matchA = new Match(new TaskA(), 0.90);
+    const matchB = new Match(new TaskB(), 0.95);
+    const matchC = new Match(new TaskC());
+
+    const mapA = new class extends Map {
+      match(...args) {
+        return matchA;
+      }
+    };
+    const mapB = new class extends Map {
+      match(...args) {
+        return matchB;
+      }
+    };
+    const mapC = new class extends Map {
+      match(...args) {
+        return matchC;
+      }
+    };
+
+    tf.register(mapA);
+    tf.register(mapB);
+    tf.register(mapC);
+
+    const task = tf.get();
+    expect(task).to.be.an.instanceof(TaskB);
   });
 
 });
