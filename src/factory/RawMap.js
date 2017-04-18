@@ -8,7 +8,7 @@ class RawMap extends Map {
       args.length === 3
       && typeof args[0] === 'function'
       && typeof args[1] === 'function'
-      && typeof args[1] === 'function'
+      && typeof args[2] === 'function'
     ) {
       return new Match(new Task(...args));
     } else if (
