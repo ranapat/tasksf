@@ -7,7 +7,9 @@ class Match {
   }
 
   set percentage(value) {
-    this._percentage = value > 1 ? 1 : value < 0 ? 0 : value;
+    if (value !== undefined && value !== null && value !== false) {
+      this._percentage = value > 1 ? 1 : value < 0 ? 0 : value;
+    }
   }
 
   get percentage() {
