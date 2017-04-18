@@ -66,4 +66,20 @@ describe('Test Factory', () => {
     expect(task).to.be.an.instanceof(Task);
   });
 
+  it('to get Task from 2 functions', () => {
+    tf.initialize(true);
+    const task = tf.get(
+      () => {}, () => {}
+    );
+    expect(task).to.be.an.instanceof(Task);
+  });
+
+  it('to get Task from 1 function', () => {
+    tf.initialize(true);
+    const task = tf.get(
+      () => {}
+    );
+    expect(task).to.be.an.instanceof(Task);
+  });
+
 });

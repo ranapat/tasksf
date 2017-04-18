@@ -10,6 +10,17 @@ class RawMap extends Map {
       && typeof args[1] === 'function'
     ) {
       return new Task(...args);
+    } else if (
+      args.length === 2
+      && typeof args[0] === 'function'
+      && typeof args[1] === 'function'
+    ) {
+      return new Task(...args);
+    } else if (
+      args.length === 1
+      && typeof args[0] === 'function'
+    ) {
+      return new Task(...args);
     } else {
       return undefined;
     }
