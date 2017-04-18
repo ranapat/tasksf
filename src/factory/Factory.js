@@ -20,7 +20,7 @@ class Factory {
       }
     });
 
-    return match;
+    return match !== undefined ? match.instance : undefined;
   }
 
   static initialize(force = false) {

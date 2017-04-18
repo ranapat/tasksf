@@ -82,4 +82,11 @@ describe('Test Factory', () => {
     expect(task).to.be.an.instanceof(Task);
   });
 
+  it('to get no Task from undefined', () => {
+    tf.initialize(true);
+    const task = tf.get(
+    );
+    expect(task).to.equal(undefined);
+  });
+
 });
