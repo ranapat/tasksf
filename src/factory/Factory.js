@@ -1,4 +1,5 @@
 import RawMap from './RawMap';
+import TimeoutMap from './TimeoutMap';
 
 class Factory {
   static maps = [];
@@ -28,7 +29,8 @@ class Factory {
       Factory.initialized = true;
 
       Factory.maps = [
-        new RawMap()
+        new RawMap(),
+        new TimeoutMap()
       ];
     }
   }

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Factory, tf } from '../../src';
-import { Task } from '../../src';
+import { Task, TimeoutTask } from '../../src';
 
 describe('Test Factory', () => {
   let mapsByDefault;
@@ -87,6 +87,41 @@ describe('Test Factory', () => {
     const task = tf.get(
     );
     expect(task).to.equal(undefined);
+  });
+
+  it('to get TimeoutTask from timeout and 3 functions', () => {
+    tf.initialize(true);
+    const task = tf.get(
+      1,
+      () => {}, () => {}, () => {}
+    );
+    expect(task).to.be.an.instanceof(TimeoutTask);
+  });
+
+  it('to get TimeoutTask from timeout and 2 functions', () => {
+    tf.initialize(true);
+    const task = tf.get(
+      1,
+      () => {}, () => {}
+    );
+    expect(task).to.be.an.instanceof(TimeoutTask);
+  });
+
+  it('to get TimeoutTask from timeout and 1 function', () => {
+    tf.initialize(true);
+    const task = tf.get(
+      1,
+      () => {}
+    );
+    expect(task).to.be.an.instanceof(TimeoutTask);
+  });
+
+  it('to get TimeoutTask from timeout', () => {
+    tf.initialize(true);
+    const task = tf.get(
+      1
+    );
+    expect(task).to.be.an.instanceof(TimeoutTask);
   });
 
 });
