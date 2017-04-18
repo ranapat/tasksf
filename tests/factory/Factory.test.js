@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { Factory, tf } from '../../src';
 import { Map, Match } from '../../src';
-import { Task, TimeoutTask } from '../../src';
+import { Task, TimeoutTask, TriggerTask } from '../../src';
 
 describe('Test Factory', () => {
   let mapsByDefault;
@@ -83,11 +83,11 @@ describe('Test Factory', () => {
     expect(task).to.be.an.instanceof(Task);
   });
 
-  it('to get no Task from undefined', () => {
+  it('to get no TriggerTask from undefined', () => {
     tf.initialize(true);
     const task = tf.get(
     );
-    expect(task).to.equal(undefined);
+    expect(task).to.be.an.instanceof(TriggerTask);
   });
 
   it('to get TimeoutTask from timeout and 3 functions', () => {
