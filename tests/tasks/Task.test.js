@@ -1,7 +1,10 @@
+import chai from 'chai';
+import chai_spies from 'chai-spies';
 import { expect } from 'chai';
 import { Task } from '../../src';
 
 describe('Test Task', () => {
+  chai.use(chai_spies);
 
   it('to be not done before run', () => {
     const task = new Task();
@@ -134,6 +137,20 @@ describe('Test Task', () => {
       }
     );
     task.run();
+  });
+
+  it('to alter the complete with extra callback', () => {
+    const complete = chai.spy((self) => {});
+    const extra = chai.spy((self) => {});
+    const task = new Task(undefined, complete, undefined);
+    const current = task._complete;
+    task._complete = (self, ...args) => {
+      current(self, ...args);
+      extra(self, ...args);
+    };
+    task.run();
+    expect(complete).to.have.been.called();
+    expect(extra).to.have.been.called();
   });
 
 });
