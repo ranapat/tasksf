@@ -217,7 +217,7 @@ describe('Test Sequence', () => {
 
   it('to run and resolve exceptions 2', () => {
     const sequenceComplete = chai.spy((self) => {});
-    const sequenceRecover = chai.spy((self) => {});
+    const sequenceRecover = chai.spy((self, error) => {});
     const taskRun1 = chai.spy((self) => {
       throw new Error('error 1');
     });

@@ -35,10 +35,10 @@ class Collection {
     this.__complete.run();
   }
 
-  _recover() {
+  _recover(error) {
     this._running = false;
 
-    this.__recover.recover();
+    this.__recover.recover(error);
   }
 
   get running() {

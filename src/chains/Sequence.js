@@ -21,7 +21,7 @@ class Sequence extends Collection {
       const task = this.__next;
       task.recover(error);
       if (!task.running && !task.done) {
-        super._recover();
+        super._recover(error);
       }
     } else {
       this._complete();
