@@ -4,7 +4,9 @@ class Injector {
     task._complete = (self, ...args) => {
       let error;
       try {
-        current(self, ...args);
+        if (current !== undefined) {
+          current(self, ...args);
+        }
       } catch (e) {
         error = e;
       }

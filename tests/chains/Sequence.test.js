@@ -253,4 +253,52 @@ describe('Test Sequence', () => {
     expect(taskComplete2).not.to.have.been.called();
   });
 
+  it('to run and complete trigger tasks with callback', () => {
+    const sequenceComplete = chai.spy((self) => {});
+    const taskRun1 = chai.spy((self) => {});
+    const taskComplete1 = chai.spy((self) => {});
+    const taskComplete2 = chai.spy((self) => {});
+    const sequence = new Sequence(sequenceComplete);
+    const task1 = new Task(taskRun1, taskComplete1);
+    const task2 = new TriggerTask(taskComplete2);
+    expect(sequenceComplete).not.to.have.been.called();
+    expect(taskRun1).not.to.have.been.called();
+    expect(taskComplete1).not.to.have.been.called();
+    expect(taskComplete2).not.to.have.been.called();
+    sequence.push(task1);
+    sequence.unshift(task2);
+    sequence.run();
+    expect(sequenceComplete).not.to.have.been.called();
+    expect(taskRun1).not.to.have.been.called();
+    expect(taskComplete1).not.to.have.been.called();
+    expect(taskComplete2).not.to.have.been.called();
+    task2.complete();
+    expect(sequenceComplete).to.have.been.called();
+    expect(taskRun1).to.have.been.called();
+    expect(taskComplete1).to.have.been.called();
+    expect(taskComplete2).to.have.been.called();
+  });
+
+  it('to run and complete trigger tasks without callback', () => {
+    const sequenceComplete = chai.spy((self) => {});
+    const taskRun1 = chai.spy((self) => {});
+    const taskComplete1 = chai.spy((self) => {});
+    const sequence = new Sequence(sequenceComplete);
+    const task1 = new Task(taskRun1, taskComplete1);
+    const task2 = new TriggerTask();
+    expect(sequenceComplete).not.to.have.been.called();
+    expect(taskRun1).not.to.have.been.called();
+    expect(taskComplete1).not.to.have.been.called();
+    sequence.push(task1);
+    sequence.unshift(task2);
+    sequence.run();
+    expect(sequenceComplete).not.to.have.been.called();
+    expect(taskRun1).not.to.have.been.called();
+    expect(taskComplete1).not.to.have.been.called();
+    task2.complete();
+    expect(sequenceComplete).to.have.been.called();
+    expect(taskRun1).to.have.been.called();
+    expect(taskComplete1).to.have.been.called();
+  });
+
 });
