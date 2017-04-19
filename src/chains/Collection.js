@@ -34,14 +34,6 @@ class Collection {
     this.__complete.run();
   }
 
-  _injectTaskAfterComplete(task, callback) {
-    const current = task._complete;
-    task._complete = (self, ...args) => {
-      current(self, ...args);
-      callback(self, ...args);
-    };
-  }
-
   get running() {
     return this._running;
   }

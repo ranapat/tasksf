@@ -1,4 +1,5 @@
 import Collection from './Collection';
+import Injector from '../tasks/Injector';
 
 class Sequence extends Collection {
   run() {
@@ -9,11 +10,12 @@ class Sequence extends Collection {
 
   _next() {
     if (this.tasks.length > 0) {
-      const task = this.tasks.shift();
-
-      this._injectTaskAfterComplete(task, () => { this._next() });
-
-      task.run();
+      Injector.afterComplete(
+        this.tasks.shift(),
+        () => {
+          this._next();
+        }
+      ).run();
     } else {
       this._complete();
     }
