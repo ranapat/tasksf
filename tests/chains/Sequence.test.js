@@ -180,4 +180,77 @@ describe('Test Sequence', () => {
     }, 1);
   });
 
+  it('to run and resolve exceptions 1', () => {
+    const sequenceComplete = chai.spy((self) => {});
+    const taskRun1 = chai.spy((self) => {
+      throw new Error('error 1');
+    });
+    const taskComplete1 = chai.spy((self, error) => {
+      throw new Error('error 2');
+    });
+    const taskRun2 = chai.spy((self, ...args) => {
+      throw new Error('error 3');
+    });
+    const taskComplete2 = chai.spy((self) => {
+      throw new Error('error 4');
+    });
+    const taskRecover2 = chai.spy((self, error) => {
+      return true;
+    });
+    const sequence = new Sequence(sequenceComplete);
+    const task1 = new Task(taskRun1, taskComplete1);
+    const task2 = new Task(taskRun2, taskComplete2, taskRecover2);
+    expect(sequenceComplete).not.to.have.been.called();
+    expect(taskRun1).not.to.have.been.called();
+    expect(taskComplete1).not.to.have.been.called();
+    expect(taskRun2).not.to.have.been.called();
+    expect(taskComplete2).not.to.have.been.called();
+    sequence.push(task1);
+    sequence.push(task2);
+    sequence.run();
+    expect(sequenceComplete).to.have.been.called();
+    expect(taskRun1).to.have.been.called();
+    expect(taskComplete1).to.have.been.called();
+    expect(taskRun2).to.have.been.called();
+    expect(taskComplete2).to.have.been.called();
+  });
+
+  it('to run and resolve exceptions 2', () => {
+    const sequenceComplete = chai.spy((self) => {});
+    const sequenceRecover = chai.spy((self) => {});
+    const taskRun1 = chai.spy((self) => {
+      throw new Error('error 1');
+    });
+    const taskComplete1 = chai.spy((self, error) => {
+      throw new Error('error 2');
+    });
+    const taskRun2 = chai.spy((self, ...args) => {
+      throw new Error('error 3');
+    });
+    const taskComplete2 = chai.spy((self) => {
+      throw new Error('error 4');
+    });
+    const taskRecover2 = chai.spy((self, error) => {
+      return undefined;
+    });
+    const sequence = new Sequence(sequenceComplete, sequenceRecover);
+    const task1 = new Task(taskRun1, taskComplete1);
+    const task2 = new Task(taskRun2, taskComplete2, taskRecover2);
+    expect(sequenceComplete).not.to.have.been.called();
+    expect(sequenceRecover).not.to.have.been.called();
+    expect(taskRun1).not.to.have.been.called();
+    expect(taskComplete1).not.to.have.been.called();
+    expect(taskRun2).not.to.have.been.called();
+    expect(taskComplete2).not.to.have.been.called();
+    sequence.push(task1);
+    sequence.push(task2);
+    sequence.run();
+    expect(sequenceComplete).not.to.have.been.called();
+    expect(sequenceRecover).to.have.been.called();
+    expect(taskRun1).to.have.been.called();
+    expect(taskComplete1).to.have.been.called();
+    expect(taskRun2).not.to.have.been.called();
+    expect(taskComplete2).not.to.have.been.called();
+  });
+
 });

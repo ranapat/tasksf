@@ -1,12 +1,13 @@
 import Task from '../tasks/Task';
 
 class Collection {
-  constructor(complete) {
+  constructor(complete, recover) {
     this.tasks = [];
 
     this._running = false;
 
     this.__complete = new Task(undefined, complete, undefined);
+    this.__recover = new Task(undefined, undefined, recover);
   }
 
   push(task) {
@@ -32,6 +33,12 @@ class Collection {
     this._running = false;
 
     this.__complete.run();
+  }
+
+  _recover() {
+    this._running = false;
+
+    this.__recover.recover();
   }
 
   get running() {
