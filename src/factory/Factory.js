@@ -2,6 +2,8 @@ import RawMap from './RawMap';
 import TimeoutMap from './TimeoutMap';
 import TriggerMap from './TriggerMap';
 
+import Sequence from '../chains/Sequence';
+
 class Factory {
   static maps = [];
   static initialized = false;
@@ -23,6 +25,10 @@ class Factory {
     });
 
     return match !== undefined ? match.instance : undefined;
+  }
+
+  static sequence(complete, recover) {
+    return new Sequence(complete, recover);
   }
 
   static initialize(force = false) {

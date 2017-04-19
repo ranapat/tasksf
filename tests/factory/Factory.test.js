@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { Factory, tf } from '../../src';
 import { Map, Match } from '../../src';
 import { Task, TimeoutTask, TriggerTask } from '../../src';
+import { Sequence } from '../../src';
 
 describe('Test Factory', () => {
   let mapsByDefault;
@@ -158,6 +159,12 @@ describe('Test Factory', () => {
 
     const task = tf.task();
     expect(task).to.be.an.instanceof(TaskB);
+  });
+
+  it('to get Sequence', () => {
+    tf.initialize(true);
+    const task = tf.sequence();
+    expect(task).to.be.an.instanceof(Sequence);
   });
 
 });
