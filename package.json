@@ -24,5 +24,6 @@
     "serve": "node_modules/babel-cli/bin/babel.js -w src -d lib | nodemon --watch lib"
   },
   "author": "ranapat@gmail.com",
-  "license": "Public Domain"
+  "license": "Public Domain",
+  "private": true
 }
