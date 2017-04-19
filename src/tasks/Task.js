@@ -36,12 +36,12 @@ class Task {
     this._running = false;
     this._done = true;
 
-    try {
-      if (this._complete !== undefined) {
+    if (this._complete !== undefined) {
+      try {
         this._complete(this, ...args);
+      } catch (error) {
+        this._exceptions.complete = error;
       }
-    } catch (error) {
-      this._exceptions.complete = error;
     }
   }
 
