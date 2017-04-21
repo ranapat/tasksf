@@ -25,5 +25,9 @@
   },
   "author": "ranapat@gmail.com",
   "license": "Unlicense",
-  "private": false
+  "private": false,
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/ranapat/tasksf.git"
+  }
 }
