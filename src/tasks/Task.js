@@ -58,6 +58,10 @@ class Task {
     }
   }
 
+  stop() {
+    return false;
+  }
+
   get running() {
     return this._running;
   }

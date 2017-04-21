@@ -39,4 +39,16 @@ describe('Test TimeoutTask', () => {
       done();
     }, 1);
   });
+
+  it('to have stop on time', (done) => {
+    const complete = chai.spy(() => {});
+    const task = new TimeoutTask(1, undefined, complete);
+    task.run();
+    expect(task.stop()).to.equal(true);
+    expect(complete).not.to.have.been.called();
+    setTimeout(() => {
+      expect(complete).not.to.have.been.called();
+      done();
+    }, 1);
+  });
 });

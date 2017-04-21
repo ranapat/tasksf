@@ -5,12 +5,23 @@ class TimeoutTask extends Task {
     super(run, complete, recover);
 
     this._timeout = timeout;
+    this._index = undefined;
   }
 
   run(...args) {
     this._running = true;
 
-    setTimeout(() => super.run(...args), this._timeout);
+    this._index = setTimeout(() => super.run(...args), this._timeout);
+  }
+
+  stop() {
+    if (this._running) {
+      clearTimeout(this._index);
+
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
