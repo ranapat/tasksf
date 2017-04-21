@@ -1,3 +1,6 @@
 /src/
 /tests/
 /.babelrc
+
+# Emacs
+*.*~
