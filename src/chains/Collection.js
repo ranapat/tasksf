@@ -12,10 +12,14 @@ class Collection {
 
   push(task) {
     this.tasks.push(task);
+
+    return this;
   }
 
   unshift(task) {
     this.tasks.unshift(task);
+
+    return this;
   }
 
   remove(task) {
@@ -23,6 +27,8 @@ class Collection {
     if (index !== -1) {
       this.tasks.splice(index, 1);
     }
+
+    return this;
   }
 
   run() {
