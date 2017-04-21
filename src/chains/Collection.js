@@ -50,6 +50,10 @@ class Collection {
   get running() {
     return this._running;
   }
+
+  get current() {
+    return undefined;
+  }
 }
 
 export default Collection;

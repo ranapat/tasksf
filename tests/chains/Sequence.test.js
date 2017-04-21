@@ -301,4 +301,19 @@ describe('Test Sequence', () => {
     expect(taskComplete1).to.have.been.called();
   });
 
+  it('to handle current task', () => {
+    const sequence = new Sequence();
+    expect(sequence.current).to.equal(undefined);
+    sequence.run();
+    expect(sequence.current).to.equal(undefined);
+
+    const task = new TriggerTask();
+    sequence.push(task);
+    expect(sequence.current).to.equal(undefined);
+    sequence.run();
+    expect(sequence.current).to.equal(task);
+    task.complete();
+    expect(sequence.current).to.equal(undefined);
+  });
+
 });

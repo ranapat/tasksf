@@ -2,6 +2,12 @@ import Collection from './Collection';
 import Injector from '../tasks/Injector';
 
 class Sequence extends Collection {
+  constructor(complete, recover) {
+    super(complete, recover);
+
+    this._current = undefined;
+  }
+
   run() {
     super.run();
 
@@ -16,11 +22,19 @@ class Sequence extends Collection {
     }
   }
 
+  _complete() {
+    this._current = undefined;
+
+    super._complete();
+  }
+
   _recover(error) {
     if (this.tasks.length > 0) {
       const task = this.__next;
       task.recover(error);
       if (!task.running && !task.done) {
+        this._current = undefined;
+
         super._recover(error);
       }
     } else {
@@ -29,7 +43,7 @@ class Sequence extends Collection {
   }
 
   get __next() {
-    return this.tasks.length > 0 ? Injector.afterComplete(
+    this._current = this.tasks.length > 0 ? Injector.afterComplete(
       this.tasks.shift(),
       (error, ...args) => {
         if (error === undefined) {
@@ -39,6 +53,12 @@ class Sequence extends Collection {
         }
       }
     ) : undefined;
+
+    return this._current;
+  }
+
+  get current() {
+    return this._current;
   }
 }
 
