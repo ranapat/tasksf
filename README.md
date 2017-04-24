@@ -31,3 +31,7 @@ sequence.push(task2);
 
 sequence.run();
 ```
+
+#### More examples
+
+[Check out use.tasksf](http://github.com/ranapat/use.tasksf)
