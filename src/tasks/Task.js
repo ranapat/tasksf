@@ -7,11 +7,25 @@ class Task {
     this._running = false;
     this._done = false;
 
+    this._attached = {};
+
     this._exceptions = {
       run: undefined,
       complete: undefined,
       recover: undefined
     };
+  }
+
+  attach(key, value) {
+    this._attached[key] = value;
+  }
+
+  detach(key) {
+    delete this._attached[key];
+  }
+
+  get(key) {
+    return this._attached[key];
   }
 
   run(...args) {

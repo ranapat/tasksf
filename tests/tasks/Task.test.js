@@ -4,6 +4,16 @@ import { expect } from 'chai';
 import { Task } from '../../src';
 
 describe('Test Task', () => {
+
+  function check(done, f) {
+    try {
+      f();
+      done();
+    } catch(e) {
+      done(e);
+    }
+  }
+
   chai.use(chai_spies);
 
   it('to be not done before run', () => {
@@ -48,9 +58,9 @@ describe('Test Task', () => {
     expect(task.done).to.equal(true);
   });
 
-  it('to receive parameters from recover to run if needed', () => {
+  it('to receive parameters from recover to run if needed', (done) => {
     const task = new Task(
-      (self, recover) => { expect(recover).to.equal('recover'); },
+      (self, recover) => { check(done, () => { expect(recover).to.equal('recover'); }) },
       undefined,
       () => { return 'recover'; }
     );
@@ -151,6 +161,31 @@ describe('Test Task', () => {
     task.run();
     expect(complete).to.have.been.called();
     expect(extra).to.have.been.called();
+  });
+
+  it('to attach', (done) => {
+    const test = 'this is a test attachment';
+    const run = (self) => {
+      check(done, () => {
+        expect(self.get('test')).to.equal(test);
+      });
+    };
+    const task = new Task(run, undefined, undefined);
+    task.attach('test', test);
+    task.run();
+  });
+
+  it('to detach', (done) => {
+    const test = 'this is a test attachment';
+    const run = (self) => {
+      check(done, () => {
+        expect(self.get('test')).to.equal(undefined);
+      });
+    };
+    const task = new Task(run, undefined, undefined);
+    task.attach('test', test);
+    task.detach('test');
+    task.run();
   });
 
 });

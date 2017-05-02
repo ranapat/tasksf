@@ -1,4 +1,5 @@
 import Task from '../tasks/Task';
+import Factory from '../factory/Factory';
 
 class Collection {
   constructor(complete, recover) {
@@ -11,12 +12,14 @@ class Collection {
   }
 
   push(task) {
+    task.attach(Factory._CHAIN_, this);
     this.tasks.push(task);
 
     return this;
   }
 
   unshift(task) {
+    task.attach(Factory._CHAIN_, this);
     this.tasks.unshift(task);
 
     return this;
@@ -25,6 +28,7 @@ class Collection {
   remove(task) {
     const index = this.tasks.indexOf(task);
     if (index !== -1) {
+      task.detach(Factory._CHAIN_);
       this.tasks.splice(index, 1);
     }
 

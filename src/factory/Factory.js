@@ -5,6 +5,8 @@ import TriggerMap from './TriggerMap';
 import Sequence from '../chains/Sequence';
 
 class Factory {
+  static _CHAIN_ = '_chain_';
+
   static maps = [];
   static initialized = false;
 
