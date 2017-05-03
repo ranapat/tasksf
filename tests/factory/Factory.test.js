@@ -65,7 +65,7 @@ describe('Test Factory', () => {
     const task = tf.task(
       () => {}, () => {}, () => {}
     );
-    expect(task).to.be.an.instanceof(Task);
+    expect(task.constructor.name).to.equal('Task');
   });
 
   it('to get Task from 2 functions', () => {
@@ -73,7 +73,7 @@ describe('Test Factory', () => {
     const task = tf.task(
       () => {}, () => {}
     );
-    expect(task).to.be.an.instanceof(Task);
+    expect(task.constructor.name).to.equal('Task');
   });
 
   it('to get Task from 1 function', () => {
@@ -81,14 +81,23 @@ describe('Test Factory', () => {
     const task = tf.task(
       () => {}
     );
-    expect(task).to.be.an.instanceof(Task);
+    expect(task.constructor.name).to.equal('Task');
   });
 
   it('to get no TriggerTask from undefined', () => {
     tf.initialize(true);
     const task = tf.task(
     );
-    expect(task).to.be.an.instanceof(TriggerTask);
+    expect(task.constructor.name).to.equal('TriggerTask');
+  });
+
+  it('to get no TriggerTask from 1 function and false', () => {
+    tf.initialize(true);
+    const task = tf.task(
+      () => {},
+      false
+    );
+    expect(task.constructor.name).to.equal('TriggerTask');
   });
 
   it('to get TimeoutTask from timeout and 3 functions', () => {
@@ -97,7 +106,7 @@ describe('Test Factory', () => {
       1,
       () => {}, () => {}, () => {}
     );
-    expect(task).to.be.an.instanceof(TimeoutTask);
+    expect(task.constructor.name).to.equal('TimeoutTask');
   });
 
   it('to get TimeoutTask from timeout and 2 functions', () => {
@@ -106,7 +115,7 @@ describe('Test Factory', () => {
       1,
       () => {}, () => {}
     );
-    expect(task).to.be.an.instanceof(TimeoutTask);
+    expect(task.constructor.name).to.equal('TimeoutTask');
   });
 
   it('to get TimeoutTask from timeout and 1 function', () => {
@@ -115,7 +124,7 @@ describe('Test Factory', () => {
       1,
       () => {}
     );
-    expect(task).to.be.an.instanceof(TimeoutTask);
+    expect(task.constructor.name).to.equal('TimeoutTask');
   });
 
   it('to get TimeoutTask from timeout', () => {
@@ -123,7 +132,7 @@ describe('Test Factory', () => {
     const task = tf.task(
       1
     );
-    expect(task).to.be.an.instanceof(TimeoutTask);
+    expect(task.constructor.name).to.equal('TimeoutTask');
   });
 
   it('to get task with better priority', () => {

@@ -5,8 +5,9 @@ import TriggerTask from '../tasks/TriggerTask';
 class TriggerMap extends Map {
   match(...args) {
     if (
-      args.length === 1
+      args.length === 2
       && typeof args[0] === 'function'
+      && args[1] === false
     ) {
       return new Match(new TriggerTask(...args));
     } else if (
