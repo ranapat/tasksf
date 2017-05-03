@@ -10,26 +10,13 @@ Simple tasks manager factory
 import { tf } from 'tasksf';
 
 const task1 = tf.task(
-  () => {
-    console.log('task 1 run');
-  },
-  () => {
-    console.log('task 1 complete');
-  }
+  () => console.log('task 1 run')
 );
 const task2 = tf.task(
-  () => {
-    console.log('task 2 run');
-  },
-  () => {
-    console.log('task 2 complete');
-  }
+  () => console.log('task 2 run')
 );
 
-sequence.push(task1);
-sequence.push(task2);
-
-sequence.run();
+tf.sequence().push(task1).push(task2).run();
 ```
 
 #### More examples

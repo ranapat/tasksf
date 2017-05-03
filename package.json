@@ -1,6 +1,6 @@
 {
   "name": "tasksf",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Simple tasks manager factory",
   "keywords": "tasks",
   "main": "lib/index.js",

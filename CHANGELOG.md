@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.8] - 2017-05-03
+### Changed
+- README.md example
+
 ## [1.0.7] - 2017-05-03
 ### Added
 - CHANGELOG.md
