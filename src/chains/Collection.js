@@ -56,6 +56,10 @@ class Collection {
     this._running = true;
   }
 
+  stop() {
+    return false;
+  }
+
   _complete() {
     this._running = false;
 

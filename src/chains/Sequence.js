@@ -6,15 +6,29 @@ class Sequence extends Collection {
     super(complete, recover);
 
     this._current = undefined;
+    this._stopped = false;
   }
 
   run() {
     super.run();
 
+    this._stopped = false;
+
     this._next();
   }
 
+  stop() {
+    this._stopped = true;
+    if (this.current !== undefined) {
+      return this.current.stop() || this.tasks.length > 0;
+    } else {
+      return false;
+    }
+  }
+
   _next() {
+    if (this._stopped) return;
+
     if (this.tasks.length > 0) {
       this.__next.run();
     } else {
@@ -29,6 +43,8 @@ class Sequence extends Collection {
   }
 
   _recover(error) {
+    if (this._stopped) return;
+
     if (this.tasks.length > 0) {
       const task = this.__next;
       task.recover(error);

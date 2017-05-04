@@ -316,4 +316,49 @@ describe('Test Sequence', () => {
     expect(sequence.current).to.equal(undefined);
   });
 
+  it('to not be able to stop sequence with no current or following tasks', () => {
+    const sequence = new Sequence();
+    sequence.run();
+    expect(sequence.stop()).to.equal(false);
+  });
+
+  it('to be able to stop sequence with current or following tasks 1', () => {
+    const sequence = new Sequence();
+    const task = new TimeoutTask(1);
+    sequence.push(task);
+    sequence.run();
+    expect(sequence.stop()).to.equal(true);
+    expect(sequence.current).to.equal(task);
+    expect(sequence.tasks.length).to.equal(0);
+  });
+
+  it('to be able to stop sequence with current or following tasks 2', (done) => {
+    const sequence = new Sequence();
+    const task = new TimeoutTask(1);
+    sequence.push(task);
+    sequence.run();
+    expect(sequence.stop()).to.equal(true);
+    expect(sequence.current).to.equal(task);
+    expect(sequence.tasks.length).to.equal(0);
+    setTimeout(() => {
+      expect(sequence.stop()).to.equal(true);
+      expect(sequence.current).to.equal(task);
+      expect(sequence.tasks.length).to.equal(0);
+      done();
+    }, 1);
+  });
+
+  it('to be able to stop sequence with current or following tasks 3', (done) => {
+    const sequence = new Sequence();
+    const task = new TimeoutTask(1);
+    sequence.push(task);
+    sequence.run();
+    setTimeout(() => {
+      expect(sequence.stop()).to.equal(false);
+      expect(sequence.current).to.equal(undefined);
+      expect(sequence.tasks.length).to.equal(0);
+      done();
+    }, 1);
+  });
+
 });
