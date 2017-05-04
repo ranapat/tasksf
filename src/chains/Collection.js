@@ -7,8 +7,22 @@ class Collection {
 
     this._running = false;
 
+    this._attached = {};
+
     this.__complete = new Task(undefined, complete, undefined);
     this.__recover = new Task(undefined, undefined, recover);
+  }
+
+  attach(key, value) {
+    this._attached[key] = value;
+  }
+
+  detach(key) {
+    delete this._attached[key];
+  }
+
+  get(key) {
+    return this._attached[key];
   }
 
   push(task) {

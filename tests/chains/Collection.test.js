@@ -24,4 +24,13 @@ describe('Test Collection', () => {
     expect(task.get(Factory._CHAIN_)).to.equal(undefined);
   });
 
+  it('to attach, detach and get', () => {
+    const something = 'something';
+    const sequence = new Sequence();
+    expect(sequence.get('something')).to.equal(undefined);
+    sequence.attach('something', something);
+    expect(sequence.get('something')).to.equal(something);
+    sequence.detach('something');
+    expect(sequence.get('something')).to.equal(undefined);
+  });
 });
