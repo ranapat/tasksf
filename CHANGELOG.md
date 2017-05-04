@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.10] - 2017-05-04
+### Added
+- attach collection to complete and recover tasks inside
+
 ## [1.0.9] - 2017-05-04
 ### Added
 - attach, detach and get for a collection

@@ -11,6 +11,9 @@ class Collection {
 
     this.__complete = new Task(undefined, complete, undefined);
     this.__recover = new Task(undefined, undefined, recover);
+
+    this.__complete.attach(Factory._CHAIN_, this);
+    this.__recover.attach(Factory._CHAIN_, this);
   }
 
   attach(key, value) {
