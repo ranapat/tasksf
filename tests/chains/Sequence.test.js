@@ -361,4 +361,67 @@ describe('Test Sequence', () => {
     }, 1);
   });
 
+  it('to be able to stop on a task and if tasks is rerun the sequence shall not go on', (done) => {
+    const run = chai.spy((self) => {});
+    const complete = chai.spy((self) => {});
+    const sequence = new Sequence(complete);
+    const task = new TimeoutTask(1, run);
+    sequence.push(task);
+    sequence.run();
+    expect(run).not.to.have.been.called();
+    expect(complete).not.to.have.been.called();
+    expect(sequence.stop()).to.equal(true);
+    expect(run).not.to.have.been.called();
+    expect(complete).not.to.have.been.called();
+    task.run();
+    setTimeout(() => {
+      expect(run).to.have.been.called();
+      expect(complete).not.to.have.been.called();
+      done();
+    }, 0);
+  });
+
+  it('to be able to stop and run again and restart the current', (done) => {
+    const run = chai.spy((self) => {});
+    const complete = chai.spy((self) => {});
+    const sequence = new Sequence(complete);
+    const task = new TimeoutTask(1, run);
+    sequence.push(task);
+    expect(sequence.tasks.length).to.equal(1);
+    sequence.run();
+    expect(sequence.tasks.length).to.equal(0);
+    expect(sequence.current).to.equal(task);
+    sequence.stop();
+    expect(run).not.to.have.been.called();
+    expect(complete).not.to.have.been.called();
+    expect(sequence.tasks.length).to.equal(0);
+    expect(sequence.current).to.equal(task);
+    sequence.run();
+    expect(run).not.to.have.been.called();
+    expect(complete).not.to.have.been.called();
+    expect(sequence.tasks.length).to.equal(0);
+    expect(sequence.current).to.equal(task);
+    setTimeout(() => {
+      expect(run).to.have.been.called();
+      expect(complete).to.have.been.called();
+      expect(sequence.tasks.length).to.equal(0);
+      expect(sequence.current).to.equal(undefined);
+      done();
+    }, 1);
+  });
+
+  it('to be able to stop and skip', () => {
+    const sequence = new Sequence();
+    const task = new TimeoutTask(1);
+    sequence.push(task);
+    sequence.run();
+    expect(sequence.stop()).to.equal(true);
+    expect(sequence.current).to.equal(task);
+    expect(sequence.tasks.length).to.equal(0);
+    sequence.run();
+    expect(sequence.stop(true)).to.equal(true);
+    expect(sequence.current).to.equal(undefined);
+    expect(sequence.tasks.length).to.equal(0);
+  });
+
 });

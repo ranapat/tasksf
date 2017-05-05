@@ -13,14 +13,24 @@ class Sequence extends Collection {
     super.run();
 
     this._stopped = false;
+    if (this.current !== undefined) {
+      this.unshift(this.current);
+      this._current = undefined;
+    }
 
     this._next();
   }
 
-  stop() {
+  stop(skip = false) {
     this._stopped = true;
-    if (this.current !== undefined) {
-      return this.current.stop() || this.tasks.length > 0;
+
+    const current = this.current;
+    if (current !== undefined) {
+      if (skip === true) {
+        this._current = undefined;
+      }
+
+      return current.stop() || this.tasks.length > 0;
     } else {
       return false;
     }
