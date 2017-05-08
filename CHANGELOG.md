@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.12] - 2017-05-08
+### Changes
+- add release script - 2017-05-08
+- add more to gitignore - 2017-05-08
+
 ## [1.0.11] - 2017-05-08
 ### Changes
 - update git ignore - 2017-05-08
