@@ -1,5 +1,6 @@
 import Task from '../tasks/Task';
 import Factory from '../factory/Factory';
+import Injector from '../tasks/Injector';
 
 class Collection {
   constructor(complete, recover) {
@@ -30,6 +31,7 @@ class Collection {
 
   push(task) {
     task.attach(Factory._CHAIN_, this);
+    Injector.addChainGetter(task);
     this.tasks.push(task);
 
     return this;
@@ -37,6 +39,7 @@ class Collection {
 
   unshift(task) {
     task.attach(Factory._CHAIN_, this);
+    Injector.addChainGetter(task);
     this.tasks.unshift(task);
 
     return this;
@@ -45,6 +48,7 @@ class Collection {
   remove(task) {
     const index = this.tasks.indexOf(task);
     if (index !== -1) {
+      Injector.removeChainGetter(task);
       task.detach(Factory._CHAIN_);
       this.tasks.splice(index, 1);
     }

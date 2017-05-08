@@ -10,7 +10,7 @@ describe('Test Collection', () => {
     expect(sequence.remove(task)).to.be.an.instanceof(Sequence);
   });
 
-  it('to attach itself on add and detach on remove', () => {
+  it('to attach itself on add and detach on remove 1', () => {
     const task = new Task();
     const sequence = new Sequence();
     expect(task.get(Factory._CHAIN_)).to.equal(undefined);
@@ -21,6 +21,25 @@ describe('Test Collection', () => {
     sequence.unshift(task);
     expect(task.get(Factory._CHAIN_)).to.equal(sequence);
     sequence.remove(task);
+    expect(task.get(Factory._CHAIN_)).to.equal(undefined);
+  });
+
+  it('to attach itself on add and detach on remove 2', () => {
+    const task = new Task();
+    const sequence = new Sequence();
+    expect(task.chain).to.equal(undefined);
+    expect(task.get(Factory._CHAIN_)).to.equal(undefined);
+    sequence.push(task);
+    expect(task.chain).to.equal(sequence);
+    expect(task.get(Factory._CHAIN_)).to.equal(sequence);
+    sequence.remove(task);
+    expect(task.chain).to.equal(undefined);
+    expect(task.get(Factory._CHAIN_)).to.equal(undefined);
+    sequence.unshift(task);
+    expect(task.chain).to.equal(sequence);
+    expect(task.get(Factory._CHAIN_)).to.equal(sequence);
+    sequence.remove(task);
+    expect(task.chain).to.equal(undefined);
     expect(task.get(Factory._CHAIN_)).to.equal(undefined);
   });
 
