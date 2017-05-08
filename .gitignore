@@ -2,5 +2,10 @@
 /node_modules/
 /npm-debug.log
 
+# Release
+package.json-e
+changelog-s
+CHANGELOG.md-e
+
 # Emacs
 *.*~
