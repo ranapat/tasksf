@@ -25,8 +25,8 @@
     "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
     "watch": "node_modules/babel-cli/bin/babel.js -w src -d lib",
     "serve": "node_modules/babel-cli/bin/babel.js -w src -d lib | nodemon --watch lib",
-    "test-cov": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-register --colors --reporter dot tests",
-    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register --colors --reporter spec tests"
+    "test-cov": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-register --colors --reporter dot tests/*",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register --colors --reporter spec tests/*"
   },
   "author": "ranapat@gmail.com",
   "license": "Unlicense",
