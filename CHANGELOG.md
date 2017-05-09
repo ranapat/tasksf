@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.16] - 2017-05-09
+### Changes
+- coveralls - 2017-05-09
+
 ## [1.0.15] - 2017-05-09
 ### Changes
 - update readme - 2017-05-09
