@@ -64,6 +64,18 @@ describe('Test Sequence', () => {
     expect(sequence.tasks.length).to.equal(0);
   });
 
+  it('to change the completes during run', () => {
+    const taskComplete = chai.spy((self) => {});
+    const sequence = new Sequence();
+    const taskA = new TriggerTask(taskComplete);
+    expect(taskA._complete).to.equal(taskComplete);
+    sequence.push(taskA);
+    sequence.run();
+    expect(taskA._complete).not.to.equal(taskComplete);
+    //taskA.complete();
+    //expect(taskA._complete).to.equal(taskComplete);
+  });
+
   it('to run and complete 1', () => {
     const sequenceComplete = chai.spy((self) => {});
     const taskRun = chai.spy((self) => {});
