@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2017-05-09
+### Changes
+- make sure only 1 afterComplete stays - 2017-05-09
+- afterComplete reset after execution - 2017-05-09
+
 ## [1.0.19] - 2017-05-09
 ### Changes
 - remove code coverage and clenup - 2017-05-09
