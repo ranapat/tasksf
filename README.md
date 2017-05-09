@@ -1,4 +1,4 @@
-# tasksf
+# tasksf [![npm version](https://img.shields.io/npm/v/tasksf.svg?style=flat)](https://www.npmjs.com/package/tasksf)
 Simple tasks manager factory
 
 ### Run your code based on tasks
