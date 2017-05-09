@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.15] - 2017-05-09
+### Changes
+- update readme - 2017-05-09
+- update readme with coverage - 2017-05-09
+
 ## [1.0.14] - 2017-05-09
 ### Changes
 - update in build with travis - 2017-05-09
