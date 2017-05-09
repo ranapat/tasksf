@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.18] - 2017-05-09
+### Changes
+- more changes - 2017-05-09
+- more tests with travis and coveralls - 2017-05-09
+
 ## [1.0.17] - 2017-05-09
 ### Changes
 - testing coveralls - 2017-05-09
