@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.17] - 2017-05-09
+### Changes
+- testing coveralls - 2017-05-09
+
 ## [1.0.16] - 2017-05-09
 ### Changes
 - coveralls - 2017-05-09
