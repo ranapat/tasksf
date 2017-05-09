@@ -4,6 +4,8 @@ class Injector {
   static afterComplete(task, callback, key) {
     const current = task._complete;
 
+    Injector.resetAfterComplete(task, key);
+
     Object.defineProperty(task, '__injected__' + key, {
       configurable: true,
       enumerable: true,
