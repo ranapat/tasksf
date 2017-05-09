@@ -69,11 +69,14 @@ describe('Test Sequence', () => {
     const sequence = new Sequence();
     const taskA = new TriggerTask(taskComplete);
     expect(taskA._complete).to.equal(taskComplete);
+    expect(taskA.__injected__sequenceAfterComplete).to.equal(undefined);
     sequence.push(taskA);
     sequence.run();
+    expect(taskA.__injected__sequenceAfterComplete).to.equal(taskComplete);
     expect(taskA._complete).not.to.equal(taskComplete);
-    //taskA.complete();
-    //expect(taskA._complete).to.equal(taskComplete);
+    taskA.complete();
+    expect(taskA._complete).to.equal(taskComplete);
+    expect(taskA.__injected__sequenceAfterComplete).to.equal(undefined);
   });
 
   it('to run and complete 1', () => {

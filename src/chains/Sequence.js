@@ -72,12 +72,17 @@ class Sequence extends Collection {
     this._current = this.tasks.length > 0 ? Injector.afterComplete(
       this.tasks.shift(),
       (error, ...args) => {
+        Injector.resetAfterComplete(
+          this._current, 'sequenceAfterComplete'
+        );
+
         if (error === undefined) {
           this._next();
         } else {
           this._recover(error);
         }
-      }
+      },
+      'sequenceAfterComplete'
     ) : undefined;
 
     return this._current;

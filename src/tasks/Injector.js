@@ -1,8 +1,15 @@
 import Factory from '../factory/Factory';
 
 class Injector {
-  static afterComplete(task, callback) {
+  static afterComplete(task, callback, key) {
     const current = task._complete;
+
+    Object.defineProperty(task, '__injected__' + key, {
+      configurable: true,
+      enumerable: true,
+      value: current
+    });
+
     task._complete = (self, ...args) => {
       let error;
       try {
@@ -15,6 +22,15 @@ class Injector {
       callback(error, ...args);
     };
     return task;
+  }
+
+  static resetAfterComplete(task, key) {
+    const original = task['__injected__' + key];
+    if (original !== undefined) {
+      delete task['__injected__' + key];
+
+      task._complete = original;
+    }
   }
 
   static addChainGetter(task) {
