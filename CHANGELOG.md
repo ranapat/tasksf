@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.13] - 2017-05-09
+### Changes
+- more tests - 2017-05-09
+- update readme - 2017-05-09
+- travis - 2017-05-09
+- todo - 2017-05-08
+- dynamic chain getter for tasks in collection - 2017-05-08
+
 ## [1.0.12] - 2017-05-08
 ### Changes
 - add release script - 2017-05-08
