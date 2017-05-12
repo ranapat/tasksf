@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2017-05-12
+### Changes
+- docs in progress - 2017-05-12
+
 ## [1.1.0] - 2017-05-09
 ### Changes
 - make sure only 1 afterComplete stays - 2017-05-09
