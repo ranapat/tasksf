@@ -23,7 +23,7 @@
     "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
     "watch": "node_modules/babel-cli/bin/babel.js -w src -d lib",
     "serve": "node_modules/babel-cli/bin/babel.js -w src -d lib | nodemon --watch lib",
-    "docs": "node_modules/documentation/bin/documentation.js build src/** -f html -o docs"
+    "docs": "node_modules/documentation/bin/documentation.js build src/** -f html -o docs && node_modules/documentation/bin/documentation.js build src/** -f md -o docs/docs.md"
   },
   "author": "ranapat@gmail.com",
   "license": "Unlicense",

@@ -21,7 +21,7 @@ tf.sequence().push(task1).push(task2).run();
 
 #### Documentation
 
-[Check the documentation](http://github.com/ranapat/tasksf/blob/master/docs/index.html)
+[Check the documentation](http://github.com/ranapat/tasksf/blob/master/docs/docs.md)
 
 #### More examples
 
