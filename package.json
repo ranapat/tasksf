@@ -14,6 +14,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
+    "documentation": "^4.0.0-rc.1",
     "mocha": "^3.2.0"
   },
   "scripts": {
@@ -21,7 +22,8 @@
     "tdd": "node_modules/mocha/bin/mocha --compilers js:babel-register --require babel-polyfill --recursive tests --watch src/ tests/",
     "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
     "watch": "node_modules/babel-cli/bin/babel.js -w src -d lib",
-    "serve": "node_modules/babel-cli/bin/babel.js -w src -d lib | nodemon --watch lib"
+    "serve": "node_modules/babel-cli/bin/babel.js -w src -d lib | nodemon --watch lib",
+    "docs": "node_modules/documentation/bin/documentation.js build src/** -f html -o docs"
   },
   "author": "ranapat@gmail.com",
   "license": "Unlicense",

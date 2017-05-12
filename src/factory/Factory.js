@@ -4,12 +4,41 @@ import TriggerMap from './TriggerMap';
 
 import Sequence from '../chains/Sequence';
 
+/**
+ * Tasks and Collections Factory
+ *
+ * It's a static class - do not instantiate with new
+ *
+ * @static
+ */
 class Factory {
+  /**
+   * Predefined name for a chain in attached task
+   *
+   * @param {string} _CHAIN_ predefined name
+   */
   static _CHAIN_ = '_chain_';
 
+  /**
+   * Maps collection for task matching
+   *
+   * @param {array} maps list of all maps
+   */
   static maps = [];
+
+  /**
+   * Initialized status
+   *
+   * @param {boolean} initialized initialized status
+   */
   static initialized = false;
 
+  /**
+   * Gets a task by registered map match
+   *
+   * @param {any} args parameters depend on installed maps
+   * @return {Task} task matching the parameters
+   */
   static task(...args) {
     Factory.initialize();
 
@@ -29,10 +58,27 @@ class Factory {
     return match !== undefined ? match.instance : undefined;
   }
 
+  /**
+   * Gets a sequence
+   *
+   * @param {Function} complete function to be called on complete
+   * @param {Function} recover function to be called on recover
+   * @return {Sequence} new sequence
+   */
   static sequence(complete, recover) {
+    Factory.initialize();
+
     return new Sequence(complete, recover);
   }
 
+  /**
+   * Initializes the factory.
+   *
+   * Initializes the factory. Will be called automatically on first task
+   * or sequence call. Can be called explicitly with *force*
+   *
+   * @param {boolean} force reinitialize if true
+   */
   static initialize(force = false) {
     if (!Factory.initialized || force) {
       Factory.initialized = true;
@@ -45,12 +91,22 @@ class Factory {
     }
   }
 
+  /**
+   * Adds new map for tasks matching
+   *
+   * @param {Map} map map for tasks matching
+   */
   static map(map) {
     if (Factory.maps.indexOf(map) === -1) {
       Factory.maps.push(map);
     }
   }
 
+  /**
+   * Removes map from tasks matching
+   *
+   * @param {Map} map map to remove from tasks matching
+   */
   static unmap(map) {
     const index = Factory.maps.indexOf(map);
     if (index !== -1) {
@@ -58,6 +114,9 @@ class Factory {
     }
   }
 
+  /**
+   * Removes all maps
+   */
   static unmapAll() {
     Factory.maps = [];
   }

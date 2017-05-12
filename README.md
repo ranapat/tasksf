@@ -19,6 +19,10 @@ const task2 = tf.task(
 tf.sequence().push(task1).push(task2).run();
 ```
 
+#### Documentation
+
+[Check the documentation](http://github.com/ranapat/tasksf/blob/master/docs/index.html)
+
 #### More examples
 
 [Check out use.tasksf](http://github.com/ranapat/use.tasksf)
