@@ -3,6 +3,7 @@ import TimeoutMap from './TimeoutMap';
 import TriggerMap from './TriggerMap';
 
 import Sequence from '../chains/Sequence';
+import Loop from '../chains/Loop';
 
 /**
  * Tasks and Collections Factory
@@ -69,6 +70,20 @@ class Factory {
     Factory.initialize();
 
     return new Sequence(complete, recover);
+  }
+
+  /**
+   * Gets a loop
+   *
+   * @param {number} repeats number of repeats, 0 for infinite
+   * @param {Function} repeat function to be called on repeat
+   * @param {Function} recover function to be called on recover
+   * @return {Loop} new loop
+   */
+  static loop(repeats, repeat, recover) {
+    Factory.initialize();
+
+    return new Loop(repeats, repeat, recover);
   }
 
   /**
