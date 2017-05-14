@@ -8,6 +8,7 @@
     -   [initialized](#initialized)
     -   [task](#task)
     -   [sequence](#sequence)
+    -   [loop](#loop)
     -   [initialize](#initialize)
     -   [map](#map)
     -   [unmap](#unmap)
@@ -88,6 +89,18 @@ Gets a sequence
 -   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
 
 Returns **Sequence** new sequence
+
+### loop
+
+Gets a loop
+
+**Parameters**
+
+-   `repeats` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** number of repeats, 0 for infinite
+-   `repeat` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on repeat
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+Returns **Loop** new loop
 
 ### initialize
 
