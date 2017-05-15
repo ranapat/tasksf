@@ -19,7 +19,7 @@ class Loop extends Sequence {
           this.tasks.push(this._looped.shift());
         }
 
-        this.run();
+        setTimeout(() => this.run(), 0);
       }
     }
   }
