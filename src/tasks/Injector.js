@@ -2,9 +2,9 @@ import Factory from '../factory/Factory';
 
 class Injector {
   static afterComplete(task, callback, key) {
-    const current = task._complete;
-
     Injector.resetAfterComplete(task, key);
+
+    const current = task._complete;
 
     Object.defineProperty(task, '__injected__' + key, {
       configurable: true,
