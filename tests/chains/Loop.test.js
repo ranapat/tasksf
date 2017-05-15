@@ -51,6 +51,30 @@ describe('Test Loop', () => {
     expect(complete).to.have.been.called().twice;
   });
 
+  it('to loop fixed times (4)', (done) => {
+    let loops = 0;
+    const task1Run = chai.spy((self) => {});
+    const task1Complete = chai.spy((self) => {});
+    const task2Run = chai.spy((self) => {});
+    const task2Complete = chai.spy((self) => {});
+    const complete = chai.spy((self) => {
+      expect(task1Run).to.have.been.called().three;
+      expect(task1Complete).to.have.been.called().three;
+      expect(task2Run).to.have.been.called().three;
+      expect(task2Complete).to.have.been.called().three;
+      expect(complete).to.have.been.called().three;
+
+      if (++loops === 3) {
+        done();
+      }
+    });
+    const loop = new Loop(3, complete);
+    const task1 = new Task(task1Run, task1Complete);
+    const task2 = new TimeoutTask(1, task2Run, task2Complete);
+    loop.push(task1).push(task2);
+    loop.run();
+  });
+
   it('to loop unlimited times', () => {
     let counter = 0;
     const taskRun = chai.spy((self) => {});
