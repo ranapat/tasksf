@@ -20,10 +20,12 @@ describe('Test Loop', () => {
     expect(complete).to.have.been.called().once;
   });
 
-  it('to loop fixed times (2)', () => {
+  it('to loop fixed times (2)', (done) => {
     const taskRun = chai.spy((self) => {});
     const taskComplete = chai.spy((self) => {});
-    const complete = chai.spy((self) => {});
+    const complete = chai.spy((self) => {
+      done();
+    });
     const loop = new Loop(2, complete);
     const task = new Task(taskRun, taskComplete);
     loop.push(task);
@@ -33,12 +35,14 @@ describe('Test Loop', () => {
     expect(complete).to.have.been.called().twice;
   });
 
-  it('to loop fixed times (3)', () => {
+  it('to loop fixed times (3)', (done) => {
     const task1Run = chai.spy((self) => {});
     const task1Complete = chai.spy((self) => {});
     const task2Run = chai.spy((self) => {});
     const task2Complete = chai.spy((self) => {});
-    const complete = chai.spy((self) => {});
+    const complete = chai.spy((self) => {
+      done();
+    });
     const loop = new Loop(2, complete);
     const task1 = new Task(task1Run, task1Complete);
     const task2 = new Task(task2Run, task2Complete);
