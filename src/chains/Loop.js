@@ -4,7 +4,7 @@ class Loop extends Sequence {
   constructor(repeats, repeat, recover) {
     super(repeat, recover);
 
-    this._repeats = repeats;
+    this._repeats = repeats === undefined ? 0 : repeats;
     this._repeat = 0;
     this._looped = [];
   }
