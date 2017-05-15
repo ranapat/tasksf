@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.5] - 2017-05-15
+### Changes
+- fix tests - 2017-05-15
+
 ## [1.1.4] - 2017-05-15
 ### Changes
 - iterate with 0, not instant - 2017-05-15
