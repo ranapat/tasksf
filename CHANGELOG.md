@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.4] - 2017-05-15
+### Changes
+- iterate with 0, not instant - 2017-05-15
+- reverse the reset and get - 2017-05-15
+- more tests - 2017-05-15
+- set 0 as default - 2017-05-15
+
 ## [1.1.3] - 2017-05-15
 ### Changes
 - new scripts - 2017-05-15
