@@ -1,7 +1,21 @@
 import Collection from './Collection';
 import Injector from '../tasks/Injector';
 
+/**
+ * Sequence
+ *
+ * Executes tasks one by one
+ *
+ * @param {Function} complete function to be called on complete
+ * @param {Function} recover function to be called on recover
+ */
 class Sequence extends Collection {
+  /**
+   * Sequence constructor
+   *
+   * @param {Function} complete function to be called on complete
+   * @param {Function} recover function to be called on recover
+   */
   constructor(complete, recover) {
     super(complete, recover);
 
@@ -9,6 +23,9 @@ class Sequence extends Collection {
     this._stopped = false;
   }
 
+  /**
+   * Runs all tasks in the collection
+   */
   run() {
     super.run();
 
@@ -21,6 +38,12 @@ class Sequence extends Collection {
     this._next();
   }
 
+  /**
+   * Stops all tasks in the collection
+   *
+   * @param {boolean} skip force the stopped task to be skipped
+   * @return {boolean} stopped stopped status
+   */
   stop(skip = false) {
     this._stopped = true;
 
@@ -36,6 +59,11 @@ class Sequence extends Collection {
     }
   }
 
+  /**
+   * Runs next in the sequence
+   *
+   * @protected
+   */
   _next() {
     if (this._stopped) return;
 
@@ -46,12 +74,26 @@ class Sequence extends Collection {
     }
   }
 
+  /**
+   * Complete
+   *
+   * Runs complete task
+   *
+   * @protected
+   */
   _complete() {
     this._current = undefined;
 
     super._complete();
   }
 
+  /**
+   * Recover
+   *
+   * Runs recover task
+   *
+   * @protected
+   */
   _recover(error) {
     if (this._stopped) return;
 
@@ -68,6 +110,12 @@ class Sequence extends Collection {
     }
   }
 
+  /**
+   * Gets next task from the loop
+   *
+   * @return {Task} task next task
+   * @protected
+   */
   get __next() {
     this._current = this.tasks.length > 0 ? Injector.afterComplete(
       this.tasks.shift(),
@@ -88,6 +136,11 @@ class Sequence extends Collection {
     return this._current;
   }
 
+  /**
+   * Gets the current task
+   *
+   * @return {Task} task current task
+   */
   get current() {
     return this._current;
   }

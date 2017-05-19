@@ -1,6 +1,22 @@
 import Sequence from './Sequence';
 
+/**
+ * Loop
+ *
+ * Recurrent tasks
+ *
+ * @param {number} repeats number of repeats. 0 for infinite
+ * @param {Function} repeat function to be called on repeat
+ * @param {Function} recover function to be called on recover
+ */
 class Loop extends Sequence {
+  /**
+   * Loop constructor
+   *
+   * @param {number} repeats number of repeats. 0 for infinite
+   * @param {Function} repeat function to be called on repeat
+   * @param {Function} recover function to be called on recover
+   */
   constructor(repeats, repeat, recover) {
     super(repeat, recover);
 
@@ -9,6 +25,13 @@ class Loop extends Sequence {
     this._looped = [];
   }
 
+  /**
+   * Complete
+   *
+   * Runs complete task
+   *
+   * @protected
+   */
   _complete() {
     super._complete();
 
@@ -24,6 +47,12 @@ class Loop extends Sequence {
     }
   }
 
+  /**
+   * Gets next task from the loop
+   *
+   * @return {Task} task next task
+   * @protected
+   */
   get __next() {
     const current = super.__next;
 
