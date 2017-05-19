@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.6] - 2017-05-19
+### Changes
+- rebuild documentation - 2017-05-19
+- doc tags - 2017-05-19
+- update scripts - 2017-05-19
+
 ## [1.1.5] - 2017-05-15
 ### Changes
 - fix tests - 2017-05-15
