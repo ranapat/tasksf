@@ -2,13 +2,40 @@
 
 ### Table of Contents
 
+-   [Collection](#collection)
+    -   [constructor](#constructor)
+    -   [attach](#attach)
+    -   [detach](#detach)
+    -   [get](#get)
+    -   [push](#push)
+    -   [unshift](#unshift)
+    -   [remove](#remove)
+    -   [run](#run)
+    -   [stop](#stop)
+    -   [\_complete](#_complete)
+    -   [\_recover](#_recover)
+    -   [running](#running)
+    -   [current](#current)
+-   [Loop](#loop)
+    -   [constructor](#constructor-1)
+    -   [\_complete](#_complete-1)
+    -   [\_\_next](#__next)
+-   [Sequence](#sequence)
+    -   [constructor](#constructor-2)
+    -   [run](#run-1)
+    -   [stop](#stop-1)
+    -   [\_next](#_next)
+    -   [\_complete](#_complete-2)
+    -   [\_recover](#_recover-1)
+    -   [\_\_next](#__next-1)
+    -   [current](#current-1)
 -   [Factory](#factory)
     -   [\_CHAIN\_](#_chain_)
     -   [maps](#maps)
     -   [initialized](#initialized)
     -   [task](#task)
-    -   [sequence](#sequence)
-    -   [loop](#loop)
+    -   [sequence](#sequence-1)
+    -   [loop](#loop-1)
     -   [initialize](#initialize)
     -   [map](#map)
     -   [unmap](#unmap)
@@ -16,7 +43,7 @@
 -   [Map](#map-1)
     -   [match](#match)
 -   [Match](#match-1)
-    -   [constructor](#constructor)
+    -   [constructor](#constructor-3)
     -   [percentage](#percentage)
     -   [percentage](#percentage-1)
 -   [RawMap](#rawmap)
@@ -25,19 +52,254 @@
     -   [match](#match-3)
 -   [TriggerMap](#triggermap)
     -   [match](#match-4)
+-   [Injector](#injector)
+    -   [afterComplete](#aftercomplete)
+    -   [resetAfterComplete](#resetaftercomplete)
+    -   [addChainGetter](#addchaingetter)
+    -   [removeChainGetter](#removechaingetter)
 -   [Task](#task-1)
-    -   [constructor](#constructor-1)
-    -   [attach](#attach)
-    -   [detach](#detach)
-    -   [get](#get)
-    -   [run](#run)
+    -   [constructor](#constructor-4)
+    -   [attach](#attach-1)
+    -   [detach](#detach-1)
+    -   [get](#get-1)
+    -   [run](#run-2)
     -   [complete](#complete)
     -   [recover](#recover)
-    -   [stop](#stop)
-    -   [running](#running)
+    -   [stop](#stop-2)
+    -   [running](#running-1)
     -   [done](#done)
     -   [failed](#failed)
     -   [exceptions](#exceptions)
+-   [TimeoutTask](#timeouttask)
+    -   [constructor](#constructor-5)
+    -   [run](#run-3)
+    -   [stop](#stop-3)
+-   [TriggerTask](#triggertask)
+    -   [constructor](#constructor-6)
+    -   [run](#run-4)
+
+## Collection
+
+Collection. Internal class
+
+Basic collection class
+
+**Parameters**
+
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### constructor
+
+Task constructor
+
+**Parameters**
+
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### attach
+
+Attaches variable with a key
+
+Used to avoid using global variables or trying to scope
+in some way. After attach() you can get().
+Attach will also keep the variable from GC.
+
+**Parameters**
+
+-   `key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** accessor for the variable
+-   `value` **any** variable value
+
+### detach
+
+Detaches variable with a key
+
+**Parameters**
+
+-   `key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** accessor for the variable
+
+### get
+
+Gets variable with a key
+
+**Parameters**
+
+-   `key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** accessor for the variable
+
+Returns **any** value variable value
+
+### push
+
+Pushes task to the collection
+
+**Parameters**
+
+-   `task` **[Task](#task)** task to push
+
+Returns **[Collection](#collection)** collection current collection
+
+### unshift
+
+Unshifts task to the collection
+
+**Parameters**
+
+-   `task` **[Task](#task)** task to push
+
+Returns **[Collection](#collection)** collection current collection
+
+### remove
+
+Removes task from the collection
+
+**Parameters**
+
+-   `task` **[Task](#task)** task to push
+
+Returns **[Collection](#collection)** collection current collection
+
+### run
+
+Runs all tasks in the collection
+
+### stop
+
+Stops all tasks in the collection
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** stopped stopped status
+
+### \_complete
+
+Complete
+
+Runs complete task
+
+### \_recover
+
+Recover
+
+Runs recover task
+
+**Parameters**
+
+-   `error`  
+
+### running
+
+Gets the running status
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** running running status
+
+### current
+
+Gets the current task
+
+Returns **[Task](#task)** task current task
+
+## Loop
+
+**Extends Sequence**
+
+Loop
+
+Recurrent tasks
+
+**Parameters**
+
+-   `repeats` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** number of repeats. 0 for infinite
+-   `repeat` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on repeat
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### constructor
+
+Loop constructor
+
+**Parameters**
+
+-   `repeats` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** number of repeats. 0 for infinite
+-   `repeat` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on repeat
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### \_complete
+
+Complete
+
+Runs complete task
+
+### \_\_next
+
+Gets next task from the loop
+
+Returns **[Task](#task)** task next task
+
+## Sequence
+
+**Extends Collection**
+
+Sequence
+
+Executes tasks one by one
+
+**Parameters**
+
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### constructor
+
+Sequence constructor
+
+**Parameters**
+
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### run
+
+Runs all tasks in the collection
+
+### stop
+
+Stops all tasks in the collection
+
+**Parameters**
+
+-   `skip` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** force the stopped task to be skipped (optional, default `false`)
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** stopped stopped status
+
+### \_next
+
+Runs next in the sequence
+
+### \_complete
+
+Complete
+
+Runs complete task
+
+### \_recover
+
+Recover
+
+Runs recover task
+
+**Parameters**
+
+-   `error`  
+
+### \_\_next
+
+Gets next task from the loop
+
+Returns **[Task](#task)** task next task
+
+### current
+
+Gets the current task
+
+Returns **[Task](#task)** task current task
 
 ## Factory
 
@@ -88,7 +350,7 @@ Gets a sequence
 -   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
 -   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
 
-Returns **Sequence** new sequence
+Returns **[Sequence](#sequence)** new sequence
 
 ### loop
 
@@ -100,7 +362,7 @@ Gets a loop
 -   `repeat` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on repeat
 -   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
 
-Returns **Loop** new loop
+Returns **[Loop](#loop)** new loop
 
 ### initialize
 
@@ -255,6 +517,54 @@ Match argument with a specific TriggerMap
 
 Returns **[Match](#match)** match
 
+## Injector
+
+Injector. Internal class
+
+Injects functions into objects. Used internally.
+Not intended to be used on it's own.
+
+### afterComplete
+
+Appends a function after complete and remembers the original
+
+**Parameters**
+
+-   `task` **[Task](#task)** task to be modified
+-   `callback` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called after complete
+-   `key` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** map for the original callback
+
+Returns **[Task](#task)** task modified task
+
+### resetAfterComplete
+
+Resets the complete method to it's original state
+
+**Parameters**
+
+-   `task` **[Task](#task)** task to be modified
+-   `key` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** map for the original callback
+
+Returns **[Task](#task)** task modified task
+
+### addChainGetter
+
+Adds a method called chain to get Factory._CHAIN_
+
+Shortcut for task.get(Factory._CHAIN_)
+
+**Parameters**
+
+-   `task` **[Task](#task)** task to be modified
+
+### removeChainGetter
+
+Remove a method called chain to get Factory._CHAIN_
+
+**Parameters**
+
+-   `task` **[Task](#task)** task to be modified
+
 ## Task
 
 Task
@@ -366,3 +676,81 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 Gets the exceptions if any
 
 Returns **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** exceptions
+
+## TimeoutTask
+
+**Extends Task**
+
+TimeoutTask
+
+Timeout task with run, complete and recover.
+Executes after initial timeout
+
+**Parameters**
+
+-   `timeout` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** wait before run
+-   `run` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on run
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### constructor
+
+TimeoutTask constructor
+
+**Parameters**
+
+-   `timeout` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** wait before run
+-   `run` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on run
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### run
+
+Runs a task
+
+Executes the run function if defined. All arguments will be
+passed to it.
+
+**Parameters**
+
+-   `args` **any** any arguments
+
+### stop
+
+Stops a task
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** success
+
+## TriggerTask
+
+**Extends Task**
+
+TriggerTask
+
+Trigger task with complete.
+Executes run and does not complete automatically.
+Need manual call of complete() method.
+Useful for triggers.
+
+**Parameters**
+
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+
+### constructor
+
+TriggerTask constructor
+
+**Parameters**
+
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+
+### run
+
+Runs a task
+
+Executes the run function if defined. All arguments will be
+passed to it.
+
+**Parameters**
+
+-   `args` **any** any arguments
