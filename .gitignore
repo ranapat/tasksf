@@ -3,6 +3,8 @@
 /npm-debug.log
 /coverage/
 
+.coveralls.yml
+
 # Release
 package.json-e
 changelog-s
