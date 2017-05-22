@@ -37,8 +37,9 @@ class Injector {
       } catch (e) {
         error = e;
       }
-      callback(error, ...args);
+      callback(error, self, ...args);
     };
+
     return task;
   }
 
@@ -56,6 +57,8 @@ class Injector {
 
       task._complete = original;
     }
+
+    return task;
   }
 
   /**
@@ -64,6 +67,7 @@ class Injector {
    * Shortcut for task.get(Factory._CHAIN_)
    *
    * @param {Task} task task to be modified
+   * @return {Task} task modified task
    */
   static addChainGetter(task) {
     Object.defineProperty(task, 'chain', {
@@ -73,15 +77,20 @@ class Injector {
       configurable: true,
       enumerable: true
     });
+
+    return task;
   }
 
   /**
    * Remove a method called chain to get Factory._CHAIN_
    *
    * @param {Task} task task to be modified
+   * @return {Task} task modified task
    */
   static removeChainGetter(task) {
     delete task.chain;
+
+    return task;
   }
 }
 
