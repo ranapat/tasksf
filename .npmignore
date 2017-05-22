@@ -1,6 +1,17 @@
 /src/
 /tests/
+/coverage/
+/docs/
+/scripts/
+
 /.babelrc
+/.coveralls.yml
+/.travis.yml
+
+# Release
+package.json-e
+changelog-s
+CHANGELOG.md-e
 
 # Emacs
 *.*~
