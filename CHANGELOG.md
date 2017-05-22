@@ -1,6 +1,23 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.9] - 2017-05-22
+### Changes
+- update gitignore
+- remove remove coveralls from repo
+- remove coveralls from travis
+- more tests with travis
+- tries with coveralls
+- tries
+- code coverage
+- fix readme
+- change todo
+- update readme
+- change readme
+- mark docs as done
+- more scripts
+- mark parallels as done
+
 ## [1.1.8] - 2017-05-22
 ### Changes
 - rebuild documentation
