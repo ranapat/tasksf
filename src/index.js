@@ -7,10 +7,11 @@ import Map from './factory/Map';
 import Match from './factory/Match';
 
 import Sequence from './chains/Sequence';
+import Parallel from './chains/Parallel';
 import Loop from './chains/Loop';
 
 export { Task, TimeoutTask, TriggerTask };
-export { Sequence, Loop };
+export { Sequence, Parallel, Loop };
 export { Factory, Factory as tf };
 export { Map };
 export { Match };

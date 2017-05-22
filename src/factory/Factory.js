@@ -3,6 +3,7 @@ import TimeoutMap from './TimeoutMap';
 import TriggerMap from './TriggerMap';
 
 import Sequence from '../chains/Sequence';
+import Parallel from '../chains/Parallel';
 import Loop from '../chains/Loop';
 
 /**
@@ -70,6 +71,20 @@ class Factory {
     Factory.initialize();
 
     return new Sequence(complete, recover);
+  }
+
+  /**
+   * Gets a parallel
+   *
+   * @param {Function} complete function to be called on complete
+   * @param {Function} recover function to be called on recover
+   * @param {boolean} completeOnFirst completes on last or on first
+   * @return {Parallel} new sequence
+   */
+  static parallel(complete, recover, completeOnFirst) {
+    Factory.initialize();
+
+    return new Parallel(complete, recover, completeOnFirst);
   }
 
   /**

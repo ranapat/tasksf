@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { Factory, tf } from '../../src';
 import { Map, Match } from '../../src';
 import { Task, TimeoutTask, TriggerTask } from '../../src';
-import { Sequence, Loop } from '../../src';
+import { Sequence, Parallel, Loop } from '../../src';
 
 describe('Test Factory', () => {
   let mapsByDefault;
@@ -174,6 +174,12 @@ describe('Test Factory', () => {
     tf.initialize(true);
     const collection = tf.sequence();
     expect(collection).to.be.an.instanceof(Sequence);
+  });
+
+  it('to get Parallel', () => {
+    tf.initialize(true);
+    const collection = tf.parallel();
+    expect(collection).to.be.an.instanceof(Parallel);
   });
 
   it('to get Loop', () => {
