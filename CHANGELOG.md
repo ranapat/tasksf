@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2017-05-22
+### Changes
+- update npmignore
+
 ## [1.2.0] - 2017-05-22
 ### Changes
 - update npmignore
