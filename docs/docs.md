@@ -20,9 +20,12 @@
     -   [constructor](#constructor-1)
     -   [\_complete](#_complete-1)
     -   [\_\_next](#__next)
--   [Sequence](#sequence)
+-   [Parallel](#parallel)
     -   [constructor](#constructor-2)
     -   [run](#run-1)
+-   [Sequence](#sequence)
+    -   [constructor](#constructor-3)
+    -   [run](#run-2)
     -   [stop](#stop-1)
     -   [\_next](#_next)
     -   [\_complete](#_complete-2)
@@ -35,6 +38,7 @@
     -   [initialized](#initialized)
     -   [task](#task)
     -   [sequence](#sequence-1)
+    -   [parallel](#parallel-1)
     -   [loop](#loop-1)
     -   [initialize](#initialize)
     -   [map](#map)
@@ -43,7 +47,7 @@
 -   [Map](#map-1)
     -   [match](#match)
 -   [Match](#match-1)
-    -   [constructor](#constructor-3)
+    -   [constructor](#constructor-4)
     -   [percentage](#percentage)
     -   [percentage](#percentage-1)
 -   [RawMap](#rawmap)
@@ -58,11 +62,11 @@
     -   [addChainGetter](#addchaingetter)
     -   [removeChainGetter](#removechaingetter)
 -   [Task](#task-1)
-    -   [constructor](#constructor-4)
+    -   [constructor](#constructor-5)
     -   [attach](#attach-1)
     -   [detach](#detach-1)
     -   [get](#get-1)
-    -   [run](#run-2)
+    -   [run](#run-3)
     -   [complete](#complete)
     -   [recover](#recover)
     -   [stop](#stop-2)
@@ -71,12 +75,12 @@
     -   [failed](#failed)
     -   [exceptions](#exceptions)
 -   [TimeoutTask](#timeouttask)
-    -   [constructor](#constructor-5)
-    -   [run](#run-3)
-    -   [stop](#stop-3)
--   [TriggerTask](#triggertask)
     -   [constructor](#constructor-6)
     -   [run](#run-4)
+    -   [stop](#stop-3)
+-   [TriggerTask](#triggertask)
+    -   [constructor](#constructor-7)
+    -   [run](#run-5)
 
 ## Collection
 
@@ -233,6 +237,34 @@ Gets next task from the loop
 
 Returns **[Task](#task)** task next task
 
+## Parallel
+
+**Extends Collection**
+
+Parallel
+
+Executes tasks all at once
+
+**Parameters**
+
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+-   `completeOnFirst` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** completes on last or on first
+
+### constructor
+
+Parallel constructor
+
+**Parameters**
+
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+-   `completeOnFirst` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** completes on last or on first
+
+### run
+
+Runs all tasks in the collection
+
 ## Sequence
 
 **Extends Collection**
@@ -351,6 +383,18 @@ Gets a sequence
 -   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
 
 Returns **[Sequence](#sequence)** new sequence
+
+### parallel
+
+Gets a parallel
+
+**Parameters**
+
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+-   `completeOnFirst` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** completes on last or on first
+
+Returns **[Parallel](#parallel)** new sequence
 
 ### loop
 
@@ -557,6 +601,8 @@ Shortcut for task.get(Factory._CHAIN_)
 
 -   `task` **[Task](#task)** task to be modified
 
+Returns **[Task](#task)** task modified task
+
 ### removeChainGetter
 
 Remove a method called chain to get Factory._CHAIN_
@@ -564,6 +610,8 @@ Remove a method called chain to get Factory._CHAIN_
 **Parameters**
 
 -   `task` **[Task](#task)** task to be modified
+
+Returns **[Task](#task)** task modified task
 
 ## Task
 
