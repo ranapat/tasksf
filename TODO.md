@@ -11,4 +11,4 @@
 ### Other:
 
 - [ ] more examples
-- [ ] complete documentation
+- [x] complete documentation
