@@ -29,6 +29,9 @@ class Collection {
 
     this.__complete.attach(Factory._CHAIN_, this);
     this.__recover.attach(Factory._CHAIN_, this);
+
+    Injector.addChainGetter(this.__complete);
+    Injector.addChainGetter(this.__recover);
   }
 
   /**
