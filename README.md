@@ -54,8 +54,8 @@ tf.parallel(() => console.log('parallel complete'))
 
 /**
  * Expected output:
- * task 1 run, task 2 run,
- * task 2 complete, task 1 complete,
+ * task 2 run, task 2 complete,
+ * task 1 run, task 1 complete,
  * parallel complete
  */
 ```
