@@ -67,7 +67,7 @@ function tasksf_patchPackage() {
 function tasksf_getGitDiff() {
     CHANGELOG="./changelog"
 
-    git log $1..HEAD --pretty=format:"- %s - %cd" --date=short > $CHANGELOG
+    git log $1..HEAD --pretty=format:"- %s" --date=short > $CHANGELOG
     sed -i -s "1s/^/## [$2] - $(date +'%Y-%m-%d')\\
 /" "$CHANGELOG"
     sed -i -s "2s/^/### Changes\\
