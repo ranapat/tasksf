@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.7] - 2017-05-22
+### Changes
+- collection will attach chain to complete and recover - 2017-05-22
+
 ## [1.1.6] - 2017-05-19
 ### Changes
 - rebuild documentation - 2017-05-19
