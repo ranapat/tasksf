@@ -7,6 +7,7 @@
 ### General:
 
 - [x] Parallel tasks
+- [ ] Mesh of collections to merge sequences and parallels
 
 ### Other:
 
