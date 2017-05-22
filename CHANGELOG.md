@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.8] - 2017-05-22
+### Changes
+- rebuild documentation
+- remove dates from the changelog entries
+- parallels
+- pass self to the callback in onComplete and return task in all methods
+
 ## [1.1.7] - 2017-05-22
 ### Changes
 - collection will attach chain to complete and recover - 2017-05-22
