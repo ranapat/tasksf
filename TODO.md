@@ -6,7 +6,7 @@
 
 ### General:
 
-- [ ] Parallel tasks
+- [x] Parallel tasks
 
 ### Other:
 
