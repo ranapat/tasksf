@@ -471,4 +471,52 @@ describe('Test Sequence', () => {
     expect(sequence.passed[1]).to.equal(task2);
   });
 
+  it('to reset (1)', () => {
+    const sequence = new Sequence();
+    const task1 = new TriggerTask();
+    const task2 = new Task();
+    sequence.push(task1).push(task2);
+    expect(sequence.current).to.equal(undefined);
+    expect(sequence.passed.length).to.equal(0);
+    sequence.run();
+    expect(sequence.reset()).to.equal(false);
+    task1.complete();
+    expect(sequence.reset()).to.equal(true);
+  });
+
+  it('to reset (2)', () => {
+    const sequence = new Sequence();
+    const task1 = new TriggerTask();
+    const task2 = new Task();
+    sequence.push(task1).push(task2);
+    expect(sequence.current).to.equal(undefined);
+    expect(sequence.passed.length).to.equal(0);
+    sequence.run();
+    expect(sequence.current).to.equal(task1);
+    expect(sequence.passed.length).to.equal(0);
+    task1.complete();
+    expect(sequence.current).to.equal(undefined);
+    expect(sequence.passed.length).to.equal(2);
+    expect(sequence.passed[0]).to.equal(task1);
+    expect(sequence.passed[1]).to.equal(task2);
+    expect(sequence.reset()).to.equal(true);
+    expect(sequence.passed.length).to.equal(0);
+  });
+
+  it('to chain and unchain properly', () => {
+    const sequence = new Sequence();
+    const task = new Task();
+    expect(task.chain).to.equal(undefined);
+    sequence.push(task);
+    expect(task.chain).to.equal(sequence);
+    sequence.remove(task);
+    expect(task.chain).to.equal(undefined);
+    sequence.push(task);
+    expect(task.chain).to.equal(sequence);
+    sequence.run();
+    expect(task.chain).to.equal(undefined);
+    expect(sequence.passed.length).to.equal(1);
+    expect(sequence.passed[0]).to.equal(task);
+  });
+
 });

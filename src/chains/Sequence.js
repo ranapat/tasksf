@@ -33,7 +33,7 @@ class Sequence extends Collection {
     this._stopped = false;
     if (this.current !== undefined) {
       this.unshift(this.current);
-      this._current = undefined;
+      this._resetCurrent();
     }
 
     this._next();
@@ -51,10 +51,25 @@ class Sequence extends Collection {
     const current = this.current;
     if (current !== undefined) {
       if (skip === true) {
-        this._current = undefined;
+        this._resetCurrent(true);
       }
 
       return current.stop() || this.tasks.length > 0;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Resets a stopped collection
+   *
+   * @return {boolean} reset reset status
+   */
+  reset() {
+    if (super.reset()) {
+      this._passed = [];
+
+      return true;
     } else {
       return false;
     }
@@ -83,7 +98,7 @@ class Sequence extends Collection {
    * @protected
    */
   _complete() {
-    this._current = undefined;
+    this._resetCurrent(true);
 
     super._complete();
   }
@@ -102,12 +117,26 @@ class Sequence extends Collection {
       const task = this.__next;
       task.recover(error);
       if (!task.running && !task.done) {
-        this._current = undefined;
+        this._resetCurrent(true);
 
         super._recover(error);
       }
     } else {
       this._complete();
+    }
+  }
+
+  /**
+   * Resets current
+   *
+   * @protected
+   */
+  _resetCurrent(unchain = false) {
+    if (this._current !== undefined) {
+      if (unchain) {
+        this._unchainTask(this._current);
+      }
+      this._current = undefined;
     }
   }
 
@@ -127,10 +156,12 @@ class Sequence extends Collection {
 
         if (
           this._passed.length === 0
-          || this._passed[this._passed.length - 1] !== this._current
+            || this._passed.indexOf(this._current) === -1
         ) {
           this._passed.push(this._current);
         }
+
+        this._resetCurrent(true);
 
         if (error === undefined) {
           this._next();
