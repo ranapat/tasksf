@@ -439,4 +439,36 @@ describe('Test Sequence', () => {
     expect(sequence.tasks.length).to.equal(0);
   });
 
+  it('to populate current and passed (1)', () => {
+    const sequence = new Sequence();
+    const task = new TriggerTask();
+    sequence.push(task);
+    expect(sequence.current).to.equal(undefined);
+    expect(sequence.passed.length).to.equal(0);
+    sequence.run();
+    expect(sequence.current).to.equal(task);
+    expect(sequence.passed.length).to.equal(0);
+    task.complete();
+    expect(sequence.current).to.equal(undefined);
+    expect(sequence.passed.length).to.equal(1);
+    expect(sequence.passed[0]).to.equal(task);
+  });
+
+  it('to populate current and passed (2)', () => {
+    const sequence = new Sequence();
+    const task1 = new TriggerTask();
+    const task2 = new Task();
+    sequence.push(task1).push(task2);
+    expect(sequence.current).to.equal(undefined);
+    expect(sequence.passed.length).to.equal(0);
+    sequence.run();
+    expect(sequence.current).to.equal(task1);
+    expect(sequence.passed.length).to.equal(0);
+    task1.complete();
+    expect(sequence.current).to.equal(undefined);
+    expect(sequence.passed.length).to.equal(2);
+    expect(sequence.passed[0]).to.equal(task1);
+    expect(sequence.passed[1]).to.equal(task2);
+  });
+
 });

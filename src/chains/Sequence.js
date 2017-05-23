@@ -20,6 +20,7 @@ class Sequence extends Collection {
     super(complete, recover);
 
     this._current = undefined;
+    this._passed = [];
     this._stopped = false;
   }
 
@@ -124,6 +125,13 @@ class Sequence extends Collection {
           this._current, 'sequenceAfterComplete'
         );
 
+        if (
+          this._passed.length === 0
+          || this._passed[this._passed.length - 1] !== this._current
+        ) {
+          this._passed.push(this._current);
+        }
+
         if (error === undefined) {
           this._next();
         } else {
@@ -143,6 +151,15 @@ class Sequence extends Collection {
    */
   get current() {
     return this._current;
+  }
+
+  /**
+   * Gets the passed task(s)
+   *
+   * @return {Array<Task>} task passed task(s)
+   */
+  get passed() {
+    return this._passed;
   }
 }
 
