@@ -74,8 +74,7 @@ class Collection {
    * @return {Collection} collection current collection
    */
   push(task) {
-    task.attach(Factory._CHAIN_, this);
-    Injector.addChainGetter(task);
+    this._chainTask(task);
     this.tasks.push(task);
 
     return this;
@@ -88,8 +87,7 @@ class Collection {
    * @return {Collection} collection current collection
    */
   unshift(task) {
-    task.attach(Factory._CHAIN_, this);
-    Injector.addChainGetter(task);
+    this._chainTask(task);
     this.tasks.unshift(task);
 
     return this;
@@ -104,8 +102,7 @@ class Collection {
   remove(task) {
     const index = this.tasks.indexOf(task);
     if (index !== -1) {
-      Injector.removeChainGetter(task);
-      task.detach(Factory._CHAIN_);
+      this._unchainTask(task);
       this.tasks.splice(index, 1);
     }
 
@@ -170,6 +167,34 @@ class Collection {
     this._running = false;
 
     this.__recover.recover(error);
+  }
+
+  /**
+   * Chain task
+   *
+   * Attach the chain to the task
+   *
+   * @param {Task} task task to chain
+   *
+   * @protected
+   */
+  _chainTask(task) {
+    task.attach(Factory._CHAIN_, this);
+    Injector.addChainGetter(task);
+  }
+
+  /**
+   * Unchain task
+   *
+   * Detach the chain from the task
+   *
+   * @param {Task} task task to chain
+   *
+   * @protected
+   */
+  _unchainTask(task) {
+    Injector.removeChainGetter(task);
+    task.detach(Factory._CHAIN_);
   }
 
   /**
