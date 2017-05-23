@@ -62,4 +62,46 @@ describe('Test Collection', () => {
     sequence.detach('something');
     expect(sequence.get('something')).to.equal(undefined);
   });
+
+  it('to have current and passed as undefined', () => {
+    const collection = new Collection();
+    expect(collection.current).to.equal(undefined);
+    expect(collection.passed).to.equal(undefined);
+  });
+
+  it('to reset if collection is not running', () => {
+    const collection = new Collection();
+    const task = new Task();
+    const test = 'test';
+    collection.attach('test', test);
+    collection.push(task);
+    expect(collection.get('test')).to.equal(test);
+    expect(collection.tasks.length).to.equal(1);
+    expect(task.chain).to.equal(collection);
+    expect(collection.reset()).to.equal(true);
+    expect(collection.get('test')).to.equal(undefined);
+    expect(collection.tasks.length).to.equal(0);
+    expect(task.chain).to.equal(undefined);
+  });
+
+  it('to not to reset if collection is running', () => {
+    const task = new Task();
+    const collection = new Collection();
+    const test = 'test';
+    collection.attach('test', test);
+    collection.push(task);
+    expect(collection.get('test')).to.equal(test);
+    expect(collection.tasks.length).to.equal(1);
+    expect(task.chain).to.equal(collection);
+    collection.run();
+    expect(collection.reset()).to.equal(false);
+    expect(collection.get('test')).to.equal(test);
+    expect(collection.tasks.length).to.equal(1);
+    expect(task.chain).to.equal(collection);
+    collection._complete();
+    expect(collection.reset()).to.equal(true);
+    expect(collection.get('test')).to.equal(undefined);
+    expect(collection.tasks.length).to.equal(0);
+    expect(task.chain).to.equal(undefined);
+  });
 });

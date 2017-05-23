@@ -3,9 +3,9 @@ import Factory from '../factory/Factory';
 import Injector from '../tasks/Injector';
 
 /**
- * Collection. Internal class
+ * Collection. Abstract class.
  *
- * Basic collection class
+ * Basic collection class. Do NOT instantiate directly.
  *
  * @param {Function} complete function to be called on complete
  * @param {Function} recover function to be called on recover
@@ -129,6 +129,24 @@ class Collection {
   }
 
   /**
+   * Resets a stopped collection
+   *
+   * @return {boolean} reset reset status
+   */
+  reset() {
+    if (!this._running) {
+      this._attached = {};
+      while (this.tasks.length > 0) {
+        this.remove(this.tasks[0]);
+      }
+
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
    * Complete
    *
    * Runs complete task
@@ -166,7 +184,7 @@ class Collection {
   /**
    * Gets the current task(s)
    *
-   * @return {Task|array} task current task(s)
+   * @return {Task|Array<Task>} task current task(s)
    */
   get current() {
     return undefined;
@@ -175,7 +193,7 @@ class Collection {
   /**
    * Gets the passed task(s)
    *
-   * @return {Task|array} task passed task(s)
+   * @return {Array<Task>} task passed task(s)
    */
   get passed() {
     return undefined;
