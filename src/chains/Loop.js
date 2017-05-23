@@ -39,6 +39,8 @@ class Loop extends Sequence {
       if (this._repeats === 0 || ++this._repeat < this._repeats) {
         while (this._looped.length > 0) {
           this.tasks.push(this._looped.shift());
+
+          this._chainTask(this.tasks[this.tasks.length - 1]);
         }
 
         setTimeout(() => this.run(), 0);
@@ -63,6 +65,15 @@ class Loop extends Sequence {
     }
 
     return current;
+  }
+
+  /**
+   * Gets the passed task(s)
+   *
+   * @return {Array<Task>} task passed task(s)
+   */
+  get passed() {
+    return undefined;
   }
 }
 

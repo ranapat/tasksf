@@ -96,4 +96,32 @@ describe('Test Loop', () => {
     expect(taskComplete).to.have.been.called().ten;
     expect(complete).to.have.been.called().ten;
   });
+
+  it('to not have passed', () => {
+    const loop = new Loop();
+    expect(loop.passed).to.equal(undefined);
+  });
+
+  it('to properly chain and unchain', () => {
+    const loop = new Loop(2);
+    const task = new Task();
+    expect(task.chain).to.equal(undefined);
+    loop.push(task);
+    expect(task.chain).to.equal(loop);
+    loop.run();
+    expect(task.chain).to.equal(loop);
+  });
+
+  it('to properly chain and unchain', () => {
+    const loop = new Loop(2);
+    const task = new Task();
+    expect(task.chain).to.equal(undefined);
+    loop.push(task);
+    expect(task.chain).to.equal(loop);
+    loop.run();
+    expect(task.chain).to.equal(loop);
+    loop.reset();
+    expect(task.chain).to.equal(undefined);
+  });
+
 });
