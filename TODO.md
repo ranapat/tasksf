@@ -3,8 +3,11 @@
 ### Important
 - [x] Make sure only one Injection afterComplete can happen
 - [x] Make sure complete changes back to original after run completes in Sequence
-- [ ] Chains generalize current
-- [ ] Chains implement complete
+- [x] Chains generalize current
+- [x] Chains implement complete
+- [ ] Parallels to chain and unchain
+- [ ] Parallels to handle exceptions to unchain
+- [ ] Parallels to implement passed and current
 
 ### General:
 
