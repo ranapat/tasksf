@@ -37,8 +37,7 @@ class Loop extends Sequence {
 
     if (!this._stopped) {
       if (this._repeats === 0 || ++this._repeat < this._repeats) {
-        let counter = 0;
-        while (this._looped.length > 0 && ++counter < 4) {
+        while (this._looped.length > 0) {
           this.tasks.push(this._looped.shift());
         }
 
