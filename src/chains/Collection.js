@@ -164,11 +164,20 @@ class Collection {
   }
 
   /**
-   * Gets the current task
+   * Gets the current task(s)
    *
-   * @return {Task} task current task
+   * @return {Task|array} task current task(s)
    */
   get current() {
+    return undefined;
+  }
+
+  /**
+   * Gets the passed task(s)
+   *
+   * @return {Task|array} task passed task(s)
+   */
+  get passed() {
     return undefined;
   }
 }
