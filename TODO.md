@@ -8,7 +8,7 @@
 - [x] Parallels to chain and unchain
 - [x] Parallels to handle exceptions to unchain
 - [x] Parallels to implement passed and current
-- [ ] Parallels to implement reset
+- [x] Parallels to implement reset
 - [x] Reset sequence onComplete on force stop
 - [ ] Stop parallels
 - [ ] Limited parallels

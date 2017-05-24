@@ -69,6 +69,21 @@ class Parallel extends Collection {
   }
 
   /**
+   * Resets a stopped collection
+   *
+   * @return {boolean} reset reset status
+   */
+  reset() {
+    if (super.reset()) {
+      this._passed = [];
+
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
    * Gets the current tasks
    *
    * @return {Array<Task>} task current tasks

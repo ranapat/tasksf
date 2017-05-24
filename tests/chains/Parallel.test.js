@@ -180,4 +180,18 @@ describe('Test Parallel', () => {
     expect(parallel.passed[0]).to.equal(task);
   });
 
+  it('to implement reset', () => {
+    const parallel = new Parallel();
+    const task = new TriggerTask();
+    parallel.push(task);
+    parallel.run();
+    task.complete();
+    expect(parallel.current.length).to.equal(0);
+    expect(parallel.passed.length).to.equal(1);
+    expect(parallel.passed[0]).to.equal(task);
+    expect(parallel.reset()).to.equal(true);
+    expect(parallel.current.length).to.equal(0);
+    expect(parallel.passed.length).to.equal(0);
+  });
+
 });
