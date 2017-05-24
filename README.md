@@ -87,6 +87,10 @@ tf.loop(2, () => console.log('loop complete'))
  */
 ```
 
+#### More examples
+
+[Check out use.tasksf](http://github.com/ranapat/use.tasksf)
+
 #### Documentation
 
 [Check the documentation](http://github.com/ranapat/tasksf/blob/master/docs/docs.md)
@@ -98,7 +102,3 @@ tf.loop(2, () => console.log('loop complete'))
 #### What have changed
 
 [Check the changelog](http://github.com/ranapat/tasksf/blob/master/CHANGELOG.md)
-
-#### More examples
-
-[Check out use.tasksf](http://github.com/ranapat/use.tasksf)
