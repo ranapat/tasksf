@@ -12,26 +12,37 @@
     -   [remove](#remove)
     -   [run](#run)
     -   [stop](#stop)
+    -   [reset](#reset)
     -   [\_complete](#_complete)
     -   [\_recover](#_recover)
+    -   [\_chainTask](#_chaintask)
+    -   [\_unchainTask](#_unchaintask)
     -   [running](#running)
     -   [current](#current)
+    -   [passed](#passed)
 -   [Loop](#loop)
     -   [constructor](#constructor-1)
     -   [\_complete](#_complete-1)
     -   [\_\_next](#__next)
+    -   [passed](#passed-1)
 -   [Parallel](#parallel)
     -   [constructor](#constructor-2)
     -   [run](#run-1)
+    -   [reset](#reset-1)
+    -   [current](#current-1)
+    -   [passed](#passed-2)
 -   [Sequence](#sequence)
     -   [constructor](#constructor-3)
     -   [run](#run-2)
     -   [stop](#stop-1)
+    -   [reset](#reset-2)
     -   [\_next](#_next)
     -   [\_complete](#_complete-2)
     -   [\_recover](#_recover-1)
+    -   [\_resetCurrent](#_resetcurrent)
     -   [\_\_next](#__next-1)
-    -   [current](#current-1)
+    -   [current](#current-2)
+    -   [passed](#passed-3)
 -   [Factory](#factory)
     -   [\_CHAIN\_](#_chain_)
     -   [maps](#maps)
@@ -84,9 +95,9 @@
 
 ## Collection
 
-Collection. Internal class
+Collection. Abstract class.
 
-Basic collection class
+Basic collection class. Do NOT instantiate directly.
 
 **Parameters**
 
@@ -173,6 +184,12 @@ Stops all tasks in the collection
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** stopped stopped status
 
+### reset
+
+Resets a stopped collection
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** reset reset status
+
 ### \_complete
 
 Complete
@@ -189,6 +206,26 @@ Runs recover task
 
 -   `error`  
 
+### \_chainTask
+
+Chain task
+
+Attach the chain to the task
+
+**Parameters**
+
+-   `task` **[Task](#task)** task to chain
+
+### \_unchainTask
+
+Unchain task
+
+Detach the chain from the task
+
+**Parameters**
+
+-   `task` **[Task](#task)** task to chain
+
 ### running
 
 Gets the running status
@@ -197,9 +234,15 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### current
 
-Gets the current task
+Gets the current task(s)
 
-Returns **[Task](#task)** task current task
+Returns **([Task](#task) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Task](#task)>)** task current task(s)
+
+### passed
+
+Gets the passed task(s)
+
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Task](#task)>** task passed task(s)
 
 ## Loop
 
@@ -237,6 +280,12 @@ Gets next task from the loop
 
 Returns **[Task](#task)** task next task
 
+### passed
+
+Gets the passed task(s)
+
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Task](#task)>** task passed task(s)
+
 ## Parallel
 
 **Extends Collection**
@@ -264,6 +313,24 @@ Parallel constructor
 ### run
 
 Runs all tasks in the collection
+
+### reset
+
+Resets a stopped collection
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** reset reset status
+
+### current
+
+Gets the current tasks
+
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Task](#task)>** task current tasks
+
+### passed
+
+Gets the passed task(s)
+
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Task](#task)>** task passed task(s)
 
 ## Sequence
 
@@ -301,6 +368,12 @@ Stops all tasks in the collection
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** stopped stopped status
 
+### reset
+
+Resets a stopped collection
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** reset reset status
+
 ### \_next
 
 Runs next in the sequence
@@ -321,6 +394,15 @@ Runs recover task
 
 -   `error`  
 
+### \_resetCurrent
+
+Resets current
+
+**Parameters**
+
+-   `unchain`   (optional, default `false`)
+-   `resetAfterComplete`   (optional, default `false`)
+
 ### \_\_next
 
 Gets next task from the loop
@@ -332,6 +414,12 @@ Returns **[Task](#task)** task next task
 Gets the current task
 
 Returns **[Task](#task)** task current task
+
+### passed
+
+Gets the passed task(s)
+
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Task](#task)>** task passed task(s)
 
 ## Factory
 
