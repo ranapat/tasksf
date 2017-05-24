@@ -532,4 +532,21 @@ describe('Test Sequence', () => {
     expect(task.__injected__sequenceAfterComplete).to.equal(undefined);
   });
 
+  it('to reset the oncomplete on force stop', () => {
+    const complete = () => {};
+    const sequence = new Sequence();
+    const task = new TriggerTask(complete);
+    expect(task.__injected__sequenceAfterComplete).to.equal(undefined);
+    sequence.push(task);
+    expect(task.__injected__sequenceAfterComplete).to.equal(undefined);
+    sequence.run();
+    expect(task.__injected__sequenceAfterComplete).to.equal(complete);
+    sequence.stop();
+    expect(task.__injected__sequenceAfterComplete).to.equal(complete);
+    sequence.run();
+    expect(task.__injected__sequenceAfterComplete).to.equal(complete);
+    sequence.stop(true);
+    expect(task.__injected__sequenceAfterComplete).to.equal(undefined);
+  });
+
 });

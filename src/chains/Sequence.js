@@ -51,7 +51,7 @@ class Sequence extends Collection {
     const current = this.current;
     if (current !== undefined) {
       if (skip === true) {
-        this._resetCurrent(true);
+        this._resetCurrent(true, true);
       }
 
       return current.stop() || this.tasks.length > 0;
@@ -131,10 +131,15 @@ class Sequence extends Collection {
    *
    * @protected
    */
-  _resetCurrent(unchain = false) {
+  _resetCurrent(unchain = false, resetAfterComplete = false) {
     if (this._current !== undefined) {
       if (unchain) {
         this._unchainTask(this._current);
+      }
+      if (resetAfterComplete) {
+        Injector.resetAfterComplete(
+          this._current, 'sequenceAfterComplete'
+        );
       }
       this._current = undefined;
     }
