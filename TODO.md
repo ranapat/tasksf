@@ -8,6 +8,9 @@
 - [ ] Parallels to chain and unchain
 - [ ] Parallels to handle exceptions to unchain
 - [ ] Parallels to implement passed and current
+- [ ] Reset onComplete on force stop
+- [ ] Stop parallels
+- [ ] Limited parallels
 
 ### General:
 
