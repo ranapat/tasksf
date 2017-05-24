@@ -519,4 +519,17 @@ describe('Test Sequence', () => {
     expect(sequence.passed[0]).to.equal(task);
   });
 
+  it('to reset the oncomplete after run', () => {
+    const complete = () => {};
+    const sequence = new Sequence();
+    const task = new TriggerTask(complete);
+    expect(task.__injected__sequenceAfterComplete).to.equal(undefined);
+    sequence.push(task);
+    expect(task.__injected__sequenceAfterComplete).to.equal(undefined);
+    sequence.run();
+    expect(task.__injected__sequenceAfterComplete).to.equal(complete);
+    task.complete();
+    expect(task.__injected__sequenceAfterComplete).to.equal(undefined);
+  });
+
 });

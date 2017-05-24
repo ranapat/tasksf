@@ -53,10 +53,11 @@ class Injector {
   static resetAfterComplete(task, key) {
     const original = task['__injected__' + key];
     if (original !== undefined) {
-      delete task['__injected__' + key];
 
       task._complete = original;
     }
+
+    delete task['__injected__' + key];
 
     return task;
   }
