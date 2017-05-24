@@ -6,7 +6,7 @@
 - [x] Chains generalize current
 - [x] Chains implement complete
 - [x] Parallels to chain and unchain
-- [ ] Parallels to handle exceptions to unchain
+- [x] Parallels to handle exceptions to unchain
 - [ ] Parallels to implement passed and current
 - [x] Reset sequence onComplete on force stop
 - [ ] Stop parallels

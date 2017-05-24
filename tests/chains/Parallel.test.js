@@ -156,4 +156,14 @@ describe('Test Parallel', () => {
     expect(task.chain).to.equal(undefined);
   });
 
+  it('to unchain on exceptions', () => {
+    const parallel = new Parallel();
+    const task = new Task(() => {
+      throw new Error('error');
+    });
+    parallel.push(task);
+    parallel.run();
+    expect(task.chain).to.equal(undefined);
+  });
+
 });
