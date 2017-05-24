@@ -166,4 +166,18 @@ describe('Test Parallel', () => {
     expect(task.chain).to.equal(undefined);
   });
 
+  it('to keep current and passed', () => {
+    const parallel = new Parallel();
+    const task = new TriggerTask();
+    parallel.push(task);
+    parallel.run();
+    expect(parallel.current.length).to.equal(1);
+    expect(parallel.current[0]).to.equal(task);
+    expect(parallel.passed.length).to.equal(0);
+    task.complete();
+    expect(parallel.current.length).to.equal(0);
+    expect(parallel.passed.length).to.equal(1);
+    expect(parallel.passed[0]).to.equal(task);
+  });
+
 });

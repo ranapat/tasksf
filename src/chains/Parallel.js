@@ -21,6 +21,8 @@ class Parallel extends Collection {
   constructor(complete, recover, completeOnFirst) {
     super(complete, recover);
 
+    this._current = [];
+    this._passed = [];
     this._completeOnFirst = completeOnFirst === true;
   }
 
@@ -34,13 +36,21 @@ class Parallel extends Collection {
     const length = this.tasks.length;
 
     while (this.tasks.length > 0) {
-      Injector.afterComplete(
+      const task = Injector.afterComplete(
         this.tasks.shift(),
         (error, self, ...args) => {
           Injector.resetAfterComplete(
             self, 'parallelAfterComplete'
           );
           this._unchainTask(self);
+
+          const index = this._current.indexOf(self);
+          if (index !== -1) {
+            this._current.splice(index, 1);
+          }
+          if (this._passed.indexOf(self) === -1) {
+            this._passed.push(task);
+          }
 
           if (this._completeOnFirst && completed === 0) {
             this._complete();
@@ -51,10 +61,30 @@ class Parallel extends Collection {
           ++completed;
         },
         'parallelAfterComplete'
-      ).run();
+      );
+
+      this._current.push(task);
+      task.run();
     }
   }
 
+  /**
+   * Gets the current tasks
+   *
+   * @return {Array<Task>} task current tasks
+   */
+  get current() {
+    return this._current;
+  }
+
+  /**
+   * Gets the passed task(s)
+   *
+   * @return {Array<Task>} task passed task(s)
+   */
+  get passed() {
+    return this._passed;
+  }
 }
 
 export default Parallel;
