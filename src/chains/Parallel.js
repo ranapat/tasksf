@@ -40,6 +40,7 @@ class Parallel extends Collection {
           Injector.resetAfterComplete(
             self, 'parallelAfterComplete'
           );
+          this._unchainTask(self);
 
           if (this._completeOnFirst && completed === 0) {
             this._complete();

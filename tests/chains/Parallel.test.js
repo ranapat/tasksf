@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chai_spies from 'chai-spies';
 import { expect } from 'chai';
-import { Task, TimeoutTask } from '../../src';
+import { Task, TimeoutTask, TriggerTask } from '../../src';
 import { Parallel } from '../../src';
 
 describe('Test Parallel', () => {
@@ -143,4 +143,17 @@ describe('Test Parallel', () => {
     expect(task1.done).to.equal(false);
     expect(task2.done).to.equal(false);
   });
+
+  it('to unchain on complete', () => {
+    const parallel = new Parallel();
+    const task = new TriggerTask();
+    expect(task.chain).to.equal(undefined);
+    parallel.push(task);
+    expect(task.chain).to.equal(parallel);
+    parallel.run();
+    expect(task.chain).to.equal(parallel);
+    task.complete();
+    expect(task.chain).to.equal(undefined);
+  });
+
 });
