@@ -3,12 +3,44 @@ Simple tasks manager factory
 
 ### Run your code based on tasks
 
-#### Examples:
+#### Install:
 
-##### Easy import
+##### Install with npm
+```bash
+npm install tasksf
+```
+
+##### Use with standalone
+```html
+<script src="tasksf.js"></script>
+or
+<script src="tasksf.min.js"></script>
+```
+
+#### Access the library:
+
+##### Import
 ```javascript
 import { tf } from 'tasksf';
 ```
+
+##### Require
+```javascript
+var tasksf = require('tasksf');
+```
+
+##### Standalone
+```html
+<script src="tasksf.min.js"></script>
+<script>
+// global tasksf variable exists
+// tasksf.tf - factory
+// tasksf.Task - task
+// and so on
+</script>
+```
+
+#### Examples:
 
 ##### Simple tasks in a sequence
 ```javascript
