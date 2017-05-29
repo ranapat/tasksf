@@ -109,6 +109,7 @@ function tasksf_commitChanges() {
 
 function tasksf_npmPublish() {
     cd ../
+    npm run standalone
     npm publish
     cd scripts/
 }
