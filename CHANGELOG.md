@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2.3] - 2017-05-29
+### Changes
+- include npm run standalone in the release script
+- update readme
+
 ## [1.2.2] - 2017-05-29
 ### Changes
 - tests with jsdelivr
