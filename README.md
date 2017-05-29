@@ -12,9 +12,9 @@ npm install tasksf
 
 #### Use standalone
 ```html
-<script src="tasksf.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tasksf/standalone/tasksf.js"></script>
 or
-<script src="tasksf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tasksf/standalone/tasksf.min.js"></script>
 ```
 
 #### Access the library:
@@ -31,7 +31,7 @@ const tasksf = require('tasksf');
 
 ##### Standalone
 ```html
-<script src="tasksf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tasksf/standalone/tasksf.min.js"></script>
 <script>
 // global tasksf variable exists
 // tasksf.tf - factory
