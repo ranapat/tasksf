@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2.4] - 2017-05-29
+### Changes
+- cleanup after release
+
 ## [1.2.3] - 2017-05-29
 ### Changes
 - include npm run standalone in the release script
