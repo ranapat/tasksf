@@ -1,6 +1,34 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2.2] - 2017-05-29
+### Changes
+- tests with jsdelivr
+- update readme
+- standalone lib
+- update todo
+- rebuild documentation
+- parallels reset
+- parallels with current and passed
+- more todo
+- parallels unchain on exceptions
+- parallels unchain tasks on complete
+- sequence force stop reset aftercomplete
+- always delete the inject oncomplete original
+- update readme
+- update readme
+- more todo
+- todo update
+- chain unchain for loops
+- reset and resetcurrent
+- _chainTask and _unchainTask
+- passed in sequence
+- reset and fix docblocks
+- include collection if anyone wants to extend it
+- current and passed in collection
+- todos
+- remove not needed trace
+
 ## [1.2.1] - 2017-05-22
 ### Changes
 - update npmignore
