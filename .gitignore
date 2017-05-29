@@ -6,11 +6,6 @@
 
 .coveralls.yml
 
-# Release
-package.json-e
-changelog-s
-CHANGELOG.md-e
-
 # Emacs
 *.*~
 scripts/*.*~

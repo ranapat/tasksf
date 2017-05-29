@@ -43,6 +43,7 @@ function tasksf_release() {
         tasksf_getGitDiff $currentVersion $nextVersionConfirmed
         tasksf_updateChangelog
         tasksf_commitChanges $nextVersionConfirmed
+        tasksf_npmCleanup
         tasksf_npmPublish
     fi
 }
@@ -111,6 +112,14 @@ function tasksf_npmPublish() {
     cd ../
     npm run standalone
     npm publish
+    cd scripts/
+}
+
+function tasksf_npmCleanup() {
+    cd ../
+    rm CHANGELOG.md-e
+    rm package.json-e
+    rm scripts/changelog-s
     cd scripts/
 }
 

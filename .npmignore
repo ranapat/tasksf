@@ -8,10 +8,6 @@
 /.coveralls.yml
 /.travis.yml
 
-package.json-e
-changelog-s
-CHANGELOG.md-e
-
 *.*~
 
 .keepme
