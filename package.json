@@ -4,6 +4,7 @@
   "description": "Simple tasks manager factory",
   "keywords": "tasks",
   "main": "lib/index.js",
+  "jsdelivr": "standalone/tasksf.js",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.24.1",

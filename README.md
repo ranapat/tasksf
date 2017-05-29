@@ -10,7 +10,7 @@ Simple tasks manager factory
 npm install tasksf
 ```
 
-##### Use with standalone
+#### Use standalone
 ```html
 <script src="tasksf.js"></script>
 or
@@ -26,7 +26,7 @@ import { tf } from 'tasksf';
 
 ##### Require
 ```javascript
-var tasksf = require('tasksf');
+const tasksf = require('tasksf');
 ```
 
 ##### Standalone
