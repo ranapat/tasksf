@@ -110,6 +110,7 @@ function tasksf_commitChanges() {
 
 function tasksf_npmPublish() {
     cd ../
+    npm run coveralls
     npm run standalone
     npm publish
     cd scripts/
