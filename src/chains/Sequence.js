@@ -47,6 +47,7 @@ class Sequence extends Collection {
    */
   stop(skip = false) {
     this._stopped = true;
+    this._running = false;
 
     const current = this.current;
     if (current !== undefined) {
