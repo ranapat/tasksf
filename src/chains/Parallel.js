@@ -35,7 +35,7 @@ class Parallel extends Collection {
     let completed = 0;
     const length = this.tasks.length;
 
-    while (this.tasks.length > 0) {
+    while (this._runCondition) {
       const task = Injector.afterComplete(
         this.tasks.shift(),
         (error, self, ...args) => {
@@ -59,6 +59,8 @@ class Parallel extends Collection {
           }
 
           ++completed;
+
+          this._taskComplete();
         },
         'parallelAfterComplete'
       );
@@ -66,6 +68,25 @@ class Parallel extends Collection {
       this._current.push(task);
       task.run();
     }
+  }
+
+  /**
+   * Returns the run condition
+   *
+   * @return {boolean} condition run condition
+   * @protected
+   */
+  get _runCondition() {
+    return this.tasks.length > 0;
+  }
+
+  /**
+   * Performs on every task complete
+   *
+   * @protected
+   */
+  _taskComplete() {
+    //
   }
 
   /**
