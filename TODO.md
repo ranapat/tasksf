@@ -10,7 +10,7 @@
 - [x] Parallels to implement passed and current
 - [x] Parallels to implement reset
 - [x] Reset sequence onComplete on force stop
-- [ ] Stop parallels
+- [x] Stop parallels
 - [ ] Limited parallels
 
 ### General:

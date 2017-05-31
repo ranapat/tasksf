@@ -69,6 +69,39 @@ class Parallel extends Collection {
   }
 
   /**
+   * Stops all tasks in the collection
+   *
+   * @param {boolean} skip force the stopped task to be skipped
+   * @return {boolean} stopped stopped status
+   */
+  stop(skip = false) {
+    this._running = false;
+
+    let result = true;
+
+    this._current.forEach((item) => {
+      result = result || item.stop();
+
+      if (skip) {
+          Injector.resetAfterComplete(
+            item, 'parallelAfterComplete'
+          );
+          this._unchainTask(item);
+      }
+    });
+
+    if (skip) {
+      this._current = [];
+    } else {
+      while (this._current.length > 0) {
+        this.tasks.push(this._current.shift());
+      }
+    }
+
+    return result;
+  }
+
+  /**
    * Resets a stopped collection
    *
    * @return {boolean} reset reset status

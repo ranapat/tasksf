@@ -194,4 +194,82 @@ describe('Test Parallel', () => {
     expect(parallel.passed.length).to.equal(0);
   });
 
+  it('to implement stop (1)', () => {
+    const complete1 = () => {};
+    const complete2 = () => {};
+    const parallel = new Parallel();
+    const task1 = new TriggerTask(complete1);
+    const task2 = new TriggerTask(complete2);
+    parallel.push(task1);
+    parallel.push(task2);
+    parallel.run();
+    expect(task1.__injected__parallelAfterComplete).to.equal(complete1);
+    expect(task2.__injected__parallelAfterComplete).to.equal(complete2);
+    parallel.stop();
+    expect(task1.chain).to.equal(parallel);
+    expect(task2.chain).to.equal(parallel);
+    expect(task1.__injected__parallelAfterComplete).to.equal(complete1);
+    expect(task2.__injected__parallelAfterComplete).to.equal(complete2);
+    expect(parallel._current.length).to.equal(0);
+    expect(parallel.tasks.length).to.equal(2);
+  });
+
+  it('to implement stop (2)', () => {
+    const complete1 = () => {};
+    const complete2 = () => {};
+    const parallel = new Parallel();
+    const task1 = new TriggerTask(complete1);
+    const task2 = new TriggerTask(complete2);
+    parallel.push(task1);
+    parallel.push(task2);
+    parallel.run();
+    expect(task1.__injected__parallelAfterComplete).to.equal(complete1);
+    expect(task2.__injected__parallelAfterComplete).to.equal(complete2);
+    parallel.stop(true);
+    expect(task1.chain).to.equal(undefined);
+    expect(task2.chain).to.equal(undefined);
+    expect(task1.__injected__parallelAfterComplete).to.equal(undefined);
+    expect(task2.__injected__parallelAfterComplete).to.equal(undefined);
+    expect(parallel._current.length).to.equal(0);
+    expect(parallel.tasks.length).to.equal(0);
+  });
+
+  it('to implement stop (3)', () => {
+    const complete1 = chai.spy((self) => {});
+    const complete2 = chai.spy((self) => {});
+    const complete = chai.spy((self) => {});
+    const parallel = new Parallel(complete);
+    const task1 = new TriggerTask(complete1);
+    const task2 = new TriggerTask(complete2);
+    parallel.push(task1);
+    parallel.push(task2);
+    parallel.run();
+    parallel.stop();
+    parallel.run();
+    task1.complete();
+    task2.complete();
+    expect(complete1).to.have.been.called();
+    expect(complete2).to.have.been.called();
+    expect(complete).to.have.been.called();
+  });
+
+  it('to implement stop (4)', () => {
+    const complete1 = chai.spy((self) => {});
+    const complete2 = chai.spy((self) => {});
+    const complete = chai.spy((self) => {});
+    const parallel = new Parallel(complete);
+    const task1 = new TriggerTask(complete1);
+    const task2 = new TriggerTask(complete2);
+    parallel.push(task1);
+    parallel.push(task2);
+    parallel.run();
+    parallel.stop(true);
+    parallel.run();
+    task1.complete();
+    task2.complete();
+    expect(complete1).to.have.been.called();
+    expect(complete2).to.have.been.called();
+    expect(complete).not.to.have.been.called();
+  });
+
 });
