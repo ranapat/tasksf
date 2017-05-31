@@ -108,11 +108,19 @@ function tasksf_commitChanges() {
     git push github $1
 }
 
-function tasksf_npmPublish() {
+function tasksf_npmPrePublish() {
     cd ../
     npm run coveralls
     npm run standalone
+}
+
+function tasksf_npmPublish() {
+    tasksf_npmPrePublish
     npm publish
+    tasksf_npmPostPublish
+}
+
+function tasksf_npmPostPublish() {
     cd scripts/
 }
 
