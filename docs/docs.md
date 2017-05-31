@@ -28,13 +28,14 @@
 -   [Parallel](#parallel)
     -   [constructor](#constructor-2)
     -   [run](#run-1)
+    -   [stop](#stop-1)
     -   [reset](#reset-1)
     -   [current](#current-1)
     -   [passed](#passed-2)
 -   [Sequence](#sequence)
     -   [constructor](#constructor-3)
     -   [run](#run-2)
-    -   [stop](#stop-1)
+    -   [stop](#stop-2)
     -   [reset](#reset-2)
     -   [\_next](#_next)
     -   [\_complete](#_complete-2)
@@ -80,7 +81,7 @@
     -   [run](#run-3)
     -   [complete](#complete)
     -   [recover](#recover)
-    -   [stop](#stop-2)
+    -   [stop](#stop-3)
     -   [running](#running-1)
     -   [done](#done)
     -   [failed](#failed)
@@ -88,7 +89,7 @@
 -   [TimeoutTask](#timeouttask)
     -   [constructor](#constructor-6)
     -   [run](#run-4)
-    -   [stop](#stop-3)
+    -   [stop](#stop-4)
 -   [TriggerTask](#triggertask)
     -   [constructor](#constructor-7)
     -   [run](#run-5)
@@ -313,6 +314,16 @@ Parallel constructor
 ### run
 
 Runs all tasks in the collection
+
+### stop
+
+Stops all tasks in the collection
+
+**Parameters**
+
+-   `skip` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** force the stopped task to be skipped (optional, default `false`)
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** stopped stopped status
 
 ### reset
 
