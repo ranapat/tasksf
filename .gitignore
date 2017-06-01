@@ -3,7 +3,6 @@
 /npm-debug.log
 /coverage/
 /standalone/
-/ranapat/
 
 .coveralls.yml
 
