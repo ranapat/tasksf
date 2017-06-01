@@ -5,6 +5,7 @@ import TriggerMap from './TriggerMap';
 import Sequence from '../chains/Sequence';
 import Parallel from '../chains/Parallel';
 import Loop from '../chains/Loop';
+import Limiter from '../chains/Limiter';
 
 /**
  * Tasks and Collections Factory
@@ -99,6 +100,21 @@ class Factory {
     Factory.initialize();
 
     return new Loop(repeats, repeat, recover);
+  }
+
+  /**
+   * Gets a limiter
+   *
+   * @param {number} limit max running tasks
+   * @param {Function} complete function to be called on complete
+   * @param {Function} recover function to be called on recover
+   * @param {boolean} completeOnFirst completes on last or on first
+   * @return {Limiter} new limiter
+   */
+  static limiter(limit, complete, recover, completeOnFirst) {
+    Factory.initialize();
+
+    return new Limiter(limit, complete, recover, completeOnFirst);
   }
 
   /**

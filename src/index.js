@@ -10,9 +10,10 @@ import Collection from './chains/Collection';
 import Sequence from './chains/Sequence';
 import Parallel from './chains/Parallel';
 import Loop from './chains/Loop';
+import Limiter from './chains/Limiter';
 
 export { Task, TimeoutTask, TriggerTask };
-export { Collection, Sequence, Parallel, Loop };
+export { Collection, Sequence, Parallel, Loop, Limiter };
 export { Factory, Factory as tf };
 export { Map };
 export { Match };

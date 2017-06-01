@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { Factory, tf } from '../../src';
 import { Map, Match } from '../../src';
 import { Task, TimeoutTask, TriggerTask } from '../../src';
-import { Sequence, Parallel, Loop } from '../../src';
+import { Sequence, Parallel, Loop, Limiter } from '../../src';
 
 describe('Test Factory', () => {
   let mapsByDefault;
@@ -186,6 +186,12 @@ describe('Test Factory', () => {
     tf.initialize(true);
     const collection = tf.loop();
     expect(collection).to.be.an.instanceof(Loop);
+  });
+
+  it('to get Limiter', () => {
+    tf.initialize(true);
+    const collection = tf.limiter();
+    expect(collection).to.be.an.instanceof(Limiter);
   });
 
 });
