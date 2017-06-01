@@ -32,42 +32,41 @@ class Parallel extends Collection {
   run() {
     super.run();
 
-    let completed = 0;
-    const length = this.tasks.length;
-
     while (this._runCondition) {
-      const task = Injector.afterComplete(
-        this.tasks.shift(),
-        (error, self, ...args) => {
-          Injector.resetAfterComplete(
-            self, 'parallelAfterComplete'
-          );
-          this._unchainTask(self);
-
-          const index = this._current.indexOf(self);
-          if (index !== -1) {
-            this._current.splice(index, 1);
-          }
-          if (this._passed.indexOf(self) === -1) {
-            this._passed.push(task);
-          }
-
-          if (this._completeOnFirst && completed === 0) {
-            this._complete();
-          } else if (!this._completeOnFirst && completed + 1 === length) {
-            this._complete();
-          }
-
-          ++completed;
-
-          this._taskComplete();
-        },
-        'parallelAfterComplete'
-      );
-
-      this._current.push(task);
-      task.run();
+      this._run(this.tasks.shift());
     }
+  }
+
+  _run(task) {
+    Injector.afterComplete(
+      task,
+      (error, self, ...args) => {
+        Injector.resetAfterComplete(
+          self, 'parallelAfterComplete'
+        );
+        this._unchainTask(self);
+
+        const index = this._current.indexOf(self);
+        if (index !== -1) {
+          this._current.splice(index, 1);
+        }
+        if (this._passed.indexOf(self) === -1) {
+          this._passed.push(task);
+        }
+
+        if (this._completeOnFirst && this._passed.length === 1) {
+          this._complete();
+        } else if (!this._completeOnFirst && this._current.length === 0) {
+          this._complete();
+        }
+
+        this._taskComplete();
+      },
+      'parallelAfterComplete'
+    );
+
+    this._current.push(task);
+    task.run();
   }
 
   /**
