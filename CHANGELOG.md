@@ -1,6 +1,20 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2.5] - 2017-06-01
+### Changes
+- rebuild documentation
+- limited parallels
+- check for own property
+- npm 5
+- refactor task running
+- 2 protected methods - to make it easier for extension
+- prepublish and postpublish
+- reorder and group scripts
+- run coveralls automatically on release
+- stop parallels
+- set running to false
+
 ## [1.2.4] - 2017-05-29
 ### Changes
 - cleanup after release
