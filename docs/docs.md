@@ -20,20 +20,27 @@
     -   [running](#running)
     -   [current](#current)
     -   [passed](#passed)
--   [Loop](#loop)
+-   [Limiter](#limiter)
     -   [constructor](#constructor-1)
+    -   [\_runCondition](#_runcondition)
+    -   [\_taskComplete](#_taskcomplete)
+-   [Loop](#loop)
+    -   [constructor](#constructor-2)
     -   [\_complete](#_complete-1)
     -   [\_\_next](#__next)
     -   [passed](#passed-1)
 -   [Parallel](#parallel)
-    -   [constructor](#constructor-2)
+    -   [constructor](#constructor-3)
     -   [run](#run-1)
+    -   [\_run](#_run)
+    -   [\_runCondition](#_runcondition-1)
+    -   [\_taskComplete](#_taskcomplete-1)
     -   [stop](#stop-1)
     -   [reset](#reset-1)
     -   [current](#current-1)
     -   [passed](#passed-2)
 -   [Sequence](#sequence)
-    -   [constructor](#constructor-3)
+    -   [constructor](#constructor-4)
     -   [run](#run-2)
     -   [stop](#stop-2)
     -   [reset](#reset-2)
@@ -52,6 +59,7 @@
     -   [sequence](#sequence-1)
     -   [parallel](#parallel-1)
     -   [loop](#loop-1)
+    -   [limiter](#limiter-1)
     -   [initialize](#initialize)
     -   [map](#map)
     -   [unmap](#unmap)
@@ -59,7 +67,7 @@
 -   [Map](#map-1)
     -   [match](#match)
 -   [Match](#match-1)
-    -   [constructor](#constructor-4)
+    -   [constructor](#constructor-5)
     -   [percentage](#percentage)
     -   [percentage](#percentage-1)
 -   [RawMap](#rawmap)
@@ -74,7 +82,7 @@
     -   [addChainGetter](#addchaingetter)
     -   [removeChainGetter](#removechaingetter)
 -   [Task](#task-1)
-    -   [constructor](#constructor-5)
+    -   [constructor](#constructor-6)
     -   [attach](#attach-1)
     -   [detach](#detach-1)
     -   [get](#get-1)
@@ -87,11 +95,11 @@
     -   [failed](#failed)
     -   [exceptions](#exceptions)
 -   [TimeoutTask](#timeouttask)
-    -   [constructor](#constructor-6)
+    -   [constructor](#constructor-7)
     -   [run](#run-4)
     -   [stop](#stop-4)
 -   [TriggerTask](#triggertask)
-    -   [constructor](#constructor-7)
+    -   [constructor](#constructor-8)
     -   [run](#run-5)
 
 ## Collection
@@ -245,6 +253,42 @@ Gets the passed task(s)
 
 Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Task](#task)>** task passed task(s)
 
+## Limiter
+
+**Extends Parallel**
+
+Limiter
+
+Parallel with limit for max running tasks
+
+**Parameters**
+
+-   `limit` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** max running tasks
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+-   `completeOnFirst` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** completes on last or on first
+
+### constructor
+
+Limiter constructor
+
+**Parameters**
+
+-   `limit` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** max running tasks
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+-   `completeOnFirst` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** completes on last or on first
+
+### \_runCondition
+
+Returns the run condition
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** condition run condition
+
+### \_taskComplete
+
+Performs on every task complete
+
 ## Loop
 
 **Extends Sequence**
@@ -314,6 +358,24 @@ Parallel constructor
 ### run
 
 Runs all tasks in the collection
+
+### \_run
+
+Runs a single task
+
+**Parameters**
+
+-   `task`  
+
+### \_runCondition
+
+Returns the run condition
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** condition run condition
+
+### \_taskComplete
+
+Performs on every task complete
 
 ### stop
 
@@ -506,6 +568,19 @@ Gets a loop
 -   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
 
 Returns **[Loop](#loop)** new loop
+
+### limiter
+
+Gets a limiter
+
+**Parameters**
+
+-   `limit` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** max running tasks
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+-   `completeOnFirst` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** completes on last or on first
+
+Returns **[Limiter](#limiter)** new limiter
 
 ### initialize
 
