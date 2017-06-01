@@ -22,4 +22,5 @@
 ### Other:
 
 - [ ] more examples
+- [ ] even more examples
 - [x] complete documentation
