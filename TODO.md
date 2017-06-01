@@ -19,6 +19,7 @@
 - [x] Parallel tasks
 - [ ] Mesh of collections to merge sequences and parallels
 - [x] Try to make it standalone
+- [ ] More ways to auto make tasks
 
 ### Other:
 
