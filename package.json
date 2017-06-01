@@ -35,7 +35,7 @@
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | node_modules/.bin/coveralls",
     "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
     "standalone": "npm run prepublish && node_modules/.bin/browserify lib/index.js --standalone tasksf > standalone/tasksf.js && node_modules/.bin/browserify lib/index.js --standalone tasksf | node_modules/.bin/uglifyjs -c > standalone/tasksf.min.js",
-    "echo": "echo status() rulez"
+    "echo": "echo status() sux"
   },
   "author": "ranapat@gmail.com",
   "license": "Unlicense",
