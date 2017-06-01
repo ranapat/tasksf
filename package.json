@@ -25,19 +25,13 @@
   "scripts": {
     "test": "node_modules/mocha/bin/mocha --compilers js:babel-register --require babel-polyfill --recursive tests",
     "tdd": "node_modules/mocha/bin/mocha --compilers js:babel-register --require babel-polyfill --recursive tests --watch src/ tests/",
-
     "serve": "node_modules/babel-cli/bin/babel.js -w src -d lib | nodemon --watch lib",
     "watch": "node_modules/babel-cli/bin/babel.js -w src -d lib",
-
     "coverage": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- --compilers js:babel-register --require babel-polyfill --recursive tests",
-
     "documentation": "node_modules/documentation/bin/documentation.js build src/** -f html -o docs && node_modules/documentation/bin/documentation.js build src/** -f md -o docs/docs.md",
     "commitdocs": "npm run documentation && git add docs/docs.md && git add docs/index.html && git commit -m 'rebuild documentation'",
-
     "push": "git push origin && git push github",
-
     "release": "cd $(git rev-parse --show-toplevel)/scripts && ./release",
-
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | node_modules/.bin/coveralls",
     "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
     "standalone": "npm run prepublish && node_modules/.bin/browserify lib/index.js --standalone tasksf > standalone/tasksf.js && node_modules/.bin/browserify lib/index.js --standalone tasksf | node_modules/.bin/uglifyjs -c > standalone/tasksf.min.js"
