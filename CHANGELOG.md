@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2017-06-01
+### Changes
+- update readme
+- fix last parallel complete
+
 ## [1.2.5] - 2017-06-01
 ### Changes
 - rebuild documentation
