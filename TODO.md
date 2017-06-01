@@ -22,6 +22,5 @@
 ### Other:
 
 - [ ] more examples
-- [ ] even more examples
 - [ ] merge external examples in this repo
 - [x] complete documentation
