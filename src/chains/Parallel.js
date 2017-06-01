@@ -61,7 +61,7 @@ class Parallel extends Collection {
 
         if (this._completeOnFirst && this._passed.length === 1) {
           this._complete();
-        } else if (!this._completeOnFirst && this._current.length === 0) {
+        } else if (!this._completeOnFirst && this._current.length === 0 && this.tasks.length === 0) {
           this._complete();
         }
 
