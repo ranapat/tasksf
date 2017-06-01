@@ -37,6 +37,11 @@ class Parallel extends Collection {
     }
   }
 
+  /**
+   * Runs a single task
+   *
+   * @protected
+   */
   _run(task) {
     Injector.afterComplete(
       task,
