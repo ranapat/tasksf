@@ -76,17 +76,20 @@
     -   [match](#match-3)
 -   [TriggerMap](#triggermap)
     -   [match](#match-4)
+-   [AsyncTask](#asynctask)
+    -   [constructor](#constructor-6)
+    -   [run](#run-3)
 -   [Injector](#injector)
     -   [afterComplete](#aftercomplete)
     -   [resetAfterComplete](#resetaftercomplete)
     -   [addChainGetter](#addchaingetter)
     -   [removeChainGetter](#removechaingetter)
 -   [Task](#task-1)
-    -   [constructor](#constructor-6)
+    -   [constructor](#constructor-7)
     -   [attach](#attach-1)
     -   [detach](#detach-1)
     -   [get](#get-1)
-    -   [run](#run-3)
+    -   [run](#run-4)
     -   [complete](#complete)
     -   [recover](#recover)
     -   [stop](#stop-3)
@@ -95,12 +98,12 @@
     -   [failed](#failed)
     -   [exceptions](#exceptions)
 -   [TimeoutTask](#timeouttask)
-    -   [constructor](#constructor-7)
-    -   [run](#run-4)
-    -   [stop](#stop-4)
--   [TriggerTask](#triggertask)
     -   [constructor](#constructor-8)
     -   [run](#run-5)
+    -   [stop](#stop-4)
+-   [TriggerTask](#triggertask)
+    -   [constructor](#constructor-9)
+    -   [run](#run-6)
 
 ## Collection
 
@@ -734,6 +737,53 @@ Match argument with a specific TriggerMap
 -   `marker` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** marks a trigger task
 
 Returns **[Match](#match)** match
+
+## AsyncTask
+
+**Extends Task**
+
+AsyncTask
+
+Executes run and does not complete automatically.
+Need manual call of complete() method.
+Useful for triggers.
+
+Similar with TriggerTask, but with full set of run, complete and recover.
+In run method first parameter will be complete callback, second self and
+...args to follow. Does not care what run returns.
+
+**Parameters**
+
+-   `run` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on run
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+**Examples**
+
+```javascript
+run = (complete, self, ...args) => { }
+```
+
+### constructor
+
+AsyncTask constructor
+
+**Parameters**
+
+-   `run` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on run
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### run
+
+Runs a task
+
+Executes the run function if defined. All arguments will be
+passed to it.
+
+**Parameters**
+
+-   `args` **any** any arguments
 
 ## Injector
 
