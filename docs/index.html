@@ -6054,9 +6054,10 @@ trigger complete.</p>
     
       
       <pre class='p1 overflow-auto round fill-light'>run = <span class="hljs-function">(<span class="hljs-params">self</span>) =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'manual call complete'</span>);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'will manually call complete()'</span>);
   <span class="hljs-comment">// some logic to call self.complete() later</span>
-  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">// or whatever you want</span>
+  <span class="hljs-comment">// or call complete() from outside to make a trigger waiter</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">// or whatever you want but undefined</span>
 }</pre>
     
   

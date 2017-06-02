@@ -812,9 +812,10 @@ run = () => { console.log('next thing is complete'); }
 
 ```javascript
 run = (self) => {
-  console.log('manual call complete');
+  console.log('will manually call complete()');
   // some logic to call self.complete() later
-  return 1; // or whatever you want
+  // or call complete() from outside to make a trigger waiter
+  return 1; // or whatever you want but undefined
 }
 ```
 
