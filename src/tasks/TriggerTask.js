@@ -30,8 +30,6 @@ class TriggerTask extends Task {
    */
   run(...args) {
     this._running = true;
-
-    return 1;
   }
 }
 
