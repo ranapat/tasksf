@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.1] - 2017-06-02
+### Changes
+- update readme
+- rebuild documentation
+- async task
+- include docs in the npm module
+- remove not needed return
+- more todo
+
 ## [1.3.0] - 2017-06-01
 ### Changes
 - update readme
