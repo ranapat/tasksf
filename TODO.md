@@ -13,6 +13,7 @@
 - [x] Reset sequence onComplete on force stop
 - [x] Stop parallels
 - [x] Limited parallels
+- [ ] Async Task - TriggerTask with run, recover and complete passed to run
 
 ### General:
 
