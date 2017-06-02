@@ -151,7 +151,7 @@ tf.limiter(1, () => console.log('limiter complete'))
 
 #### Documentation
 
-[Check the documentation md](http://github.com/ranapat/tasksf/blob/master/docs/docs.md)
+[Check the documentation](http://github.com/ranapat/tasksf/blob/master/docs/docs.md)
 
 #### What is next
 
