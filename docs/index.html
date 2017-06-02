@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>tasksf 1.2.4 | Documentation</title>
+  <title>tasksf 1.3.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -14,7 +14,7 @@
       <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>tasksf</h3>
-          <div class='mb1'><code>1.2.4</code></div>
+          <div class='mb1'><code>1.3.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -5989,6 +5989,10 @@ Not intended to be used on it's own.</p>
 
   <p>Task</p>
 <p>Basic task with run, complete and recover</p>
+<p>run function can return nothing(undefined) and it will
+call complete instantly. if run returns anything it will
+NOT call complete automatically and it's up to you to
+trigger complete.</p>
 
 
   <div class='pre p1 fill-light mt0'>new Task(run: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
@@ -6042,6 +6046,19 @@ Not intended to be used on it's own.</p>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>run = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'next thing is complete'</span>); }</pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>run = <span class="hljs-function">(<span class="hljs-params">self</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'manual call complete'</span>);
+  <span class="hljs-comment">// some logic to call self.complete() later</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">// or whatever you want</span>
+}</pre>
+    
   
 
   

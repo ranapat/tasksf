@@ -793,11 +793,30 @@ Task
 
 Basic task with run, complete and recover
 
+run function can return nothing(undefined) and it will
+call complete instantly. if run returns anything it will
+NOT call complete automatically and it's up to you to
+trigger complete.
+
 **Parameters**
 
 -   `run` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on run
 -   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
 -   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+**Examples**
+
+```javascript
+run = () => { console.log('next thing is complete'); }
+```
+
+```javascript
+run = (self) => {
+  console.log('manual call complete');
+  // some logic to call self.complete() later
+  return 1; // or whatever you want
+}
+```
 
 ### constructor
 

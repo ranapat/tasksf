@@ -3,6 +3,18 @@
  *
  * Basic task with run, complete and recover
  *
+ * run function can return nothing(undefined) and it will
+ * call complete instantly. if run returns anything it will
+ * NOT call complete automatically and it's up to you to
+ * trigger complete.
+ * @example run = () => { console.log('next thing is complete'); }
+ * @example run = (self) => {
+ *   console.log('will manually call complete()');
+ *   // some logic to call self.complete() later
+ *   // or call complete() from outside to make a trigger waiter
+ *   return 1; // or whatever you want but undefined
+ * }
+ *
  * @param {Function} run function to be called on run
  * @param {Function} complete function to be called on complete
  * @param {Function} recover function to be called on recover
