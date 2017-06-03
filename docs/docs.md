@@ -51,6 +51,8 @@
     -   [\_\_next](#__next-1)
     -   [current](#current-2)
     -   [passed](#passed-3)
+-   [AsyncMap](#asyncmap)
+    -   [match](#match)
 -   [Factory](#factory)
     -   [\_CHAIN\_](#_chain_)
     -   [maps](#maps)
@@ -65,17 +67,17 @@
     -   [unmap](#unmap)
     -   [unmapAll](#unmapall)
 -   [Map](#map-1)
-    -   [match](#match)
--   [Match](#match-1)
+    -   [match](#match-1)
+-   [Match](#match-2)
     -   [constructor](#constructor-5)
     -   [percentage](#percentage)
     -   [percentage](#percentage-1)
 -   [RawMap](#rawmap)
-    -   [match](#match-2)
--   [TimeoutMap](#timeoutmap)
     -   [match](#match-3)
--   [TriggerMap](#triggermap)
+-   [TimeoutMap](#timeoutmap)
     -   [match](#match-4)
+-   [TriggerMap](#triggermap)
+    -   [match](#match-5)
 -   [AsyncTask](#asynctask)
     -   [constructor](#constructor-6)
     -   [run](#run-3)
@@ -100,6 +102,7 @@
 -   [TimeoutTask](#timeouttask)
     -   [constructor](#constructor-8)
     -   [run](#run-5)
+    -   [complete](#complete-1)
     -   [stop](#stop-4)
 -   [TriggerTask](#triggertask)
     -   [constructor](#constructor-9)
@@ -497,6 +500,28 @@ Gets the passed task(s)
 
 Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Task](#task)>** task passed task(s)
 
+## AsyncMap
+
+**Extends Map**
+
+Map for AsyncTask
+
+Maps the default ways to get a AsyncTask
+
+### match
+
+Match argument with a specific TriggerMap
+
+**Parameters**
+
+-   `args` **...any** 
+-   `run` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on run
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+-   `marker` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 0 marks a trigger task
+
+Returns **[Match](#match)** match
+
 ## Factory
 
 Tasks and Collections Factory
@@ -722,19 +747,19 @@ Returns **[Match](#match)** match
 
 **Extends Map**
 
-Map for TriggerMap
+Map for TriggerTask
 
-Maps the default ways to get a TriggerMap
+Maps the default ways to get a TriggerTask
 
 ### match
 
-Match argument with a specific TriggerMap
+Match argument with a specific TriggerTask
 
 **Parameters**
 
 -   `args` **...any** 
 -   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
--   `marker` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** marks a trigger task
+-   `marker` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** false marks a trigger task
 
 Returns **[Match](#match)** match
 
@@ -761,7 +786,7 @@ In run method first parameter will be complete callback, second self and
 **Examples**
 
 ```javascript
-run = (complete, self, ...args) => { }
+run = (complete, self, ...args) => { complete(); }
 ```
 
 ### constructor
@@ -1001,6 +1026,17 @@ TimeoutTask constructor
 Runs a task
 
 Executes the run function if defined. All arguments will be
+passed to it.
+
+**Parameters**
+
+-   `args` **any** any arguments
+
+### complete
+
+Completes a task
+
+Executes the complete function if defined. All arguments will be
 passed to it.
 
 **Parameters**
