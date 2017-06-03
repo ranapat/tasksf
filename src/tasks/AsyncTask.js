@@ -42,7 +42,7 @@ class AsyncTask extends Task {
 
     if (this._run !== undefined) {
       try {
-        this._run(this.complete, this, ...args);
+        this._run(this.complete.bind(this), this, ...args);
       } catch (error) {
         this._exceptions.run = error;
       }
