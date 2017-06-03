@@ -11,7 +11,7 @@ import Task from './Task';
  * In run method first parameter will be complete callback, second self and
  * ...args to follow. Does not care what run returns.
  *
- * @example run = (complete, self, ...args) => { }
+ * @example run = (complete, self, ...args) => { complete(); }
  *
  * @param {Function} run function to be called on run
  * @param {Function} complete function to be called on complete
