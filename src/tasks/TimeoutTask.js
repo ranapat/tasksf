@@ -42,6 +42,21 @@ class TimeoutTask extends Task {
   }
 
   /**
+   * Completes a task
+   *
+   * Executes the complete function if defined. All arguments will be
+   * passed to it.
+   *
+   * @param {any} args any arguments
+   */
+  complete(...args) {
+    this.stop();
+
+    super.complete(...args);
+  }
+
+
+  /**
    * Stops a task
    *
    * @return {boolean} success
@@ -49,6 +64,8 @@ class TimeoutTask extends Task {
   stop() {
     if (this._running) {
       clearTimeout(this._index);
+
+      this._index = undefined;
 
       return true;
     } else {

@@ -51,4 +51,22 @@ describe('Test TimeoutTask', () => {
       done();
     }, 1);
   });
+
+  it('to populate and reset _index (1)', () => {
+    const task = new TimeoutTask(1);
+    expect(task._index).to.equal(undefined);
+    task.run();
+    expect(task._index).not.to.equal(undefined);
+    task.stop();
+    expect(task._index).to.equal(undefined);
+  });
+
+  it('to populate and reset _index (2)', () => {
+    const task = new TimeoutTask(1);
+    expect(task._index).to.equal(undefined);
+    task.run();
+    expect(task._index).not.to.equal(undefined);
+    task.complete();
+    expect(task._index).to.equal(undefined);
+  });
 });
