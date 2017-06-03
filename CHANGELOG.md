@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.3] - 2017-06-03
+### Changes
+- improve async task
+- timeout complete stops the timer
+- async map
+- trigger map fixes
+
 ## [1.3.2] - 2017-06-02
 ### Changes
 - remove docs index html from readme
