@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { Factory, tf } from '../../src';
 import { Map, Match } from '../../src';
-import { Task, TimeoutTask, TriggerTask } from '../../src';
+import { Task, TimeoutTask, TriggerTask, AsyncTask } from '../../src';
 import { Sequence, Parallel, Loop, Limiter } from '../../src';
 
 describe('Test Factory', () => {
@@ -133,6 +133,30 @@ describe('Test Factory', () => {
       1
     );
     expect(task.constructor.name).to.equal('TimeoutTask');
+  });
+
+  it('to get AsyncTask from 3 functions and 0', () => {
+    tf.initialize(true);
+    const task = tf.task(
+      () => {}, () => {}, () => {}, 0
+    );
+    expect(task.constructor.name).to.equal('AsyncTask');
+  });
+
+  it('to get AsyncTask from 2 functions and 0', () => {
+    tf.initialize(true);
+    const task = tf.task(
+      () => {}, () => {}, 0
+    );
+    expect(task.constructor.name).to.equal('AsyncTask');
+  });
+
+  it('to get AsyncTask from 1 functions and 0', () => {
+    tf.initialize(true);
+    const task = tf.task(
+      () => {}, 0
+    );
+    expect(task.constructor.name).to.equal('AsyncTask');
   });
 
   it('to get task with better priority', () => {

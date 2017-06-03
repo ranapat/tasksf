@@ -1,6 +1,7 @@
 import RawMap from './RawMap';
 import TimeoutMap from './TimeoutMap';
 import TriggerMap from './TriggerMap';
+import AsyncMap from './AsyncMap';
 
 import Sequence from '../chains/Sequence';
 import Parallel from '../chains/Parallel';
@@ -132,7 +133,8 @@ class Factory {
       Factory.maps = [
         new RawMap(),
         new TimeoutMap(),
-        new TriggerMap()
+        new TriggerMap(),
+        new AsyncMap()
       ];
     }
   }

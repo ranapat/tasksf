@@ -25,20 +25,20 @@ class AsyncMap extends Map {
       && typeof args[2] === 'function'
       && args[3] === 0
     ) {
-      return new Match(new AsyncTask(...args));
+      return new Match(new AsyncTask(...args.slice(0, -1)));
     } else if (
       args.length === 3
       && typeof args[0] === 'function'
       && typeof args[1] === 'function'
       && args[2] === 0
     ) {
-      return new Match(new AsyncTask(...args));
+      return new Match(new AsyncTask(...args.slice(0, -1)));
     } else if (
       args.length === 2
       && typeof args[0] === 'function'
       && args[1] === 0
     ) {
-      return new Match(new AsyncTask(...args));
+      return new Match(new AsyncTask(...args.slice(0, -1)));
     } else {
       return undefined;
     }
