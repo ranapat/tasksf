@@ -42,9 +42,9 @@ function tasksf_release() {
         tasksf_patchPackage $nextVersionConfirmed
         tasksf_getGitDiff $currentVersion $nextVersionConfirmed
         tasksf_updateChangelog
-        tasksf_commitChanges $nextVersionConfirmed
-        tasksf_npmCleanup
-        tasksf_npmPublish
+        #tasksf_commitChanges $nextVersionConfirmed
+        #tasksf_npmCleanup
+        #tasksf_npmPublish
     fi
 }
 
@@ -71,7 +71,11 @@ function tasksf_getGitDiff() {
     git log $1..HEAD --pretty=format:"- %s" --date=short > $CHANGELOG
     sed -i -s "1s/^/## [$2] - $(date +'%Y-%m-%d')\\
 /" "$CHANGELOG"
-    sed -i -s "2s/^/### Changes\\
+    sed -i -s "2s/^/// ### Summary\\
+/g" "$CHANGELOG"
+    sed -i -s "3s/^///   release summary. uncomment to use\\
+/g" "$CHANGELOG"
+    sed -i -s "4s/^/### Changes\\
 /g" "$CHANGELOG"
     ${EDITOR:-vim} $CHANGELOG
     echo '' >> $CHANGELOG
