@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.7] - 2017-06-06
+### Summary
+testing release script
+### Changes
+- update scripts
+
 ## [1.3.6] - 2017-06-06
 ### Summary
 minor script updates
