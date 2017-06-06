@@ -41,10 +41,11 @@ function tasksf_release() {
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         tasksf_patchPackage $nextVersionConfirmed
         tasksf_getGitDiff $currentVersion $nextVersionConfirmed
+        tasksf_normalizeChangelog
         tasksf_updateChangelog
-        #tasksf_commitChanges $nextVersionConfirmed
-        #tasksf_npmCleanup
-        #tasksf_npmPublish
+        tasksf_commitChanges $nextVersionConfirmed
+        tasksf_npmCleanup
+        tasksf_npmPublish
     fi
 }
 
@@ -69,15 +70,32 @@ function tasksf_getGitDiff() {
     CHANGELOG="./changelog"
 
     git log $1..HEAD --pretty=format:"- %s" --date=short > $CHANGELOG
-    sed -i -s "1s/^/## [$2] - $(date +'%Y-%m-%d')\\
-/" "$CHANGELOG"
-    sed -i -s "2s/^/// ### Summary\\
-/g" "$CHANGELOG"
-    sed -i -s "3s/^///   release summary. uncomment to use\\
-/g" "$CHANGELOG"
-    sed -i -s "4s/^/### Changes\\
+    sed -i -s "1s/^/# Please enter the release messages for your changes. Empty lines\\
+# and lines starting with single '#' with a following space will be ignored\\
+# and not included in the changelog. The structure provided is just an example\\
+# so feel free to change it as you wish. Good luck...\\
+\\
+## [$2] - $(date +'%Y-%m-%d')\\
+# ### Summary\\
+# summary goes here...\\
+# ### Important\\
+# important notes here...\\
+# ### API changes\\
+# api changes here...\\
+# ### CUSTOM HEADER\\
+# custom values...\\
+### Changes\\
 /g" "$CHANGELOG"
     ${EDITOR:-vim} $CHANGELOG
+    echo '' >> $CHANGELOG
+}
+
+function tasksf_normalizeChangelog() {
+    CHANGELOG="./changelog"
+
+    sed -i.bak -n '/^# /!p' "$CHANGELOG"
+    sed -i.bak -n '/^ *$/!p' "$CHANGELOG"
+
     echo '' >> $CHANGELOG
 }
 
@@ -133,6 +151,8 @@ function tasksf_npmCleanup() {
     rm CHANGELOG.md-e
     rm package.json-e
     rm scripts/changelog-s
+    rm scripts/changelog-n
+    rm scripts/changelog.bak
     cd scripts/
 }
 
