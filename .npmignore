@@ -8,6 +8,7 @@
 /.coveralls.yml
 /.travis.yml
 
+.npmignore
 *.*~
 
 .keepme
