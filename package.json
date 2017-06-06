@@ -27,6 +27,8 @@
     "tdd": "node_modules/mocha/bin/mocha --compilers js:babel-register --require babel-polyfill --recursive tests --watch src/ tests/",
     "serve": "node_modules/babel-cli/bin/babel.js -w src -d lib | nodemon --watch lib",
     "watch": "node_modules/babel-cli/bin/babel.js -w src -d lib",
+    "examples": "node_modules/babel-cli/bin/babel.js -w examples/src -d examples/bin | nodemon examples/bin/index.js --watch examples/bin --watch lib",
+    "sandbox": "npm run watch & npm run examples",
     "coverage": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- --compilers js:babel-register --require babel-polyfill --recursive tests",
     "documentation": "node_modules/documentation/bin/documentation.js build src/** -f html -o docs && node_modules/documentation/bin/documentation.js build src/** -f md -o docs/docs.md",
     "commitdocs": "npm run documentation && git add docs/docs.md && git add docs/index.html && git commit -m 'rebuild documentation'",

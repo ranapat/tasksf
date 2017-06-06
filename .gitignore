@@ -3,6 +3,7 @@
 /npm-debug.log
 /coverage/
 /standalone/
+/examples/bin/
 
 .coveralls.yml
 

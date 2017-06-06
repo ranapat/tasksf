@@ -2,6 +2,7 @@
 /tests/
 /coverage/
 /scripts/
+/examples/bin/
 
 /.babelrc
 /.coveralls.yml

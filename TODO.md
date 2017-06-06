@@ -25,5 +25,5 @@
 ### Other:
 
 - [ ] more examples
-- [ ] merge external examples in this repo
+- [x] merge external examples in this repo
 - [ ] complete documentation
