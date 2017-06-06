@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.6] - 2017-06-06
+### Summary
+minor script updates
+### Changes
+- update release scripts
+
 ## [1.3.5] - 2017-06-06
 ### Changes
 - ignore the npmignore
