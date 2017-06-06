@@ -1,19 +1,19 @@
 import { tf, Task } from '../../../lib';
+import log from '../tools/log';
 
 class Attach extends Task {
   run() {
     this._running = true;
 
-    console.log();
-    console.log('--- use.tasksf attach');
-    console.log();
+    log();
+    log('--- use.tasksf attach');
 
     const task1 = tf.task(
       (self) => {
-        console.log('task 1 run ' + self.get('test') + ' ' + self.get(tf._CHAIN_));
+        log('task 1 run ' + self.get('test') + ' ' + self.get(tf._CHAIN_));
       },
       (self) => {
-        console.log('task 1 complete ' + self.get('test') + ' ' + self.get(tf._CHAIN_));
+        log('task 1 complete ' + self.get('test') + ' ' + self.get(tf._CHAIN_));
       }
     );
 
@@ -32,9 +32,11 @@ class Attach extends Task {
 
     const sequence2 = tf.sequence();
     sequence2.attach('test', test);
-    console.log('sequence2 get test ' + sequence2.get('test'));
+    log('sequence2 get test ' + sequence2.get('test'));
     sequence2.detach('test');
-    console.log('sequence2 get test ' + sequence2.get('test'));
+    log('sequence2 get test ' + sequence2.get('test'));
+
+    log('+++ use.tasksf attach');
 
     this.complete();
   }

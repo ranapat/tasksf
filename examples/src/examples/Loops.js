@@ -1,27 +1,27 @@
 import { tf, Task } from '../../../lib';
+import log from '../tools/log';
 
 class Loops extends Task {
   run() {
     this._running = true;
 
-    console.log();
-    console.log('--- use.tasksf loops');
-    console.log();
+    log();
+    log('--- use.tasksf loops');
 
     const task1 = tf.task(
       (self) => {
-        console.log('task 1 run');
+        log('task 1 run');
       },
       (self) => {
-        console.log('task 1 complete');
+        log('task 1 complete');
       }
     );
     const task2 = tf.task(
       (self) => {
-        console.log('task 2 run');
+        log('task 2 run');
       },
       (self) => {
-        console.log('task 2 complete');
+        log('task 2 complete');
       }
     );
 
@@ -30,10 +30,11 @@ class Loops extends Task {
     const loop = tf.loop(
       0,
       (self) => {
-        console.log('loops loop is looping ... ' + loops);
+        log('loops loop is looping ... ' + loops);
         if (++loops === 3) {
-          console.log('reached 3 loops, enough...');
+          log('reached 3 loops, enough...');
           self.chain.stop();
+          log('+++ use.tasksf loops');
           this.complete();
         }
       }

@@ -1,46 +1,50 @@
 import { tf, Task } from '../../../lib';
+import log from '../tools/log';
 
 class Stopping extends Task {
   run() {
     this._running = true;
 
-    console.log();
-    console.log('--- use.tasksf stopping');
-    console.log();
+    log();
+    log('--- use.tasksf stopping');
 
     let counter = 0;
 
     const task1 = tf.task(
       (self) => {
-        console.log('task 1 run ' + counter);
+        log('task 1 run ' + counter);
         if (counter == 0) {
-          console.log('task 1 stopping sequence');
+          log('task 1 stopping sequence');
           self.chain.stop();
+          log('task 1 is stopped');
         } else if (counter == 1) {
-          console.log('task 2 stopping sequence and removing itself');
+          log('task 2 stopping sequence and removing itself');
           self.chain.stop(true);
         }
       },
       (self) => {
         ++counter;
 
-        console.log('task 1 complete');
+        log('task 1 complete with counter ' + counter);
       }
     );
     const task2 = tf.task(
       (self) => {
-        console.log('task 2 run');
+        log('task 2 run');
       },
       (self) => {
-        console.log('task 2 complete');
+        log('task 2 complete');
       }
     );
 
     const sequence = tf.sequence(
       () => {
-        console.log('stopping sequence is complete');
+        log('stopping sequence is complete');
 
         if (counter === 2) {
+          ++counter;
+        } else if (counter === 3) {
+          log('+++ use.tasksf stopping');
           this.complete();
         }
       }
@@ -49,11 +53,11 @@ class Stopping extends Task {
     sequence.push(task1);
     sequence.push(task2);
 
-    console.log('starting sequence run (1)');
+    log('starting sequence run (1)');
     sequence.run();
-    console.log('starting sequence run (2)');
+    log('starting sequence run (2)');
     sequence.run();
-    console.log('starting sequence run (3)');
+    log('starting sequence run (3)');
     sequence.run();
   }
 }

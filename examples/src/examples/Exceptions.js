@@ -1,31 +1,31 @@
 import { tf, Task } from '../../../lib';
+import log from '../tools/log';
 
 class Exceptions extends Task {
   run() {
     this._running = true;
 
-    console.log();
-    console.log('--- use.tasksf exceptions');
-    console.log();
+    log();
+    log('--- use.tasksf exceptions');
 
     const task1 = tf.task(
       () => {
-        console.log('task 1 run');
+        log('task 1 run');
       },
       () => {
-        console.log('task 1 complete');
+        log('task 1 complete');
         throw new Error('error 1');
       }
     );
     const task2 = tf.task(
       (self, recover) => {
-        console.log('task 2 run ' + recover);
+        log('task 2 run ' + recover);
       },
       () => {
-        console.log('task 2 complete');
+        log('task 2 complete');
       },
       (self, error) => {
-        console.log('task 2 recover ' + error.message);
+        log('task 2 recover ' + error.message);
 
         // task can recover or not depending on return
         // will recover if returns anything but undefined
@@ -36,11 +36,11 @@ class Exceptions extends Task {
 
     const sequence = tf.sequence(
       () => {
-        console.log('sequence is complete');
+        log('+++ use.tasksf exceptions');
         this.complete();
       },
       (self, error) => {
-        console.log('exceptions sequence recover ' + error.message);
+        log('+++ exceptions sequence recover ' + error.message);
         this.complete();
       }
     );

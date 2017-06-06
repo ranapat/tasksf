@@ -1,19 +1,19 @@
 import { tf, Task, Map, Match } from '../../../lib';
+import log from '../tools/log';
 
 class Remap extends Task {
   run() {
     this._running = true;
 
-    console.log();
-    console.log('--- use.tasksf remap');
-    console.log();
+    log();
+    log('--- use.tasksf remap');
 
     const task = tf.task(
       () => {
-        console.log('task 1 run');
+        log('task 1 run');
       },
       (self) => {
-        console.log('task 1 complete');
+        log('task 1 complete');
       }
     );
 
@@ -35,18 +35,20 @@ class Remap extends Task {
     };
 
     const task1 = tf.task();
-    console.log('task1 is different from task ' + (task !== task1));
+    log('task1 is different from task ' + (task !== task1));
 
     tf.map(map2);
     const task3 = tf.task();
-    console.log('task3 is different from task ' + (task === task3));
+    log('task3 is different from task ' + (task === task3));
 
     tf.map(map1);
     const task2 = tf.task();
-    console.log('task2 is the same as task ' + (task === task2));
+    log('task2 is the same as task ' + (task === task2));
 
     tf.unmapAll();
     tf.initialize(true);
+
+    log('+++ use.tasksf remap');
 
     this.complete();
   }

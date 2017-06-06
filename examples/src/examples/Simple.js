@@ -1,34 +1,34 @@
 import { tf, Task } from '../../../lib';
+import log from '../tools/log';
 
 class Simple extends Task {
   run() {
     this._running = true;
 
-    console.log();
-    console.log('--- use.tasksf simple');
-    console.log();
+    log();
+    log('--- use.tasksf simple');
 
     const task1 = tf.task(
       () => {
-        console.log('simple task 1 run');
+        log('simple task 1 run');
       },
       () => {
-        console.log('simple task 1 complete');
+        log('simple task 1 complete');
       }
     );
     const task2 = tf.task(
       5 * 1000,
-      () => { console.log('simple task 2 run'); },
-      () => { console.log('simple task 2 complete'); clearInterval(interval); }
+      () => { log('simple task 2 run'); },
+      () => { log('simple task 2 complete'); clearInterval(interval); }
     );
     const task3 = tf.task(
-      () => { console.log('simple task 3 complete'); },
+      () => { log('simple task 3 complete'); },
       false
     );
 
     const sequence = tf.sequence(
       () => {
-        console.log('simple sequence is complete');
+        log('+++ use.tasksf simple');
         this.complete();
 
       }

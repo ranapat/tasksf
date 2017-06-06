@@ -1,25 +1,25 @@
 import { tf, Task } from '../../../lib';
+import log from '../tools/log';
 
 class Self extends Task {
   run() {
     this._running = true;
 
-    console.log();
-    console.log('--- use.tasksf self');
-    console.log();
+    log();
+    log('--- use.tasksf self');
 
     const task1 = tf.task(
       (self) => {
-        console.log('task 1 run ' + self + ' ' + (self !== this));
+        log('task 1 run ' + self + ' ' + (self !== this));
       },
       (self) => {
-        console.log('task 1 complete ' + self + ' ' + (self !== this));
+        log('task 1 complete ' + self + ' ' + (self !== this));
       }
     );
 
     const sequence = tf.sequence(
       () => {
-        console.log('self sequence is complete');
+        log('+++ use.tasksf self');
         this.complete();
       }
     );

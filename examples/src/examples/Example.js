@@ -1,21 +1,23 @@
 import { tf, Task } from '../../../lib';
+import log from '../tools/log';
 
 class Example extends Task {
   run() {
     this._running = true;
 
-    console.log();
-    console.log('--- use.tasksf example');
-    console.log();
+    log();
+    log('--- use.tasksf example');
 
     const task1 = tf.task(
-      () => console.log('task 1 run')
+      () => log('task 1 run')
     );
     const task2 = tf.task(
-      () => console.log('task 2 run')
+      () => log('task 2 run')
     );
 
     tf.sequence().push(task1).push(task2).run();
+
+    log('+++ use.tasksf example');
 
     this.complete();
   }
