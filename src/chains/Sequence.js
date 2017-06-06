@@ -31,10 +31,6 @@ class Sequence extends Collection {
     super.run();
 
     this._stopped = false;
-    if (this.current !== undefined) {
-      this.unshift(this.current);
-      this._resetCurrent();
-    }
 
     this._next();
   }
@@ -53,6 +49,10 @@ class Sequence extends Collection {
     if (current !== undefined) {
       if (skip === true) {
         this._resetCurrent(true, true);
+      } else {
+        if (this.tasks.indexOf(current) === -1) {
+          this.unshift(current);
+        }
       }
 
       return current.stop() || this.tasks.length > 0;

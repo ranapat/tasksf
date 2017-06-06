@@ -344,7 +344,7 @@ describe('Test Sequence', () => {
     sequence.run();
     expect(sequence.stop()).to.equal(true);
     expect(sequence.current).to.equal(task);
-    expect(sequence.tasks.length).to.equal(0);
+    expect(sequence.tasks.length).to.equal(1);
   });
 
   it('to be able to stop sequence with current or following tasks 2', (done) => {
@@ -354,11 +354,11 @@ describe('Test Sequence', () => {
     sequence.run();
     expect(sequence.stop()).to.equal(true);
     expect(sequence.current).to.equal(task);
-    expect(sequence.tasks.length).to.equal(0);
+    expect(sequence.tasks.length).to.equal(1);
     setTimeout(() => {
       expect(sequence.stop()).to.equal(true);
       expect(sequence.current).to.equal(task);
-      expect(sequence.tasks.length).to.equal(0);
+      expect(sequence.tasks.length).to.equal(1);
       done();
     }, 1);
   });
@@ -409,7 +409,7 @@ describe('Test Sequence', () => {
     sequence.stop();
     expect(run).not.to.have.been.called();
     expect(complete).not.to.have.been.called();
-    expect(sequence.tasks.length).to.equal(0);
+    expect(sequence.tasks.length).to.equal(1);
     expect(sequence.current).to.equal(task);
     sequence.run();
     expect(run).not.to.have.been.called();
@@ -432,7 +432,7 @@ describe('Test Sequence', () => {
     sequence.run();
     expect(sequence.stop()).to.equal(true);
     expect(sequence.current).to.equal(task);
-    expect(sequence.tasks.length).to.equal(0);
+    expect(sequence.tasks.length).to.equal(1);
     sequence.run();
     expect(sequence.stop(true)).to.equal(true);
     expect(sequence.current).to.equal(undefined);
