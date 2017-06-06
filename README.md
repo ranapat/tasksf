@@ -147,7 +147,7 @@ tf.limiter(1, () => console.log('limiter complete'))
 
 #### More examples
 
-[Check out use.tasksf](http://github.com/ranapat/use.tasksf)
+[Check the examples](http://github.com/ranapat/tasksf/blob/master/examples/src)
 
 #### Documentation
 
