@@ -151,7 +151,6 @@ function tasksf_npmCleanup() {
     rm CHANGELOG.md-e
     rm package.json-e
     rm scripts/changelog-s
-    rm scripts/changelog-n
     rm scripts/changelog.bak
     cd scripts/
 }
