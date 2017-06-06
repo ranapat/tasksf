@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.4] - 2017-06-06
+### Changes
+- fancy colors for examples
+- unshift stopped task on stop, not on rerun
+- externam examples in this repo
+
 ## [1.3.3] - 2017-06-03
 ### Changes
 - improve async task
