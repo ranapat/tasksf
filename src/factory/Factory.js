@@ -26,7 +26,7 @@ class Factory {
   /**
    * Maps collection for task matching
    *
-   * @param {array} maps list of all maps
+   * @param {Array<Map>} maps list of all maps
    */
   static maps = [];
 
