@@ -11,6 +11,7 @@ import TasksSharing from './examples/TasksSharing';
 import Stopping from './examples/Stopping';
 import Parallels from './examples/Parallels';
 import Loops from './examples/Loops';
+import Async from './examples/Async';
 
 const sequence = tf.sequence(
   () => {
@@ -29,4 +30,5 @@ sequence.push(new TasksSharing());
 sequence.push(new Stopping());
 sequence.push(new Parallels());
 sequence.push(new Loops());
+sequence.push(new Async());
 sequence.run();
