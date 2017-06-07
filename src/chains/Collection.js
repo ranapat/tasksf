@@ -20,6 +20,7 @@ class Collection {
   constructor(complete, recover) {
     this.tasks = [];
 
+    this._autoRun = false;
     this._running = false;
 
     this._attached = {};
@@ -77,6 +78,8 @@ class Collection {
     this._chainTask(task);
     this.tasks.push(task);
 
+    this._postTaskAdds();
+
     return this;
   }
 
@@ -89,6 +92,8 @@ class Collection {
   unshift(task) {
     this._chainTask(task);
     this.tasks.unshift(task);
+
+    this._postTaskAdds();
 
     return this;
   }
@@ -198,6 +203,19 @@ class Collection {
   }
 
   /**
+   * Probe post add actions
+   *
+   * Try all post add triggers
+   *
+   * @protected
+   */
+  _postTaskAdds() {
+    if (this.autoRun) {
+      this.run();
+    }
+  }
+
+  /**
    * Gets the running status
    *
    * @return {boolean} running running status
@@ -222,6 +240,26 @@ class Collection {
    */
   get passed() {
     return undefined;
+  }
+
+  /**
+   * Sets autoRun
+   *
+   * Will autorun on push or unshift
+
+   * @param {boolean} autoRun auto runs on push or unshift
+   */
+  set autoRun(value) {
+    this._autoRun = value;
+  }
+
+  /**
+   * Gets autoRun
+   *
+   * @return {boolean} autoStart auto start on push or unshift
+   */
+  get autoRun() {
+    return this._autoRun;
   }
 }
 

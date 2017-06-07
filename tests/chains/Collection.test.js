@@ -1,5 +1,7 @@
 import { expect } from 'chai';
-import { Task, Collection, Sequence, Factory } from '../../src';
+import { Task, TriggerTask } from '../../src';
+import { Collection, Sequence } from '../../src';
+import { Factory } from '../../src';
 
 describe('Test Collection', () => {
   it('to chain calls for push, unshift and remove', () => {
@@ -103,5 +105,22 @@ describe('Test Collection', () => {
     expect(collection.get('test')).to.equal(undefined);
     expect(collection.tasks.length).to.equal(0);
     expect(task.chain).to.equal(undefined);
+  });
+
+  it('to not autorun on push and unshift if needed', () => {
+    const task = new TriggerTask();
+    const collection = new Collection();
+    expect(collection.running).to.equal(false);
+    collection.push(task);
+    expect(collection.running).to.equal(false);
+  });
+
+  it('to autorun on push and unshift if needed', () => {
+    const task = new TriggerTask();
+    const collection = new Collection();
+    collection.autoRun = true;
+    expect(collection.running).to.equal(false);
+    collection.push(task);
+    expect(collection.running).to.equal(true);
   });
 });
