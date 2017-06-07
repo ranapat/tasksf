@@ -59,6 +59,7 @@
 -   [Factory](#factory)
     -   [\_CHAIN\_](#_chain_)
     -   [maps](#maps)
+    -   [attached](#attached)
     -   [initialized](#initialized)
     -   [task](#task)
     -   [sequence](#sequence-1)
@@ -69,6 +70,9 @@
     -   [map](#map)
     -   [unmap](#unmap)
     -   [unmapAll](#unmapall)
+    -   [attach](#attach-1)
+    -   [detach](#detach-1)
+    -   [get](#get-1)
 -   [Map](#map-1)
     -   [match](#match-1)
 -   [Match](#match-2)
@@ -91,9 +95,9 @@
     -   [removeChainGetter](#removechaingetter)
 -   [Task](#task-1)
     -   [constructor](#constructor-7)
-    -   [attach](#attach-1)
-    -   [detach](#detach-1)
-    -   [get](#get-1)
+    -   [attach](#attach-2)
+    -   [detach](#detach-2)
+    -   [get](#get-2)
     -   [run](#run-4)
     -   [complete](#complete)
     -   [recover](#recover)
@@ -568,7 +572,15 @@ Maps collection for task matching
 
 **Parameters**
 
--   `maps` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** list of all maps
+-   `maps` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Map](#map)>** list of all maps
+
+### attached
+
+Attached variables
+
+**Parameters**
+
+-   `attached` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** collection of any attachments
 
 ### initialized
 
@@ -666,6 +678,37 @@ Removes map from tasks matching
 ### unmapAll
 
 Removes all maps
+
+### attach
+
+Attaches variable to the factory
+
+Useful to store your collections and access them
+later on from anywhere. Or store anything you want
+in this predefined place
+
+**Parameters**
+
+-   `key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** accessor for the variable
+-   `value` **any** variable value
+
+### detach
+
+Detaches variable by name
+
+**Parameters**
+
+-   `key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** accessor for the variable
+
+### get
+
+Gets variable by name
+
+**Parameters**
+
+-   `key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** accessor for the variable
+
+Returns **any** variable value
 
 ## Map
 
