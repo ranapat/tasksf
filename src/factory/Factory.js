@@ -31,6 +31,13 @@ class Factory {
   static maps = [];
 
   /**
+   * Attached variables
+   *
+   * @param {object} attached collection of any attachments
+   */
+  static attached = {};
+
+  /**
    * Initialized status
    *
    * @param {boolean} initialized initialized status
@@ -167,6 +174,39 @@ class Factory {
    */
   static unmapAll() {
     Factory.maps = [];
+  }
+
+  /**
+   * Attaches variable to the factory
+   *
+   * Useful to store your collections and access them
+   * later on from anywhere. Or store anything you want
+   * in this predefined place
+   *
+   * @param {string} key accessor for the variable
+   * @param {any} value variable value
+   */
+  static attach(key, value) {
+    Factory.attached[key] = value;
+  }
+
+  /**
+   * Detaches variable by name
+   *
+   * @param {string} key accessor for the variable
+   */
+  static detach(key) {
+    delete Factory.attached[key];
+  }
+
+  /**
+   * Gets variable by name
+   *
+   * @param {string} key accessor for the variable
+   * @return {any} variable value
+   */
+  static get(key) {
+    return Factory.attached[key];
   }
 }
 

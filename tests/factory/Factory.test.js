@@ -60,6 +60,15 @@ describe('Test Factory', () => {
     expect(tf.maps.length).to.equal(mapsByDefault);
   });
 
+  it('to attach, detach and get variables', () => {
+    const test = 'test';
+    expect(tf.get('test')).to.equal(undefined);
+    tf.attach('test', test);
+    expect(tf.get('test')).to.equal(test);
+    tf.detach('test');
+    expect(tf.get('test')).to.equal(undefined);
+  });
+
   it('to get Task from 3 functions', () => {
     tf.initialize(true);
     const task = tf.task(
