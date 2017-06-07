@@ -17,9 +17,12 @@
     -   [\_recover](#_recover)
     -   [\_chainTask](#_chaintask)
     -   [\_unchainTask](#_unchaintask)
+    -   [\_postTaskAdds](#_posttaskadds)
     -   [running](#running)
     -   [current](#current)
     -   [passed](#passed)
+    -   [autoRun](#autorun)
+    -   [autoRun](#autorun-1)
 -   [Limiter](#limiter)
     -   [constructor](#constructor-1)
     -   [\_runCondition](#_runcondition)
@@ -241,6 +244,12 @@ Detach the chain from the task
 
 -   `task` **[Task](#task)** task to chain
 
+### \_postTaskAdds
+
+Probe post add actions
+
+Try all post add triggers
+
 ### running
 
 Gets the running status
@@ -258,6 +267,23 @@ Returns **([Task](#task) \| [Array](https://developer.mozilla.org/en-US/docs/Web
 Gets the passed task(s)
 
 Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Task](#task)>** task passed task(s)
+
+### autoRun
+
+Sets autoRun
+
+Will autorun on push or unshift
+
+**Parameters**
+
+-   `value`  
+-   `autoRun` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** auto runs on push or unshift
+
+### autoRun
+
+Gets autoRun
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** autoStart auto start on push or unshift
 
 ## Limiter
 
