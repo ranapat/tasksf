@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.8] - 2017-06-07
+### Summary
+AutoRun of collections and global factory attachments
+### Changes
+- rebuild documentation
+- attach, detach and get for factory
+- autorun
+- async example
+
 ## [1.3.7] - 2017-06-06
 ### Summary
 testing release script
