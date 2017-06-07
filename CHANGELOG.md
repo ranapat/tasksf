@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.9] - 2017-06-07
+### Changes
+- do not use number.isinteger
+
 ## [1.3.8] - 2017-06-07
 ### Summary
 AutoRun of collections and global factory attachments
