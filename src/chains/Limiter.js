@@ -22,7 +22,7 @@ class Limiter extends Parallel {
   constructor(limit, complete, recover, completeOnFirst) {
     super(complete, recover, completeOnFirst);
 
-    this._limit = Number.isInteger(limit) ? limit : 1;
+    this._limit = limit > 1 ? limit : 1;
   }
 
   /**
