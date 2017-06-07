@@ -8,14 +8,19 @@ class Async extends Task {
     log();
     log('--- use.tasksf async');
 
-    const callback = (complete) => {
-      log('callback call');
-      log('+++ use.tasksf async');
+    const runCallback = (complete) => {
+      log('run call');
       complete();
     };
 
+    const completeCallback = () => {
+      log('complete call');
+      log('+++ use.tasksf async');
+      this.complete();
+    };
+
     const task = tf.task(
-      callback, 0
+      runCallback, completeCallback, 0
     );
 
     log('run task');
