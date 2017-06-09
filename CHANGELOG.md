@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.10] - 2017-06-09
+### Changes
+- update documentation
+
 ## [1.3.9] - 2017-06-07
 ### Changes
 - do not use number.isinteger
