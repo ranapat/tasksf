@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.11] - 2017-06-09
+### Changes
+- change prepublish to prepublishOnly
+
 ## [1.3.10] - 2017-06-09
 ### Changes
 - update documentation
