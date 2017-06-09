@@ -3,6 +3,9 @@ Simple tasks manager factory
 
 ### Run your code based on tasks
 
+Run callback tasks, timeout tasks, trigger tasks and async tasks in sequences, loops, parallels and limiters with automatic exception handling.
+Provides easier way to handle chaining and unchainig of events and actions.
+
 #### Install:
 
 ##### Install with npm
