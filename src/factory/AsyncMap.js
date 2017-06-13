@@ -14,7 +14,7 @@ class AsyncMap extends Map {
    * @param {Function} run function to be called on run
    * @param {Function} complete function to be called on complete
    * @param {Function} recover function to be called on recover
-   * @param {number} marker 0 marks a trigger task
+   * @param {number} marker 0 marks a async task
    * @return {Match} match
    */
   match(...args) {
