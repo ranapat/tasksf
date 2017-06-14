@@ -97,7 +97,7 @@ new TriggerTask()
 tf.task()
 ```
 
-##### Creating a async task
+##### Creating an async task
 
 Async task is similar to Trigger task, but with
 run and complete body. Run will execute run callback, but
@@ -110,9 +110,13 @@ const run = (completeMe, self, ...) => {
   completeMe() // will call complete callback and proceed
 };
 new AsyncTask(run);
-// or
+```
+
+```javascript
 new AsyncTask((complete) => { complete(); });
-// or
+```
+
+```javascript
 tf.task((complete) => { complete(); }, 0);
 ```
 
