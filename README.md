@@ -51,7 +51,7 @@ Task is a set of run, complete and recover callbacks.
 On task.run() we have run callback executed.
 When it's complete we have the complete callback executed.
 Recover is used in case you put your tasks in some collection
-and the previous collection crashes with exceptions. You will
+and the previous task crashes with exceptions. You will
 receive that exception and define if you want to proceed / run
 or stop.
 
@@ -104,10 +104,17 @@ run and complete body. Run will execute run callback, but
 never run complete alone - you need to trigger it yourself.
 You receive "completeMe" as a first parameter.
 
-(completeMe, self, ...) => {
+```javascript
+const run = (completeMe, self, ...) => {
   // do something
   completeMe() // will call complete callback and proceed
-}
+};
+new AsyncTask(run);
+// or
+new AsyncTask((complete) => { complete(); });
+// or
+tf.task((complete) => { complete(); }, 0);
+```
 
 ```javascript
 // default way
