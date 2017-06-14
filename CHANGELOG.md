@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.12] - 2017-06-14
+### Changes
+- update readme
+- rebuild documentation
+- fix dockblock
+- update keywords
+
 ## [1.3.11] - 2017-06-09
 ### Changes
 - change prepublish to prepublishOnly
