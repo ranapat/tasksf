@@ -3,6 +3,7 @@
 ### Important
 
 - [ ] Mesh of collections to merge different collections
+- [ ] Make Promise as a task
 
 ### General:
 
