@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.13] - 2017-06-23
+### Summary
+Promise integration
+### Changes
+- update readme and package keywords
+- rebuild documentation
+- promise task
+
 ## [1.3.12] - 2017-06-14
 ### Changes
 - update readme
