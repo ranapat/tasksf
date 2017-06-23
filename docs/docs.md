@@ -1002,6 +1002,10 @@ Checks if promise already resolved. If not does nothing.
 
 Checks if instance is Promise
 
+We do not want promises as a dependency - as it's conditionally used.
+The checks for promise will be a bit loose - just checking for finally
+and assuming it's a Promise.
+
 **Parameters**
 
 -   `promise` **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** promise instance
