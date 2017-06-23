@@ -79,12 +79,14 @@
     -   [constructor](#constructor-5)
     -   [percentage](#percentage)
     -   [percentage](#percentage-1)
--   [RawMap](#rawmap)
+-   [PromiseMap](#promisemap)
     -   [match](#match-3)
--   [TimeoutMap](#timeoutmap)
+-   [RawMap](#rawmap)
     -   [match](#match-4)
--   [TriggerMap](#triggermap)
+-   [TimeoutMap](#timeoutmap)
     -   [match](#match-5)
+-   [TriggerMap](#triggermap)
+    -   [match](#match-6)
 -   [AsyncTask](#asynctask)
     -   [constructor](#constructor-6)
     -   [run](#run-3)
@@ -93,12 +95,18 @@
     -   [resetAfterComplete](#resetaftercomplete)
     -   [addChainGetter](#addchaingetter)
     -   [removeChainGetter](#removechaingetter)
--   [Task](#task-1)
+-   [PromiseTask](#promisetask)
     -   [constructor](#constructor-7)
+    -   [run](#run-4)
+    -   [\_isPromise](#_ispromise)
+    -   [\_setPromise](#_setpromise)
+    -   [\_promiseFinally](#_promisefinally)
+-   [Task](#task-1)
+    -   [constructor](#constructor-8)
     -   [attach](#attach-2)
     -   [detach](#detach-2)
     -   [get](#get-2)
-    -   [run](#run-4)
+    -   [run](#run-5)
     -   [complete](#complete)
     -   [recover](#recover)
     -   [stop](#stop-3)
@@ -107,13 +115,13 @@
     -   [failed](#failed)
     -   [exceptions](#exceptions)
 -   [TimeoutTask](#timeouttask)
-    -   [constructor](#constructor-8)
-    -   [run](#run-5)
+    -   [constructor](#constructor-9)
+    -   [run](#run-6)
     -   [complete](#complete-1)
     -   [stop](#stop-4)
 -   [TriggerTask](#triggertask)
-    -   [constructor](#constructor-9)
-    -   [run](#run-6)
+    -   [constructor](#constructor-10)
+    -   [run](#run-7)
 
 ## Collection
 
@@ -769,6 +777,27 @@ Percentage getter
 
 Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** percentage value from 0 to 1
 
+## PromiseMap
+
+**Extends Map**
+
+Map for PromiseTask
+
+Maps the default ways to get a PromiseTask
+
+### match
+
+Match argument with a specific PromiseMap
+
+**Parameters**
+
+-   `args` **...any** 
+-   `promise` **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** promise to wait for
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+Returns **[Match](#match)** match
+
 ## RawMap
 
 **Extends Map**
@@ -930,6 +959,66 @@ Remove a method called chain to get Factory._CHAIN_
 -   `task` **[Task](#task)** task to be modified
 
 Returns **[Task](#task)** task modified task
+
+## PromiseTask
+
+**Extends Task**
+
+PromiseTask
+
+Takes a Promise and waits for it to complete.
+Will attack to finally and complete.
+Useful for triggers.
+
+Similar with TriggerTask, but with set of complete and recover.
+
+**Parameters**
+
+-   `promise` **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** promise instance to wait for
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### constructor
+
+PromiseTask constructor
+
+**Parameters**
+
+-   `promise` **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** promise instance to wait for
+-   `complete` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on complete
+-   `recover` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to be called on recover
+
+### run
+
+Runs a task
+
+Checks if promise already resolved. If not does nothing.
+
+**Parameters**
+
+-   `args` **any** any arguments
+
+### \_isPromise
+
+Checks if instance is Promise
+
+**Parameters**
+
+-   `promise` **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** promise instance
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+### \_setPromise
+
+Sets promise and attaches to finally
+
+**Parameters**
+
+-   `promise` **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** promise instance
+
+### \_promiseFinally
+
+Handles promise finally resolved
 
 ## Task
 
