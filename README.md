@@ -43,49 +43,51 @@ const tasksf = require('tasksf');
 </script>
 ```
 
-#### Examples:
+#### Basics:
 
-##### Creating a task
+##### What is Task, how to create a Task
 
 Task is a set of run, complete and recover callbacks.
 On task.run() we have run callback executed.
 When it's complete we have the complete callback executed.
 Recover is used in case you put your tasks in some collection
 and the previous task crashes with exceptions. You will
-receive that exception and define if you want to proceed / run
-or stop.
+receive that exception in recover callback and decide
+if you want to proceed / run or stop and abort.
 
 ```javascript
 // default way
 new Task(run, complete, recover)
 // quick way
 tf.task(run, complete, recover)
-// you can skip complete or/and recover
+// you can skip complete and recover
 new Task(run)
 tf.task(run)
 ```
 
-##### Creating a timeout task
+##### What is TimeoutTask, how to create a TimeoutTask
 
 Timeout task is a task that runs after timeout. The timeout
-is in ms. So 5 * 1000 will run after 5 sec.
+is in ms. So 5 * 1000 will run after 5 sec. TimeoutTask extends
+all of the Task functionality. If you skip all callbacks and use
+the task in a sequential collection it's just waiting interval.
 
 ```javascript
 // default way
 new TimeoutTask(timeout, run, complete, recover)
 // quick way
 tf.task(timeout, run, complete, recover)
-// you can skip run, complete or/and recover
+// you can skip run, complete and recover
 new TimeoutTask(timeout)
 tf.task(timeout)
 ```
 
-##### Creating a trigger task
+##### What is TriggerTask, how to create a TriggerTask
 
-Trigger task is a task that never runs alone. It's useful
-when waiting for something - event, something else, user interaction.
+TriggerTask is a task that never completes alone. It's useful
+when waiting for something - event, user interaction or something else.
 It has no run or recover method - and when put in a queue it just waits
-for complete().
+for task.complete().
 
 ```javascript
 // default way
@@ -97,38 +99,39 @@ new TriggerTask()
 tf.task()
 ```
 
-##### Creating an async task
+##### What is AsyncTask, how to create an AsyncTask
 
 Async task is similar to Trigger task, but with
 run and complete body. Run will execute run callback, but
 never run complete alone - you need to trigger it yourself.
-You receive "completeMe" as a first parameter.
+You receive "complete" function as a first parameter.
 
 ```javascript
-const run = (completeMe, self, ...) => {
+const run = (complete, self, ...) => {
   // do something
-  completeMe() // will call complete callback and proceed
+  complete(); // will call complete callback to proceed
 };
 new AsyncTask(run);
-```
-
-```javascript
+// a shorter way to do the same
 new AsyncTask((complete) => { complete(); });
-```
-
-```javascript
+// event shorter way to do that
 tf.task((complete) => { complete(); }, 0);
-```
-
-```javascript
-// default way
+// default set of parameters
 new AsyncTask(run, complete, recover)
 // quick way
 tf.task(run, complete, recover, 0)
-// you can skip complete or/and recover
+// you can skip complete and recover
 new AsyncTask(run)
 tf.task(run, 0)
 ```
+
+##### What are collections
+
+Tasks are useful when ordered in collections. For now we have:
+- sequences
+- loops
+- parallels
+- limits
 
 ##### Tasks in a sequence
 
@@ -159,7 +162,7 @@ tf.sequence(() => console.log('sequence complete'))
 
 ##### Tasks in a loop
 
-Loop is sequence that repeats
+Loop is sequence that repeats.
 
 ```javascript
 const task1 = tf.task(
@@ -189,7 +192,7 @@ tf.loop(2, () => console.log('loop'))
 
 ##### Timeout tasks in a parallel
 
-Parallel runs all at once. You can have complete callback
+Parallel runs all tasks at once. You can have complete callback
 on the first or on the last of tasks.
 
 ```javascript
