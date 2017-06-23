@@ -48,14 +48,18 @@ class PromiseTask extends Task {
   /**
    * Checks if instance is Promise
    *
+   * We do not want promises as a dependency - as it's conditionally used.
+   * The checks for promise will be a bit loose - just checking for finally
+   * and assuming it's a Promise.
+   *
    * @param {Promise} promise promise instance
    * @return {boolean}
    */
   _isPromise(promise) {
-    return promise
-      && promise.constructor && promise.constructor.name === 'Promise'
-      && promise.finally && promise.finally.constructor.name === 'Function'
-    ;
+    return promise && (
+      promise.constructor && promise.constructor.name === 'Promise'
+      || promise.finally && promise.finally.constructor.name === 'Function'
+    );
   }
 
   /**

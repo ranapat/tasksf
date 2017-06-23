@@ -18,6 +18,12 @@ describe('Test PromiseTask', () => {
     const promise3 = new Promise();
     const task3 = new PromiseTask(promise3);
     expect(task3._promise).to.equal(promise3);
+
+    class ExtendedPromise extends Promise {
+    }
+    const promise4 = new ExtendedPromise();
+    const task4 = new PromiseTask(promise4);
+    expect(task4._promise).to.equal(promise4);
   });
 
   it('to be starting and waiting', () => {
