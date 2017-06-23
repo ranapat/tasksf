@@ -1,14 +1,14 @@
 # tasksf [![npm version](https://img.shields.io/npm/v/tasksf.svg?style=flat)](https://www.npmjs.com/package/tasksf) [![Build Status](https://img.shields.io/travis/ranapat/tasksf/master.svg?style=flat)](https://travis-ci.org/ranapat/tasksf) [![Coverage Status](https://coveralls.io/repos/ranapat/tasksf/badge.svg?branch=master)](https://coveralls.io/r/ranapat/tasksf?branch=master)
 Simple tasks manager factory
 
-### Run your code based on tasks
+## Run your code based on tasks
 
-Run callback tasks, timeout tasks, trigger tasks and async tasks in sequences, loops, parallels and limiters with automatic exception handling.
+Run callback tasks, timeout tasks, trigger tasks, async tasks and promise tasks in sequences, loops, parallels and limiters with automatic exception handling.
 Provides easier way to handle chaining and unchainig of events and actions.
 
-#### Install:
+### Install:
 
-##### Install with npm
+#### Install with npm
 ```bash
 npm install tasksf
 ```
@@ -20,19 +20,19 @@ or
 <script src="https://cdn.jsdelivr.net/npm/tasksf/standalone/tasksf.min.js"></script>
 ```
 
-#### Access the library:
+### Access the library:
 
-##### Import
+#### Import
 ```javascript
 import { tf } from 'tasksf';
 ```
 
-##### Require
+#### Require
 ```javascript
 const tasksf = require('tasksf');
 ```
 
-##### Standalone
+#### Standalone
 ```html
 <script src="https://cdn.jsdelivr.net/npm/tasksf/standalone/tasksf.min.js"></script>
 <script>
@@ -43,7 +43,11 @@ const tasksf = require('tasksf');
 </script>
 ```
 
-#### Basics:
+### Basics:
+
+#### What is Task
+
+Everythink you make can be a task. A callback with more features.
 
 ##### What is Task, how to create a Task
 
@@ -125,7 +129,27 @@ new AsyncTask(run)
 tf.task(run, 0)
 ```
 
-##### What are collections
+##### What is PromiseTask, how to create an PromiseTask
+
+Promose task is similar to Trigger task, but with
+complete body. Run will execute and wait for promise finally, but
+never run complete alone - just wait for a promise.
+Promise is not handled in any way - it's all up to you to handle
+then() and catch() in a manner you want. When finally() is invoked
+the task will try to complete itself.
+It's useful if you need to queue promises or mix them with tasks.
+
+```javascript
+// default set of parameters
+new PromiseTask(promise, complete, recover)
+// quick way
+tf.task(promise, complete, recover)
+// you can skip complete and recover
+new PromiseTask(promise)
+tf.task(promise)
+```
+
+#### What are collections
 
 Tasks are useful when ordered in collections. For now we have:
 - sequences
