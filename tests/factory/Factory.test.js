@@ -161,7 +161,7 @@ describe('Test Factory', () => {
     expect(task.constructor.name).to.equal('AsyncTask');
   });
 
-  it('to get AsyncTask from 1 functions and 0', () => {
+  it('to get AsyncTask from 1 function and 0', () => {
     tf.initialize(true);
     const task = tf.task(
       () => {}, 0
