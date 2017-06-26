@@ -275,18 +275,18 @@ tf.limiter(1, () => console.log('limiter complete'))
  */
 ```
 
-#### More examples
+### More examples
 
 [Check the examples](http://github.com/ranapat/tasksf/blob/master/examples/src)
 
-#### Documentation
+### Documentation
 
 [Check the documentation](http://github.com/ranapat/tasksf/blob/master/docs/docs.md)
 
-#### What is next
+### What is next
 
 [Check the todo](http://github.com/ranapat/tasksf/blob/master/TODO.md)
 
-#### What have changed
+### What have changed
 
 [Check the changelog](http://github.com/ranapat/tasksf/blob/master/CHANGELOG.md)
