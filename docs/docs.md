@@ -1137,6 +1137,9 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 Restarts a task
 
+If stopped will start it
+If running will respect stop()
+
 **Parameters**
 
 -   `args` **...any** 
