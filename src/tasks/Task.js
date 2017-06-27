@@ -153,15 +153,24 @@ class Task {
   /**
    * Restarts a task
    *
+   * If stopped will start it
+   * If running will respect stop()
+   *
    * @return {boolean} success
    */
   restart(...args) {
-    if (this.stop()) {
+    if (this.running) {
+      if (this.stop()) {
+        this.run(...args);
+
+        return true;
+      } else {
+        return false;
+      }
+    } else {
       this.run(...args);
 
       return true;
-    } else {
-      return false;
     }
   }
 

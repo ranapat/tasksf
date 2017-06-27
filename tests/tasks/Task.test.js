@@ -53,11 +53,16 @@ describe('Test Task', () => {
     expect(task.stop()).to.equal(false);
   });
 
-  it('to be stopping and restarting in same manner', () => {
+  it('to be starting if asked to restarted when stopped', () => {
     const task = new Task();
     expect(task.stop()).to.equal(false);
-    expect(task.restart()).to.equal(false);
-    task.run();
+    expect(task.restart()).to.equal(true);
+    expect(task.done).to.equal(true);
+  });
+
+  it('to be stopping and restarting in the same manner if running', () => {
+    const task = new Task();
+    task._running = true;
     expect(task.stop()).to.equal(false);
     expect(task.restart()).to.equal(false);
   });

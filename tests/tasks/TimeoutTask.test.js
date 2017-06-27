@@ -52,6 +52,18 @@ describe('Test TimeoutTask', () => {
     }, 1);
   });
 
+  it('to run on restart', (done) => {
+    const complete = chai.spy(() => {});
+    const task = new TimeoutTask(1, undefined, complete);
+    expect(task.restart()).to.equal(true);
+    expect(task.running).to.equal(true);
+    expect(complete).not.to.have.been.called();
+    setTimeout(() => {
+      expect(complete).to.have.been.called();
+      done();
+    }, 1);
+  });
+
   it('to have restart on time', (done) => {
     const complete = chai.spy(() => {});
     const task = new TimeoutTask(1, undefined, complete);
