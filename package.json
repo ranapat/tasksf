@@ -1,6 +1,6 @@
 {
   "name": "tasksf",
-  "version": "1.3.13",
+  "version": "1.3.14",
   "description": "Simple tasks manager factory",
   "keywords": "tasksf tasks task manager factory callback timeout trigger async promise sequence parallel loop limiter",
   "main": "lib/index.js",

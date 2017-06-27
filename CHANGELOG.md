@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.14] - 2017-06-27
+### Changes
+- rebuild documentation
+- implement restart for task
+- add .keepme
+- fix readme
+
 ## [1.3.13] - 2017-06-23
 ### Summary
 Promise integration
