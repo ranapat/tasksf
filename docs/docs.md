@@ -110,6 +110,7 @@
     -   [complete](#complete)
     -   [recover](#recover)
     -   [stop](#stop-3)
+    -   [restart](#restart)
     -   [running](#running-1)
     -   [done](#done)
     -   [failed](#failed)
@@ -1129,6 +1130,16 @@ passed to it.
 ### stop
 
 Stops a task
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** success
+
+### restart
+
+Restarts a task
+
+**Parameters**
+
+-   `args` **...any** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** success
 
