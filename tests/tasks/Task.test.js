@@ -46,6 +46,22 @@ describe('Test Task', () => {
     expect(task.running).to.equal(true);
   });
 
+  it('to be not stopping by default', () => {
+    const task = new Task();
+    expect(task.stop()).to.equal(false);
+    task.run();
+    expect(task.stop()).to.equal(false);
+  });
+
+  it('to be stopping and restarting in same manner', () => {
+    const task = new Task();
+    expect(task.stop()).to.equal(false);
+    expect(task.restart()).to.equal(false);
+    task.run();
+    expect(task.stop()).to.equal(false);
+    expect(task.restart()).to.equal(false);
+  });
+
   it('to not recover by default', () => {
     const task = new Task();
     task.recover();

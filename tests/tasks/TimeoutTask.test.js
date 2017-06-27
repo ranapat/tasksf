@@ -52,6 +52,18 @@ describe('Test TimeoutTask', () => {
     }, 1);
   });
 
+  it('to have restart on time', (done) => {
+    const complete = chai.spy(() => {});
+    const task = new TimeoutTask(1, undefined, complete);
+    task.run();
+    expect(task.restart()).to.equal(true);
+    expect(complete).not.to.have.been.called();
+    setTimeout(() => {
+      expect(complete).to.have.been.called();
+      done();
+    }, 1);
+  });
+
   it('to populate and reset _index (1)', () => {
     const task = new TimeoutTask(1);
     expect(task._index).to.equal(undefined);
@@ -68,5 +80,14 @@ describe('Test TimeoutTask', () => {
     expect(task._index).not.to.equal(undefined);
     task.complete();
     expect(task._index).to.equal(undefined);
+  });
+
+  it('to populate and reset _index (3)', () => {
+    const task = new TimeoutTask(1);
+    expect(task._index).to.equal(undefined);
+    task.run();
+    expect(task._index).not.to.equal(undefined);
+    task.restart();
+    expect(task._index).not.to.equal(undefined);
   });
 });
