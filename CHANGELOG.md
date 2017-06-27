@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.15] - 2017-06-27
+### Changes
+- restart will run if stopped
+
 ## [1.3.14] - 2017-06-27
 ### Changes
 - rebuild documentation
