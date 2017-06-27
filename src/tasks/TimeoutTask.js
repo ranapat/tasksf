@@ -55,7 +55,6 @@ class TimeoutTask extends Task {
     super.complete(...args);
   }
 
-
   /**
    * Stops a task
    *
