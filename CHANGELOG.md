@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.16] - 2017-07-10
+### Changes
+- add david-dm
+
 ## [1.3.15] - 2017-06-27
 ### Changes
 - restart will run if stopped
