@@ -1,4 +1,4 @@
-# tasksf [![npm version](https://img.shields.io/npm/v/tasksf.svg?style=flat)](https://www.npmjs.com/package/tasksf) [![Build Status](https://img.shields.io/travis/ranapat/tasksf/master.svg?style=flat)](https://travis-ci.org/ranapat/tasksf) [![Coverage Status](https://coveralls.io/repos/ranapat/tasksf/badge.svg?branch=master)](https://coveralls.io/r/ranapat/tasksf?branch=master) [![Dependencies Status](https://david-dm.org/ranapat/tasksf.svg)](https://david-dm.org/ranapat/tasksf)
+# tasksf [![npm version](https://img.shields.io/npm/v/tasksf.svg?style=flat)](https://www.npmjs.com/package/tasksf) [![Build Status](https://img.shields.io/travis/ranapat/tasksf/master.svg?style=flat)](https://travis-ci.org/ranapat/tasksf) [![Coverage Status](https://coveralls.io/repos/ranapat/tasksf/badge.svg?branch=master)](https://coveralls.io/r/ranapat/tasksf?branch=master) [![devDependencies Status](https://david-dm.org/ranapat/tasksf/dev-status.svg)](https://david-dm.org/ranapat/tasksf?type=dev)
 
 Simple tasks manager factory
 
