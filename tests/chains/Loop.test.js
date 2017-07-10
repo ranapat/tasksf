@@ -62,13 +62,13 @@ describe('Test Loop', () => {
     const task2Run = chai.spy((self) => {});
     const task2Complete = chai.spy((self) => {});
     const complete = chai.spy((self) => {
-      expect(task1Run).to.have.been.called().three;
-      expect(task1Complete).to.have.been.called().three;
-      expect(task2Run).to.have.been.called().three;
-      expect(task2Complete).to.have.been.called().three;
-      expect(complete).to.have.been.called().three;
-
       if (++loops === 3) {
+        expect(task1Run).to.have.been.called.exactly(3);
+        expect(task1Complete).to.have.been.called.exactly(3);
+        expect(task2Run).to.have.been.called.exactly(3);
+        expect(task2Complete).to.have.been.called.exactly(3);
+        expect(complete).to.have.been.called.exactly(3);
+
         done();
       }
     });
@@ -79,22 +79,25 @@ describe('Test Loop', () => {
     loop.run();
   });
 
-  it('to loop unlimited times', () => {
+  it('to loop unlimited times', (done) => {
     let counter = 0;
     const taskRun = chai.spy((self) => {});
     const taskComplete = chai.spy((self) => {});
     const complete = chai.spy((self) => {
       if (++counter === 10) {
         loop.stop();
+
+        expect(taskRun).to.have.been.called.exactly(10);
+        expect(taskComplete).to.have.been.called.exactly(10);
+        expect(complete).to.have.been.called.exactly(10);
+
+        done();
       }
     });
     const loop = new Loop(0, complete);
     const task = new Task(taskRun, taskComplete);
     loop.push(task);
     loop.run();
-    expect(taskRun).to.have.been.called().ten;
-    expect(taskComplete).to.have.been.called().ten;
-    expect(complete).to.have.been.called().ten;
   });
 
   it('to not have passed', () => {
