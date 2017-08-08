@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.20] - 2017-08-08
+### Changes
+- update documentation
+
 ## [1.3.19] - 2017-08-08
 ### Changes
 - rebuild documentation
