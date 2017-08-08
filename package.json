@@ -17,7 +17,7 @@
     "chai": "^4.0.2",
     "chai-spies": "^0.7.1",
     "coveralls": "^2.13.1",
-    "documentation": "^4.0.0",
+    "documentation": "^5.1.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.0",
     "uglifyjs2": "0.0.1"
