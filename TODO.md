@@ -9,6 +9,7 @@
 
 - [ ] More ways to auto make tasks
 - [ ] Sequences to pass variables from task to task
+- [ ] Global registry for tasks
 
 ### Others:
 
