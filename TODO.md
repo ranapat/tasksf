@@ -4,6 +4,7 @@
 
 - [ ] Mesh of collections to merge different collections
 - [x] Make Promise as a task
+- [ ] Restart collection
 
 ### General:
 
