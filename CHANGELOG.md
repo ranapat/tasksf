@@ -1,6 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.21] - 2018-01-20
+update dependencies with david
+### Changes
+- update dependencies with david
+- other
+- update doto
+- update todo
+- update todo
+- update lock file
+
 ## [1.3.20] - 2017-08-08
 ### Changes
 - update documentation
