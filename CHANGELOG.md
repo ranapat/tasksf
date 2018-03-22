@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.22] - 2018-03-22
+Update dep versions and rebuild documentation
+### Changes
+- rebuild documentation
+- update packages
+
 ## [1.3.21] - 2018-01-20
 update dependencies with david
 ### Changes
