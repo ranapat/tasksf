@@ -287,6 +287,6 @@ tf.limiter(1, () => console.log('limiter complete'))
 
 [Check the todo](http://github.com/ranapat/tasksf/blob/master/TODO.md)
 
-### What have changed
+### What have changed so far
 
 [Check the changelog](http://github.com/ranapat/tasksf/blob/master/CHANGELOG.md)
