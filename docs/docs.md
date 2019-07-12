@@ -3,115 +3,183 @@
 ### Table of Contents
 
 -   [Collection][1]
-    -   [attach][2]
-    -   [detach][3]
-    -   [get][4]
-    -   [push][5]
-    -   [unshift][6]
-    -   [remove][7]
-    -   [run][8]
-    -   [stop][9]
-    -   [reset][10]
-    -   [\_complete][11]
-    -   [\_recover][12]
-    -   [\_chainTask][13]
-    -   [\_unchainTask][14]
-    -   [\_postTaskAdds][15]
-    -   [running][16]
-    -   [current][17]
-    -   [passed][18]
-    -   [autoRun][19]
-    -   [autoRun][20]
--   [Limiter][21]
-    -   [\_runCondition][22]
-    -   [\_taskComplete][23]
--   [Loop][24]
-    -   [\_complete][25]
-    -   [\_\_next][26]
-    -   [passed][27]
--   [Parallel][28]
-    -   [run][29]
-    -   [\_run][30]
-    -   [\_runCondition][31]
-    -   [\_taskComplete][32]
-    -   [stop][33]
-    -   [reset][34]
-    -   [current][35]
-    -   [passed][36]
--   [Sequence][37]
-    -   [run][38]
-    -   [stop][39]
-    -   [reset][40]
-    -   [\_next][41]
-    -   [\_complete][42]
-    -   [\_recover][43]
-    -   [\_resetCurrent][44]
-    -   [\_\_next][45]
-    -   [current][46]
-    -   [passed][47]
--   [AsyncMap][48]
-    -   [match][49]
--   [Factory][50]
-    -   [\_CHAIN\_][51]
-    -   [maps][52]
-    -   [attached][53]
-    -   [initialized][54]
-    -   [task][55]
-    -   [sequence][56]
-    -   [parallel][57]
-    -   [loop][58]
-    -   [limiter][59]
-    -   [initialize][60]
-    -   [map][61]
-    -   [unmap][62]
-    -   [unmapAll][63]
-    -   [attach][64]
-    -   [detach][65]
-    -   [get][66]
--   [Map][67]
-    -   [match][68]
--   [Match][69]
-    -   [percentage][70]
-    -   [percentage][71]
--   [PromiseMap][72]
-    -   [match][73]
--   [RawMap][74]
-    -   [match][75]
--   [TimeoutMap][76]
-    -   [match][77]
--   [TriggerMap][78]
-    -   [match][79]
--   [AsyncTask][80]
-    -   [run][81]
--   [Injector][82]
-    -   [afterComplete][83]
-    -   [resetAfterComplete][84]
-    -   [addChainGetter][85]
-    -   [removeChainGetter][86]
--   [PromiseTask][87]
-    -   [run][88]
-    -   [\_isPromise][89]
-    -   [\_setPromise][90]
-    -   [\_promiseFinally][91]
--   [Task][92]
-    -   [attach][93]
-    -   [detach][94]
-    -   [get][95]
-    -   [run][96]
-    -   [complete][97]
-    -   [recover][98]
-    -   [stop][99]
-    -   [restart][100]
-    -   [running][101]
-    -   [done][102]
-    -   [failed][103]
-    -   [exceptions][104]
--   [TimeoutTask][105]
-    -   [run][106]
-    -   [complete][107]
-    -   [stop][108]
--   [TriggerTask][109]
-    -   [run][110]
+    -   [Parameters][2]
+    -   [attach][3]
+        -   [Parameters][4]
+    -   [detach][5]
+        -   [Parameters][6]
+    -   [get][7]
+        -   [Parameters][8]
+    -   [push][9]
+        -   [Parameters][10]
+    -   [unshift][11]
+        -   [Parameters][12]
+    -   [remove][13]
+        -   [Parameters][14]
+    -   [run][15]
+    -   [stop][16]
+    -   [reset][17]
+    -   [\_complete][18]
+    -   [\_recover][19]
+        -   [Parameters][20]
+    -   [\_chainTask][21]
+        -   [Parameters][22]
+    -   [\_unchainTask][23]
+        -   [Parameters][24]
+    -   [\_postTaskAdds][25]
+    -   [running][26]
+    -   [current][27]
+    -   [passed][28]
+    -   [autoRun][29]
+        -   [Parameters][30]
+    -   [autoRun][31]
+-   [Limiter][32]
+    -   [Parameters][33]
+    -   [\_runCondition][34]
+    -   [\_taskComplete][35]
+-   [Loop][36]
+    -   [Parameters][37]
+    -   [\_complete][38]
+    -   [\_\_next][39]
+    -   [passed][40]
+-   [Parallel][41]
+    -   [Parameters][42]
+    -   [run][43]
+    -   [\_run][44]
+        -   [Parameters][45]
+    -   [\_runCondition][46]
+    -   [\_taskComplete][47]
+    -   [stop][48]
+        -   [Parameters][49]
+    -   [reset][50]
+    -   [current][51]
+    -   [passed][52]
+-   [Sequence][53]
+    -   [Parameters][54]
+    -   [run][55]
+    -   [stop][56]
+        -   [Parameters][57]
+    -   [reset][58]
+    -   [\_next][59]
+    -   [\_complete][60]
+    -   [\_recover][61]
+        -   [Parameters][62]
+    -   [\_resetCurrent][63]
+        -   [Parameters][64]
+    -   [\_\_next][65]
+    -   [current][66]
+    -   [passed][67]
+-   [AsyncMap][68]
+    -   [match][69]
+        -   [Parameters][70]
+-   [Factory][71]
+    -   [\_CHAIN\_][72]
+        -   [Parameters][73]
+    -   [maps][74]
+        -   [Parameters][75]
+    -   [attached][76]
+        -   [Parameters][77]
+    -   [initialized][78]
+        -   [Parameters][79]
+    -   [task][80]
+        -   [Parameters][81]
+    -   [sequence][82]
+        -   [Parameters][83]
+    -   [parallel][84]
+        -   [Parameters][85]
+    -   [loop][86]
+        -   [Parameters][87]
+    -   [limiter][88]
+        -   [Parameters][89]
+    -   [initialize][90]
+        -   [Parameters][91]
+    -   [map][92]
+        -   [Parameters][93]
+    -   [unmap][94]
+        -   [Parameters][95]
+    -   [unmapAll][96]
+    -   [attach][97]
+        -   [Parameters][98]
+    -   [detach][99]
+        -   [Parameters][100]
+    -   [get][101]
+        -   [Parameters][102]
+-   [Map][103]
+    -   [match][104]
+        -   [Parameters][105]
+-   [Match][106]
+    -   [Parameters][107]
+    -   [percentage][108]
+        -   [Parameters][109]
+    -   [percentage][110]
+-   [PromiseMap][111]
+    -   [match][112]
+        -   [Parameters][113]
+-   [RawMap][114]
+    -   [match][115]
+        -   [Parameters][116]
+-   [TimeoutMap][117]
+    -   [match][118]
+        -   [Parameters][119]
+-   [TriggerMap][120]
+    -   [match][121]
+        -   [Parameters][122]
+-   [AsyncTask][123]
+    -   [Parameters][124]
+    -   [Examples][125]
+    -   [run][126]
+        -   [Parameters][127]
+-   [Injector][128]
+    -   [afterComplete][129]
+        -   [Parameters][130]
+    -   [resetAfterComplete][131]
+        -   [Parameters][132]
+    -   [addChainGetter][133]
+        -   [Parameters][134]
+    -   [removeChainGetter][135]
+        -   [Parameters][136]
+-   [PromiseTask][137]
+    -   [Parameters][138]
+    -   [run][139]
+        -   [Parameters][140]
+    -   [\_isPromise][141]
+        -   [Parameters][142]
+    -   [\_setPromise][143]
+        -   [Parameters][144]
+    -   [\_promiseFinally][145]
+-   [Task][146]
+    -   [Parameters][147]
+    -   [Examples][148]
+    -   [attach][149]
+        -   [Parameters][150]
+    -   [detach][151]
+        -   [Parameters][152]
+    -   [get][153]
+        -   [Parameters][154]
+    -   [run][155]
+        -   [Parameters][156]
+    -   [complete][157]
+        -   [Parameters][158]
+    -   [recover][159]
+        -   [Parameters][160]
+    -   [stop][161]
+    -   [restart][162]
+        -   [Parameters][163]
+    -   [running][164]
+    -   [done][165]
+    -   [failed][166]
+    -   [exceptions][167]
+-   [TimeoutTask][168]
+    -   [Parameters][169]
+    -   [run][170]
+        -   [Parameters][171]
+    -   [complete][172]
+        -   [Parameters][173]
+    -   [stop][174]
+-   [TriggerTask][175]
+    -   [Parameters][176]
+    -   [run][177]
+        -   [Parameters][178]
 
 ## Collection
 
@@ -119,10 +187,10 @@ Collection. Abstract class.
 
 Basic collection class. Do NOT instantiate directly.
 
-**Parameters**
+### Parameters
 
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
 ### attach
 
@@ -132,26 +200,30 @@ Used to avoid using global variables or trying to scope
 in some way. After attach() you can get().
 Attach will also keep the variable from GC.
 
-**Parameters**
+#### Parameters
 
--   `key` **[string][112]** accessor for the variable
+-   `key` **[string][180]** accessor for the variable
 -   `value` **any** variable value
+
+Returns **[Collection][181]** collection current collection
 
 ### detach
 
 Detaches variable with a key
 
-**Parameters**
+#### Parameters
 
--   `key` **[string][112]** accessor for the variable
+-   `key` **[string][180]** accessor for the variable
+
+Returns **[Collection][181]** collection current collection
 
 ### get
 
 Gets variable with a key
 
-**Parameters**
+#### Parameters
 
--   `key` **[string][112]** accessor for the variable
+-   `key` **[string][180]** accessor for the variable
 
 Returns **any** value variable value
 
@@ -159,31 +231,31 @@ Returns **any** value variable value
 
 Pushes task to the collection
 
-**Parameters**
+#### Parameters
 
--   `task` **[Task][113]** task to push
+-   `task` **[Task][182]** task to push
 
-Returns **[Collection][114]** collection current collection
+Returns **[Collection][181]** collection current collection
 
 ### unshift
 
 Unshifts task to the collection
 
-**Parameters**
+#### Parameters
 
--   `task` **[Task][113]** task to push
+-   `task` **[Task][182]** task to push
 
-Returns **[Collection][114]** collection current collection
+Returns **[Collection][181]** collection current collection
 
 ### remove
 
 Removes task from the collection
 
-**Parameters**
+#### Parameters
 
--   `task` **[Task][113]** task to push
+-   `task` **[Task][182]** task to push
 
-Returns **[Collection][114]** collection current collection
+Returns **[Collection][181]** collection current collection
 
 ### run
 
@@ -193,13 +265,13 @@ Runs all tasks in the collection
 
 Stops all tasks in the collection
 
-Returns **[boolean][115]** stopped stopped status
+Returns **[boolean][183]** stopped stopped status
 
 ### reset
 
 Resets a stopped collection
 
-Returns **[boolean][115]** reset reset status
+Returns **[boolean][183]** reset reset status
 
 ### \_complete
 
@@ -213,7 +285,7 @@ Recover
 
 Runs recover task
 
-**Parameters**
+#### Parameters
 
 -   `error`  
 
@@ -223,9 +295,9 @@ Chain task
 
 Attach the chain to the task
 
-**Parameters**
+#### Parameters
 
--   `task` **[Task][113]** task to chain
+-   `task` **[Task][182]** task to chain
 
 ### \_unchainTask
 
@@ -233,9 +305,9 @@ Unchain task
 
 Detach the chain from the task
 
-**Parameters**
+#### Parameters
 
--   `task` **[Task][113]** task to chain
+-   `task` **[Task][182]** task to chain
 
 ### \_postTaskAdds
 
@@ -247,19 +319,19 @@ Try all post add triggers
 
 Gets the running status
 
-Returns **[boolean][115]** running running status
+Returns **[boolean][183]** running running status
 
 ### current
 
 Gets the current task(s)
 
-Returns **([Task][113] \| [Array][116]&lt;[Task][113]>)** task current task(s)
+Returns **([Task][182] \| [Array][184]&lt;[Task][182]>)** task current task(s)
 
 ### passed
 
 Gets the passed task(s)
 
-Returns **[Array][116]&lt;[Task][113]>** task passed task(s)
+Returns **[Array][184]&lt;[Task][182]>** task passed task(s)
 
 ### autoRun
 
@@ -267,16 +339,16 @@ Sets autoRun
 
 Will autorun on push or unshift
 
-**Parameters**
+#### Parameters
 
 -   `value`  
--   `autoRun` **[boolean][115]** auto runs on push or unshift
+-   `autoRun` **[boolean][183]** auto runs on push or unshift
 
 ### autoRun
 
 Gets autoRun
 
-Returns **[boolean][115]** autoStart auto start on push or unshift
+Returns **[boolean][183]** autoStart auto start on push or unshift
 
 ## Limiter
 
@@ -286,18 +358,18 @@ Limiter
 
 Parallel with limit for max running tasks
 
-**Parameters**
+### Parameters
 
--   `limit` **[number][117]** max running tasks
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
--   `completeOnFirst` **[boolean][115]** completes on last or on first
+-   `limit` **[number][185]** max running tasks
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
+-   `completeOnFirst` **[boolean][183]** completes on last or on first
 
 ### \_runCondition
 
 Returns the run condition
 
-Returns **[boolean][115]** condition run condition
+Returns **[boolean][183]** condition run condition
 
 ### \_taskComplete
 
@@ -311,11 +383,11 @@ Loop
 
 Recurrent tasks
 
-**Parameters**
+### Parameters
 
--   `repeats` **[number][117]** number of repeats. 0 for infinite
--   `repeat` **[Function][111]** function to be called on repeat
--   `recover` **[Function][111]** function to be called on recover
+-   `repeats` **[number][185]** number of repeats. 0 for infinite
+-   `repeat` **[Function][179]** function to be called on repeat
+-   `recover` **[Function][179]** function to be called on recover
 
 ### \_complete
 
@@ -327,13 +399,13 @@ Runs complete task
 
 Gets next task from the loop
 
-Returns **[Task][113]** task next task
+Returns **[Task][182]** task next task
 
 ### passed
 
 Gets the passed task(s)
 
-Returns **[Array][116]&lt;[Task][113]>** task passed task(s)
+Returns **[Array][184]&lt;[Task][182]>** task passed task(s)
 
 ## Parallel
 
@@ -343,11 +415,11 @@ Parallel
 
 Executes tasks all at once
 
-**Parameters**
+### Parameters
 
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
--   `completeOnFirst` **[boolean][115]** completes on last or on first
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
+-   `completeOnFirst` **[boolean][183]** completes on last or on first
 
 ### run
 
@@ -357,7 +429,7 @@ Runs all tasks in the collection
 
 Runs a single task
 
-**Parameters**
+#### Parameters
 
 -   `task`  
 
@@ -365,7 +437,7 @@ Runs a single task
 
 Returns the run condition
 
-Returns **[boolean][115]** condition run condition
+Returns **[boolean][183]** condition run condition
 
 ### \_taskComplete
 
@@ -375,29 +447,29 @@ Performs on every task complete
 
 Stops all tasks in the collection
 
-**Parameters**
+#### Parameters
 
--   `skip` **[boolean][115]** force the stopped task to be skipped (optional, default `false`)
+-   `skip` **[boolean][183]** force the stopped task to be skipped (optional, default `false`)
 
-Returns **[boolean][115]** stopped stopped status
+Returns **[boolean][183]** stopped stopped status
 
 ### reset
 
 Resets a stopped collection
 
-Returns **[boolean][115]** reset reset status
+Returns **[boolean][183]** reset reset status
 
 ### current
 
 Gets the current tasks
 
-Returns **[Array][116]&lt;[Task][113]>** task current tasks
+Returns **[Array][184]&lt;[Task][182]>** task current tasks
 
 ### passed
 
 Gets the passed task(s)
 
-Returns **[Array][116]&lt;[Task][113]>** task passed task(s)
+Returns **[Array][184]&lt;[Task][182]>** task passed task(s)
 
 ## Sequence
 
@@ -407,10 +479,10 @@ Sequence
 
 Executes tasks one by one
 
-**Parameters**
+### Parameters
 
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
 ### run
 
@@ -420,17 +492,17 @@ Runs all tasks in the collection
 
 Stops all tasks in the collection
 
-**Parameters**
+#### Parameters
 
--   `skip` **[boolean][115]** force the stopped task to be skipped (optional, default `false`)
+-   `skip` **[boolean][183]** force the stopped task to be skipped (optional, default `false`)
 
-Returns **[boolean][115]** stopped stopped status
+Returns **[boolean][183]** stopped stopped status
 
 ### reset
 
 Resets a stopped collection
 
-Returns **[boolean][115]** reset reset status
+Returns **[boolean][183]** reset reset status
 
 ### \_next
 
@@ -448,7 +520,7 @@ Recover
 
 Runs recover task
 
-**Parameters**
+#### Parameters
 
 -   `error`  
 
@@ -456,7 +528,7 @@ Runs recover task
 
 Resets current
 
-**Parameters**
+#### Parameters
 
 -   `unchain`   (optional, default `false`)
 -   `resetAfterComplete`   (optional, default `false`)
@@ -465,19 +537,19 @@ Resets current
 
 Gets next task from the loop
 
-Returns **[Task][113]** task next task
+Returns **[Task][182]** task next task
 
 ### current
 
 Gets the current task
 
-Returns **[Task][113]** task current task
+Returns **[Task][182]** task current task
 
 ### passed
 
 Gets the passed task(s)
 
-Returns **[Array][116]&lt;[Task][113]>** task passed task(s)
+Returns **[Array][184]&lt;[Task][182]>** task passed task(s)
 
 ## AsyncMap
 
@@ -491,15 +563,15 @@ Maps the default ways to get a AsyncTask
 
 Match argument with a specific TriggerMap
 
-**Parameters**
+#### Parameters
 
 -   `args` **...any** 
--   `run` **[Function][111]** function to be called on run
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
--   `marker` **[number][117]** 0 marks a async task
+-   `run` **[Function][179]** function to be called on run
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
+-   `marker` **[number][185]** 0 marks a async task
 
-Returns **[Match][118]** match
+Returns **[Match][186]** match
 
 ## Factory
 
@@ -511,91 +583,91 @@ It's a static class - do not instantiate with new
 
 Predefined name for a chain in attached task
 
-**Parameters**
+#### Parameters
 
--   `_CHAIN_` **[string][112]** predefined name
+-   `_CHAIN_` **[string][180]** predefined name
 
 ### maps
 
 Maps collection for task matching
 
-**Parameters**
+#### Parameters
 
--   `maps` **[Array][116]&lt;[Map][119]>** list of all maps
+-   `maps` **[Array][184]&lt;[Map][187]>** list of all maps
 
 ### attached
 
 Attached variables
 
-**Parameters**
+#### Parameters
 
--   `attached` **[object][120]** collection of any attachments
+-   `attached` **[object][188]** collection of any attachments
 
 ### initialized
 
 Initialized status
 
-**Parameters**
+#### Parameters
 
--   `initialized` **[boolean][115]** initialized status
+-   `initialized` **[boolean][183]** initialized status
 
 ### task
 
 Gets a task by registered map match
 
-**Parameters**
+#### Parameters
 
 -   `args` **any** parameters depend on installed maps
 
-Returns **[Task][113]** task matching the parameters
+Returns **[Task][182]** task matching the parameters
 
 ### sequence
 
 Gets a sequence
 
-**Parameters**
+#### Parameters
 
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
-Returns **[Sequence][121]** new sequence
+Returns **[Sequence][189]** new sequence
 
 ### parallel
 
 Gets a parallel
 
-**Parameters**
+#### Parameters
 
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
--   `completeOnFirst` **[boolean][115]** completes on last or on first
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
+-   `completeOnFirst` **[boolean][183]** completes on last or on first
 
-Returns **[Parallel][122]** new sequence
+Returns **[Parallel][190]** new sequence
 
 ### loop
 
 Gets a loop
 
-**Parameters**
+#### Parameters
 
--   `repeats` **[number][117]** number of repeats, 0 for infinite
--   `repeat` **[Function][111]** function to be called on repeat
--   `recover` **[Function][111]** function to be called on recover
+-   `repeats` **[number][185]** number of repeats, 0 for infinite
+-   `repeat` **[Function][179]** function to be called on repeat
+-   `recover` **[Function][179]** function to be called on recover
 
-Returns **[Loop][123]** new loop
+Returns **[Loop][191]** new loop
 
 ### limiter
 
 Gets a limiter
 
-**Parameters**
+#### Parameters
 
--   `limit` **[number][117]** max running tasks
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
--   `completeOnFirst` **[boolean][115]** completes on last or on first
+-   `limit` **[number][185]** max running tasks
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
+-   `completeOnFirst` **[boolean][183]** completes on last or on first
 
-Returns **[Limiter][124]** new limiter
+Returns **[Limiter][192]** new limiter
 
 ### initialize
 
@@ -604,25 +676,25 @@ Initializes the factory.
 Initializes the factory. Will be called automatically on first task
 or sequence call. Can be called explicitly with _force_
 
-**Parameters**
+#### Parameters
 
--   `force` **[boolean][115]** reinitialize if true (optional, default `false`)
+-   `force` **[boolean][183]** reinitialize if true (optional, default `false`)
 
 ### map
 
 Adds new map for tasks matching
 
-**Parameters**
+#### Parameters
 
--   `map` **[Map][119]** map for tasks matching
+-   `map` **[Map][187]** map for tasks matching
 
 ### unmap
 
 Removes map from tasks matching
 
-**Parameters**
+#### Parameters
 
--   `map` **[Map][119]** map to remove from tasks matching
+-   `map` **[Map][187]** map to remove from tasks matching
 
 ### unmapAll
 
@@ -636,26 +708,26 @@ Useful to store your collections and access them
 later on from anywhere. Or store anything you want
 in this predefined place
 
-**Parameters**
+#### Parameters
 
--   `key` **[string][112]** accessor for the variable
+-   `key` **[string][180]** accessor for the variable
 -   `value` **any** variable value
 
 ### detach
 
 Detaches variable by name
 
-**Parameters**
+#### Parameters
 
--   `key` **[string][112]** accessor for the variable
+-   `key` **[string][180]** accessor for the variable
 
 ### get
 
 Gets variable by name
 
-**Parameters**
+#### Parameters
 
--   `key` **[string][112]** accessor for the variable
+-   `key` **[string][180]** accessor for the variable
 
 Returns **any** variable value
 
@@ -675,11 +747,11 @@ directly. Extend to use.
 
 Match argument with a specific tasks
 
-**Parameters**
+#### Parameters
 
 -   `args` **...any** 
 
-Returns **[Match][118]** match
+Returns **[Match][186]** match
 
 ## Match
 
@@ -690,24 +762,24 @@ percentage from 0 to 1. In cases of overlapping
 of Matches the one with bigger percentage will be
 used
 
-**Parameters**
+### Parameters
 
--   `instance` **[Task][113]** any Task instance
--   `percentage` **[number][117]** from 0 to 1
+-   `instance` **[Task][182]** any Task instance
+-   `percentage` **[number][185]** from 0 to 1
 
 ### percentage
 
 Percentage setter
 
-**Parameters**
+#### Parameters
 
--   `value` **[number][117]** from 0 to 1
+-   `value` **[number][185]** from 0 to 1
 
 ### percentage
 
 Percentage getter
 
-Returns **[number][117]** percentage value from 0 to 1
+Returns **[number][185]** percentage value from 0 to 1
 
 ## PromiseMap
 
@@ -721,14 +793,14 @@ Maps the default ways to get a PromiseTask
 
 Match argument with a specific PromiseMap
 
-**Parameters**
+#### Parameters
 
 -   `args` **...any** 
--   `promise` **[Promise][125]** promise to wait for
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `promise` **[Promise][193]** promise to wait for
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
-Returns **[Match][118]** match
+Returns **[Match][186]** match
 
 ## RawMap
 
@@ -742,14 +814,14 @@ Maps the default ways to get a Task
 
 Match argument with a specific Task
 
-**Parameters**
+#### Parameters
 
 -   `args` **...any** 
--   `run` **[Function][111]** function to be called on run
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `run` **[Function][179]** function to be called on run
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
-Returns **[Match][118]** match
+Returns **[Match][186]** match
 
 ## TimeoutMap
 
@@ -763,15 +835,15 @@ Maps the default ways to get a TimeoutTask
 
 Match argument with a specific TimeoutTask
 
-**Parameters**
+#### Parameters
 
 -   `args` **...any** 
--   `timeout` **[number][117]** timeout in ms
--   `run` **[Function][111]** function to be called on run
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `timeout` **[number][185]** timeout in ms
+-   `run` **[Function][179]** function to be called on run
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
-Returns **[Match][118]** match
+Returns **[Match][186]** match
 
 ## TriggerMap
 
@@ -785,13 +857,13 @@ Maps the default ways to get a TriggerTask
 
 Match argument with a specific TriggerTask
 
-**Parameters**
+#### Parameters
 
 -   `args` **...any** 
--   `complete` **[Function][111]** function to be called on complete
--   `marker` **[boolean][115]** false marks a trigger task
+-   `complete` **[Function][179]** function to be called on complete
+-   `marker` **[boolean][183]** false marks a trigger task
 
-Returns **[Match][118]** match
+Returns **[Match][186]** match
 
 ## AsyncTask
 
@@ -807,13 +879,13 @@ Similar with TriggerTask, but with full set of run, complete and recover.
 In run method first parameter will be complete callback, second self and
 ...args to follow. Does not care what run returns.
 
-**Parameters**
+### Parameters
 
--   `run` **[Function][111]** function to be called on run
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `run` **[Function][179]** function to be called on run
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
-**Examples**
+### Examples
 
 ```javascript
 run = (complete, self, ...args) => { complete(); }
@@ -826,7 +898,7 @@ Runs a task
 Executes the run function if defined. All arguments will be
 passed to it.
 
-**Parameters**
+#### Parameters
 
 -   `args` **any** any arguments
 
@@ -841,24 +913,24 @@ Not intended to be used on it's own.
 
 Appends a function after complete and remembers the original
 
-**Parameters**
+#### Parameters
 
--   `task` **[Task][113]** task to be modified
--   `callback` **[Function][111]** function to be called after complete
--   `key` **[String][112]** map for the original callback
+-   `task` **[Task][182]** task to be modified
+-   `callback` **[Function][179]** function to be called after complete
+-   `key` **[String][180]** map for the original callback
 
-Returns **[Task][113]** task modified task
+Returns **[Task][182]** task modified task
 
 ### resetAfterComplete
 
 Resets the complete method to it's original state
 
-**Parameters**
+#### Parameters
 
--   `task` **[Task][113]** task to be modified
--   `key` **[String][112]** map for the original callback
+-   `task` **[Task][182]** task to be modified
+-   `key` **[String][180]** map for the original callback
 
-Returns **[Task][113]** task modified task
+Returns **[Task][182]** task modified task
 
 ### addChainGetter
 
@@ -866,21 +938,21 @@ Adds a method called chain to get Factory._CHAIN_
 
 Shortcut for task.get(Factory._CHAIN_)
 
-**Parameters**
+#### Parameters
 
--   `task` **[Task][113]** task to be modified
+-   `task` **[Task][182]** task to be modified
 
-Returns **[Task][113]** task modified task
+Returns **[Task][182]** task modified task
 
 ### removeChainGetter
 
 Remove a method called chain to get Factory._CHAIN_
 
-**Parameters**
+#### Parameters
 
--   `task` **[Task][113]** task to be modified
+-   `task` **[Task][182]** task to be modified
 
-Returns **[Task][113]** task modified task
+Returns **[Task][182]** task modified task
 
 ## PromiseTask
 
@@ -894,11 +966,11 @@ Useful for triggers.
 
 Similar with TriggerTask, but with set of complete and recover.
 
-**Parameters**
+### Parameters
 
--   `promise` **[Promise][125]** promise instance to wait for
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `promise` **[Promise][193]** promise instance to wait for
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
 ### run
 
@@ -906,7 +978,7 @@ Runs a task
 
 Checks if promise already resolved. If not does nothing.
 
-**Parameters**
+#### Parameters
 
 -   `args` **any** any arguments
 
@@ -918,19 +990,19 @@ We do not want promises as a dependency - as it's conditionally used.
 The checks for promise will be a bit loose - just checking for finally
 and assuming it's a Promise.
 
-**Parameters**
+#### Parameters
 
--   `promise` **[Promise][125]** promise instance
+-   `promise` **[Promise][193]** promise instance
 
-Returns **[boolean][115]** 
+Returns **[boolean][183]** 
 
 ### \_setPromise
 
 Sets promise and attaches to finally
 
-**Parameters**
+#### Parameters
 
--   `promise` **[Promise][125]** promise instance
+-   `promise` **[Promise][193]** promise instance
 
 ### \_promiseFinally
 
@@ -947,13 +1019,13 @@ call complete instantly. if run returns anything it will
 NOT call complete automatically and it's up to you to
 trigger complete.
 
-**Parameters**
+### Parameters
 
--   `run` **[Function][111]** function to be called on run
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `run` **[Function][179]** function to be called on run
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
-**Examples**
+### Examples
 
 ```javascript
 run = () => { console.log('next thing is complete'); }
@@ -972,26 +1044,26 @@ run = (self) => {
 
 Attaches variable to the task
 
-**Parameters**
+#### Parameters
 
--   `key` **[string][112]** accessor for the variable
+-   `key` **[string][180]** accessor for the variable
 -   `value` **any** variable value
 
 ### detach
 
 Detaches variable by name
 
-**Parameters**
+#### Parameters
 
--   `key` **[string][112]** accessor for the variable
+-   `key` **[string][180]** accessor for the variable
 
 ### get
 
 Gets variable by name
 
-**Parameters**
+#### Parameters
 
--   `key` **[string][112]** accessor for the variable
+-   `key` **[string][180]** accessor for the variable
 
 Returns **any** variable value
 
@@ -1002,7 +1074,7 @@ Runs a task
 Executes the run function if defined. All arguments will be
 passed to it.
 
-**Parameters**
+#### Parameters
 
 -   `args` **any** any arguments
 
@@ -1013,7 +1085,7 @@ Completes a task
 Executes the complete function if defined. All arguments will be
 passed to it.
 
-**Parameters**
+#### Parameters
 
 -   `args` **any** any arguments
 
@@ -1024,7 +1096,7 @@ Recovers a task
 Executes the recover function if defined. All arguments will be
 passed to it.
 
-**Parameters**
+#### Parameters
 
 -   `args` **any** any arguments
 
@@ -1032,7 +1104,7 @@ passed to it.
 
 Stops a task
 
-Returns **[boolean][115]** success
+Returns **[boolean][183]** success
 
 ### restart
 
@@ -1041,35 +1113,35 @@ Restarts a task
 If stopped will start it
 If running will respect stop()
 
-**Parameters**
+#### Parameters
 
 -   `args` **...any** 
 
-Returns **[boolean][115]** success
+Returns **[boolean][183]** success
 
 ### running
 
 Gets the running status
 
-Returns **[boolean][115]** running
+Returns **[boolean][183]** running
 
 ### done
 
 Gets the done status
 
-Returns **[boolean][115]** done
+Returns **[boolean][183]** done
 
 ### failed
 
 Gets the failed status
 
-Returns **[boolean][115]** failed
+Returns **[boolean][183]** failed
 
 ### exceptions
 
 Gets the exceptions if any
 
-Returns **[Object][120]** exceptions
+Returns **[Object][188]** exceptions
 
 ## TimeoutTask
 
@@ -1080,12 +1152,12 @@ TimeoutTask
 Timeout task with run, complete and recover.
 Executes after initial timeout
 
-**Parameters**
+### Parameters
 
--   `timeout` **[number][117]** wait before run
--   `run` **[Function][111]** function to be called on run
--   `complete` **[Function][111]** function to be called on complete
--   `recover` **[Function][111]** function to be called on recover
+-   `timeout` **[number][185]** wait before run
+-   `run` **[Function][179]** function to be called on run
+-   `complete` **[Function][179]** function to be called on complete
+-   `recover` **[Function][179]** function to be called on recover
 
 ### run
 
@@ -1094,7 +1166,7 @@ Runs a task
 Executes the run function if defined. All arguments will be
 passed to it.
 
-**Parameters**
+#### Parameters
 
 -   `args` **any** any arguments
 
@@ -1105,7 +1177,7 @@ Completes a task
 Executes the complete function if defined. All arguments will be
 passed to it.
 
-**Parameters**
+#### Parameters
 
 -   `args` **any** any arguments
 
@@ -1113,7 +1185,7 @@ passed to it.
 
 Stops a task
 
-Returns **[boolean][115]** success
+Returns **[boolean][183]** success
 
 ## TriggerTask
 
@@ -1126,9 +1198,9 @@ Executes run and does not complete automatically.
 Need manual call of complete() method.
 Useful for triggers.
 
-**Parameters**
+### Parameters
 
--   `complete` **[Function][111]** function to be called on complete
+-   `complete` **[Function][179]** function to be called on complete
 
 ### run
 
@@ -1137,256 +1209,392 @@ Runs a task
 Executes the run function if defined. All arguments will be
 passed to it.
 
-**Parameters**
+#### Parameters
 
 -   `args` **any** any arguments
 
 [1]: #collection
 
-[2]: #attach
+[2]: #parameters
 
-[3]: #detach
+[3]: #attach
 
-[4]: #get
+[4]: #parameters-1
 
-[5]: #push
+[5]: #detach
 
-[6]: #unshift
+[6]: #parameters-2
 
-[7]: #remove
+[7]: #get
 
-[8]: #run
+[8]: #parameters-3
 
-[9]: #stop
+[9]: #push
 
-[10]: #reset
+[10]: #parameters-4
 
-[11]: #_complete
+[11]: #unshift
 
-[12]: #_recover
+[12]: #parameters-5
 
-[13]: #_chaintask
+[13]: #remove
 
-[14]: #_unchaintask
+[14]: #parameters-6
 
-[15]: #_posttaskadds
+[15]: #run
 
-[16]: #running
+[16]: #stop
 
-[17]: #current
+[17]: #reset
 
-[18]: #passed
+[18]: #_complete
 
-[19]: #autorun
+[19]: #_recover
 
-[20]: #autorun-1
+[20]: #parameters-7
 
-[21]: #limiter
+[21]: #_chaintask
 
-[22]: #_runcondition
+[22]: #parameters-8
 
-[23]: #_taskcomplete
+[23]: #_unchaintask
 
-[24]: #loop
+[24]: #parameters-9
 
-[25]: #_complete-1
+[25]: #_posttaskadds
 
-[26]: #__next
+[26]: #running
 
-[27]: #passed-1
+[27]: #current
 
-[28]: #parallel
+[28]: #passed
 
-[29]: #run-1
+[29]: #autorun
 
-[30]: #_run
+[30]: #parameters-10
 
-[31]: #_runcondition-1
+[31]: #autorun-1
 
-[32]: #_taskcomplete-1
+[32]: #limiter
 
-[33]: #stop-1
+[33]: #parameters-11
 
-[34]: #reset-1
+[34]: #_runcondition
 
-[35]: #current-1
+[35]: #_taskcomplete
 
-[36]: #passed-2
+[36]: #loop
 
-[37]: #sequence
+[37]: #parameters-12
 
-[38]: #run-2
+[38]: #_complete-1
 
-[39]: #stop-2
+[39]: #__next
 
-[40]: #reset-2
+[40]: #passed-1
 
-[41]: #_next
+[41]: #parallel
 
-[42]: #_complete-2
+[42]: #parameters-13
 
-[43]: #_recover-1
+[43]: #run-1
 
-[44]: #_resetcurrent
+[44]: #_run
 
-[45]: #__next-1
+[45]: #parameters-14
 
-[46]: #current-2
+[46]: #_runcondition-1
 
-[47]: #passed-3
+[47]: #_taskcomplete-1
 
-[48]: #asyncmap
+[48]: #stop-1
 
-[49]: #match
+[49]: #parameters-15
 
-[50]: #factory
+[50]: #reset-1
 
-[51]: #_chain_
+[51]: #current-1
 
-[52]: #maps
+[52]: #passed-2
 
-[53]: #attached
+[53]: #sequence
 
-[54]: #initialized
+[54]: #parameters-16
 
-[55]: #task
+[55]: #run-2
 
-[56]: #sequence-1
+[56]: #stop-2
 
-[57]: #parallel-1
+[57]: #parameters-17
 
-[58]: #loop-1
+[58]: #reset-2
 
-[59]: #limiter-1
+[59]: #_next
 
-[60]: #initialize
+[60]: #_complete-2
 
-[61]: #map
+[61]: #_recover-1
 
-[62]: #unmap
+[62]: #parameters-18
 
-[63]: #unmapall
+[63]: #_resetcurrent
 
-[64]: #attach-1
+[64]: #parameters-19
 
-[65]: #detach-1
+[65]: #__next-1
 
-[66]: #get-1
+[66]: #current-2
 
-[67]: #map-1
+[67]: #passed-3
 
-[68]: #match-1
+[68]: #asyncmap
 
-[69]: #match-2
+[69]: #match
 
-[70]: #percentage
+[70]: #parameters-20
 
-[71]: #percentage-1
+[71]: #factory
 
-[72]: #promisemap
+[72]: #_chain_
 
-[73]: #match-3
+[73]: #parameters-21
 
-[74]: #rawmap
+[74]: #maps
 
-[75]: #match-4
+[75]: #parameters-22
 
-[76]: #timeoutmap
+[76]: #attached
 
-[77]: #match-5
+[77]: #parameters-23
 
-[78]: #triggermap
+[78]: #initialized
 
-[79]: #match-6
+[79]: #parameters-24
 
-[80]: #asynctask
+[80]: #task
 
-[81]: #run-3
+[81]: #parameters-25
 
-[82]: #injector
+[82]: #sequence-1
 
-[83]: #aftercomplete
+[83]: #parameters-26
 
-[84]: #resetaftercomplete
+[84]: #parallel-1
 
-[85]: #addchaingetter
+[85]: #parameters-27
 
-[86]: #removechaingetter
+[86]: #loop-1
 
-[87]: #promisetask
+[87]: #parameters-28
 
-[88]: #run-4
+[88]: #limiter-1
 
-[89]: #_ispromise
+[89]: #parameters-29
 
-[90]: #_setpromise
+[90]: #initialize
 
-[91]: #_promisefinally
+[91]: #parameters-30
 
-[92]: #task-1
+[92]: #map
 
-[93]: #attach-2
+[93]: #parameters-31
 
-[94]: #detach-2
+[94]: #unmap
 
-[95]: #get-2
+[95]: #parameters-32
 
-[96]: #run-5
+[96]: #unmapall
 
-[97]: #complete
+[97]: #attach-1
 
-[98]: #recover
+[98]: #parameters-33
 
-[99]: #stop-3
+[99]: #detach-1
 
-[100]: #restart
+[100]: #parameters-34
 
-[101]: #running-1
+[101]: #get-1
 
-[102]: #done
+[102]: #parameters-35
 
-[103]: #failed
+[103]: #map-1
 
-[104]: #exceptions
+[104]: #match-1
 
-[105]: #timeouttask
+[105]: #parameters-36
 
-[106]: #run-6
+[106]: #match-2
 
-[107]: #complete-1
+[107]: #parameters-37
 
-[108]: #stop-4
+[108]: #percentage
 
-[109]: #triggertask
+[109]: #parameters-38
 
-[110]: #run-7
+[110]: #percentage-1
 
-[111]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[111]: #promisemap
 
-[112]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[112]: #match-3
 
-[113]: #task
+[113]: #parameters-39
 
-[114]: #collection
+[114]: #rawmap
 
-[115]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[115]: #match-4
 
-[116]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[116]: #parameters-40
 
-[117]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[117]: #timeoutmap
 
-[118]: #match
+[118]: #match-5
 
-[119]: #map
+[119]: #parameters-41
 
-[120]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[120]: #triggermap
 
-[121]: #sequence
+[121]: #match-6
 
-[122]: #parallel
+[122]: #parameters-42
 
-[123]: #loop
+[123]: #asynctask
 
-[124]: #limiter
+[124]: #parameters-43
 
-[125]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[125]: #examples
+
+[126]: #run-3
+
+[127]: #parameters-44
+
+[128]: #injector
+
+[129]: #aftercomplete
+
+[130]: #parameters-45
+
+[131]: #resetaftercomplete
+
+[132]: #parameters-46
+
+[133]: #addchaingetter
+
+[134]: #parameters-47
+
+[135]: #removechaingetter
+
+[136]: #parameters-48
+
+[137]: #promisetask
+
+[138]: #parameters-49
+
+[139]: #run-4
+
+[140]: #parameters-50
+
+[141]: #_ispromise
+
+[142]: #parameters-51
+
+[143]: #_setpromise
+
+[144]: #parameters-52
+
+[145]: #_promisefinally
+
+[146]: #task-1
+
+[147]: #parameters-53
+
+[148]: #examples-1
+
+[149]: #attach-2
+
+[150]: #parameters-54
+
+[151]: #detach-2
+
+[152]: #parameters-55
+
+[153]: #get-2
+
+[154]: #parameters-56
+
+[155]: #run-5
+
+[156]: #parameters-57
+
+[157]: #complete
+
+[158]: #parameters-58
+
+[159]: #recover
+
+[160]: #parameters-59
+
+[161]: #stop-3
+
+[162]: #restart
+
+[163]: #parameters-60
+
+[164]: #running-1
+
+[165]: #done
+
+[166]: #failed
+
+[167]: #exceptions
+
+[168]: #timeouttask
+
+[169]: #parameters-61
+
+[170]: #run-6
+
+[171]: #parameters-62
+
+[172]: #complete-1
+
+[173]: #parameters-63
+
+[174]: #stop-4
+
+[175]: #triggertask
+
+[176]: #parameters-64
+
+[177]: #run-7
+
+[178]: #parameters-65
+
+[179]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[180]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[181]: #collection
+
+[182]: #task
+
+[183]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[184]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[185]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[186]: #match
+
+[187]: #map
+
+[188]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[189]: #sequence
+
+[190]: #parallel
+
+[191]: #loop
+
+[192]: #limiter
+
+[193]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise

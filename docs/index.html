@@ -1,20 +1,21 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8' />
-  <title>tasksf 1.3.23 | Documentation</title>
+  <meta charset='utf-8'>
+  <title>tasksf 1.3.26 | Documentation</title>
+  <meta name='description' content='Simple tasks manager factory'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
-  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
-  <link href='assets/style.css' type='text/css' rel='stylesheet' />
-  <link href='assets/github.css' type='text/css' rel='stylesheet' />
-  <link href='assets/split.css' type='text/css' rel='stylesheet' />
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
 </head>
 <body class='documentation m0'>
     <div class='flex'>
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>tasksf</h3>
-          <div class='mb1'><code>1.3.23</code></div>
+          <div class='mb1'><code>1.3.26</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -990,14 +991,14 @@
             </ul>
           </div>
           <div class='mt1 h6 quiet'>
-            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
           </div>
         </div>
       </div>
       <div id='split-right' class='relative overflow-auto height-viewport-100'>
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -1013,8 +1014,7 @@
   <p>Collection. Abstract class.</p>
 <p>Basic collection class. Do NOT instantiate directly.</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Collection(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
+    <div class='pre p1 fill-light mt0'>new Collection(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
 
@@ -1081,8 +1081,7 @@
 in some way. After attach() you can get().
 Attach will also keep the variable from GC.</p>
 
-
-  <div class='pre p1 fill-light mt0'>attach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: any)</div>
+    <div class='pre p1 fill-light mt0'>attach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: any): <a href="#collection">Collection</a></div>
   
   
 
@@ -1121,6 +1120,16 @@ Attach will also keep the variable from GC.</p>
   
 
   
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#collection">Collection</a></code>:
+        collection current collection
+
+      
+    
+  
+
+  
 
   
 
@@ -1150,8 +1159,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Detaches variable with a key</p>
 
-
-  <div class='pre p1 fill-light mt0'>detach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+    <div class='pre p1 fill-light mt0'>detach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#collection">Collection</a></div>
   
   
 
@@ -1178,6 +1186,16 @@ Attach will also keep the variable from GC.</p>
     </div>
   
 
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#collection">Collection</a></code>:
+        collection current collection
+
+      
+    
   
 
   
@@ -1210,8 +1228,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets variable with a key</p>
 
-
-  <div class='pre p1 fill-light mt0'>get(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
+    <div class='pre p1 fill-light mt0'>get(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
   
   
 
@@ -1259,6 +1276,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -1278,8 +1297,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Pushes task to the collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>push(task: <a href="#task">Task</a>): <a href="#collection">Collection</a></div>
+    <div class='pre p1 fill-light mt0'>push(task: <a href="#task">Task</a>): <a href="#collection">Collection</a></div>
   
   
 
@@ -1316,6 +1334,8 @@ Attach will also keep the variable from GC.</p>
 
       
     
+  
+
   
 
   
@@ -1346,8 +1366,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Unshifts task to the collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>unshift(task: <a href="#task">Task</a>): <a href="#collection">Collection</a></div>
+    <div class='pre p1 fill-light mt0'>unshift(task: <a href="#task">Task</a>): <a href="#collection">Collection</a></div>
   
   
 
@@ -1384,6 +1403,8 @@ Attach will also keep the variable from GC.</p>
 
       
     
+  
+
   
 
   
@@ -1414,8 +1435,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Removes task from the collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>remove(task: <a href="#task">Task</a>): <a href="#collection">Collection</a></div>
+    <div class='pre p1 fill-light mt0'>remove(task: <a href="#task">Task</a>): <a href="#collection">Collection</a></div>
   
   
 
@@ -1463,6 +1483,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -1482,8 +1504,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Runs all tasks in the collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>run()</div>
+    <div class='pre p1 fill-light mt0'>run()</div>
   
   
 
@@ -1492,6 +1513,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -1528,8 +1551,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Stops all tasks in the collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>stop(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>stop(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -1563,6 +1585,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -1582,8 +1606,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Resets a stopped collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>reset(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>reset(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -1617,6 +1640,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -1637,8 +1662,7 @@ Attach will also keep the variable from GC.</p>
   <p>Complete</p>
 <p>Runs complete task</p>
 
-
-  <div class='pre p1 fill-light mt0'>_complete()</div>
+    <div class='pre p1 fill-light mt0'>_complete()</div>
   
   
 
@@ -1647,6 +1671,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -1684,8 +1710,7 @@ Attach will also keep the variable from GC.</p>
   <p>Recover</p>
 <p>Runs recover task</p>
 
-
-  <div class='pre p1 fill-light mt0'>_recover(error: any)</div>
+    <div class='pre p1 fill-light mt0'>_recover(error: any)</div>
   
   
 
@@ -1724,6 +1749,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -1744,8 +1771,7 @@ Attach will also keep the variable from GC.</p>
   <p>Chain task</p>
 <p>Attach the chain to the task</p>
 
-
-  <div class='pre p1 fill-light mt0'>_chainTask(task: <a href="#task">Task</a>)</div>
+    <div class='pre p1 fill-light mt0'>_chainTask(task: <a href="#task">Task</a>)</div>
   
   
 
@@ -1770,6 +1796,8 @@ Attach will also keep the variable from GC.</p>
         </div>
       
     </div>
+  
+
   
 
   
@@ -1805,8 +1833,7 @@ Attach will also keep the variable from GC.</p>
   <p>Unchain task</p>
 <p>Detach the chain from the task</p>
 
-
-  <div class='pre p1 fill-light mt0'>_unchainTask(task: <a href="#task">Task</a>)</div>
+    <div class='pre p1 fill-light mt0'>_unchainTask(task: <a href="#task">Task</a>)</div>
   
   
 
@@ -1846,6 +1873,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -1866,8 +1895,7 @@ Attach will also keep the variable from GC.</p>
   <p>Probe post add actions</p>
 <p>Try all post add triggers</p>
 
-
-  <div class='pre p1 fill-light mt0'>_postTaskAdds()</div>
+    <div class='pre p1 fill-light mt0'>_postTaskAdds()</div>
   
   
 
@@ -1876,6 +1904,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -1912,8 +1942,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets the running status</p>
 
-
-  <div class='pre p1 fill-light mt0'>running</div>
+    <div class='pre p1 fill-light mt0'>running</div>
   
   
 
@@ -1947,6 +1976,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -1966,8 +1997,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets the current task(s)</p>
 
-
-  <div class='pre p1 fill-light mt0'>current</div>
+    <div class='pre p1 fill-light mt0'>current</div>
   
   
 
@@ -2001,6 +2031,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -2020,8 +2052,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets the passed task(s)</p>
 
-
-  <div class='pre p1 fill-light mt0'>passed</div>
+    <div class='pre p1 fill-light mt0'>passed</div>
   
   
 
@@ -2055,6 +2086,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -2075,8 +2108,7 @@ Attach will also keep the variable from GC.</p>
   <p>Sets autoRun</p>
 <p>Will autorun on push or unshift</p>
 
-
-  <div class='pre p1 fill-light mt0'>autoRun</div>
+    <div class='pre p1 fill-light mt0'>autoRun</div>
   
   
 
@@ -2124,6 +2156,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -2143,8 +2177,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets autoRun</p>
 
-
-  <div class='pre p1 fill-light mt0'>autoRun</div>
+    <div class='pre p1 fill-light mt0'>autoRun</div>
   
   
 
@@ -2178,6 +2211,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -2188,12 +2223,14 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -2209,8 +2246,7 @@ Attach will also keep the variable from GC.</p>
   <p>Limiter</p>
 <p>Parallel with limit for max running tasks</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Limiter(limit: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, completeOnFirst: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
+    <div class='pre p1 fill-light mt0'>new Limiter(limit: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, completeOnFirst: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
   
   
     <p>
@@ -2299,8 +2335,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Returns the run condition</p>
 
-
-  <div class='pre p1 fill-light mt0'>_runCondition</div>
+    <div class='pre p1 fill-light mt0'>_runCondition</div>
   
   
 
@@ -2334,6 +2369,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -2353,8 +2390,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Performs on every task complete</p>
 
-
-  <div class='pre p1 fill-light mt0'>_taskComplete()</div>
+    <div class='pre p1 fill-light mt0'>_taskComplete()</div>
   
   
 
@@ -2363,6 +2399,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -2390,12 +2428,14 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -2411,8 +2451,7 @@ Attach will also keep the variable from GC.</p>
   <p>Loop</p>
 <p>Recurrent tasks</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Loop(repeats: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, repeat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
+    <div class='pre p1 fill-light mt0'>new Loop(repeats: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, repeat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
     <p>
@@ -2493,8 +2532,7 @@ Attach will also keep the variable from GC.</p>
   <p>Complete</p>
 <p>Runs complete task</p>
 
-
-  <div class='pre p1 fill-light mt0'>_complete()</div>
+    <div class='pre p1 fill-light mt0'>_complete()</div>
   
   
 
@@ -2503,6 +2541,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -2539,8 +2579,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets next task from the loop</p>
 
-
-  <div class='pre p1 fill-light mt0'>__next</div>
+    <div class='pre p1 fill-light mt0'>__next</div>
   
   
 
@@ -2574,6 +2613,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -2593,8 +2634,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets the passed task(s)</p>
 
-
-  <div class='pre p1 fill-light mt0'>passed</div>
+    <div class='pre p1 fill-light mt0'>passed</div>
   
   
 
@@ -2628,6 +2668,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -2638,12 +2680,14 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -2659,8 +2703,7 @@ Attach will also keep the variable from GC.</p>
   <p>Parallel</p>
 <p>Executes tasks all at once</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Parallel(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, completeOnFirst: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
+    <div class='pre p1 fill-light mt0'>new Parallel(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, completeOnFirst: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
   
   
     <p>
@@ -2740,8 +2783,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Runs all tasks in the collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>run()</div>
+    <div class='pre p1 fill-light mt0'>run()</div>
   
   
 
@@ -2750,6 +2792,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -2786,8 +2830,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Runs a single task</p>
 
-
-  <div class='pre p1 fill-light mt0'>_run(task: any)</div>
+    <div class='pre p1 fill-light mt0'>_run(task: any)</div>
   
   
 
@@ -2826,6 +2869,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -2845,8 +2890,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Returns the run condition</p>
 
-
-  <div class='pre p1 fill-light mt0'>_runCondition</div>
+    <div class='pre p1 fill-light mt0'>_runCondition</div>
   
   
 
@@ -2880,6 +2924,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -2899,8 +2945,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Performs on every task complete</p>
 
-
-  <div class='pre p1 fill-light mt0'>_taskComplete()</div>
+    <div class='pre p1 fill-light mt0'>_taskComplete()</div>
   
   
 
@@ -2909,6 +2954,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -2945,8 +2992,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Stops all tasks in the collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>stop(skip: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>stop(skip: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -2995,6 +3041,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3014,8 +3062,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Resets a stopped collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>reset(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>reset(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -3049,6 +3096,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3068,8 +3117,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets the current tasks</p>
 
-
-  <div class='pre p1 fill-light mt0'>current</div>
+    <div class='pre p1 fill-light mt0'>current</div>
   
   
 
@@ -3103,6 +3151,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3122,8 +3172,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets the passed task(s)</p>
 
-
-  <div class='pre p1 fill-light mt0'>passed</div>
+    <div class='pre p1 fill-light mt0'>passed</div>
   
   
 
@@ -3157,6 +3206,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3167,12 +3218,14 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -3188,8 +3241,7 @@ Attach will also keep the variable from GC.</p>
   <p>Sequence</p>
 <p>Executes tasks one by one</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Sequence(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
+    <div class='pre p1 fill-light mt0'>new Sequence(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
     <p>
@@ -3260,8 +3312,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Runs all tasks in the collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>run()</div>
+    <div class='pre p1 fill-light mt0'>run()</div>
   
   
 
@@ -3270,6 +3321,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -3306,8 +3359,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Stops all tasks in the collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>stop(skip: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>stop(skip: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -3356,6 +3408,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3375,8 +3429,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Resets a stopped collection</p>
 
-
-  <div class='pre p1 fill-light mt0'>reset(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>reset(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -3410,6 +3463,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3429,8 +3484,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Runs next in the sequence</p>
 
-
-  <div class='pre p1 fill-light mt0'>_next()</div>
+    <div class='pre p1 fill-light mt0'>_next()</div>
   
   
 
@@ -3439,6 +3493,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -3476,8 +3532,7 @@ Attach will also keep the variable from GC.</p>
   <p>Complete</p>
 <p>Runs complete task</p>
 
-
-  <div class='pre p1 fill-light mt0'>_complete()</div>
+    <div class='pre p1 fill-light mt0'>_complete()</div>
   
   
 
@@ -3486,6 +3541,8 @@ Attach will also keep the variable from GC.</p>
   
   
   
+  
+
   
 
   
@@ -3523,8 +3580,7 @@ Attach will also keep the variable from GC.</p>
   <p>Recover</p>
 <p>Runs recover task</p>
 
-
-  <div class='pre p1 fill-light mt0'>_recover(error: any)</div>
+    <div class='pre p1 fill-light mt0'>_recover(error: any)</div>
   
   
 
@@ -3563,6 +3619,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3582,8 +3640,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Resets current</p>
 
-
-  <div class='pre p1 fill-light mt0'>_resetCurrent(unchain: any, resetAfterComplete: any)</div>
+    <div class='pre p1 fill-light mt0'>_resetCurrent(unchain: any, resetAfterComplete: any)</div>
   
   
 
@@ -3632,6 +3689,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3651,8 +3710,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets next task from the loop</p>
 
-
-  <div class='pre p1 fill-light mt0'>__next</div>
+    <div class='pre p1 fill-light mt0'>__next</div>
   
   
 
@@ -3686,6 +3744,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3705,8 +3765,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets the current task</p>
 
-
-  <div class='pre p1 fill-light mt0'>current</div>
+    <div class='pre p1 fill-light mt0'>current</div>
   
   
 
@@ -3740,6 +3799,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3759,8 +3820,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets the passed task(s)</p>
 
-
-  <div class='pre p1 fill-light mt0'>passed</div>
+    <div class='pre p1 fill-light mt0'>passed</div>
   
   
 
@@ -3794,6 +3854,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3804,12 +3866,14 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -3825,8 +3889,7 @@ Attach will also keep the variable from GC.</p>
   <p>Map for AsyncTask</p>
 <p>Maps the default ways to get a AsyncTask</p>
 
-
-  <div class='pre p1 fill-light mt0'>new AsyncMap()</div>
+    <div class='pre p1 fill-light mt0'>new AsyncMap()</div>
   
   
     <p>
@@ -3874,8 +3937,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Match argument with a specific TriggerMap</p>
 
-
-  <div class='pre p1 fill-light mt0'>match(args: ...any, run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, marker: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="#match">Match</a></div>
+    <div class='pre p1 fill-light mt0'>match(args: ...any, run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, marker: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="#match">Match</a></div>
   
   
 
@@ -3958,6 +4020,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -3968,12 +4032,14 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -3989,8 +4055,7 @@ Attach will also keep the variable from GC.</p>
   <p>Tasks and Collections Factory</p>
 <p>It's a static class - do not instantiate with new</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Factory()</div>
+    <div class='pre p1 fill-light mt0'>new Factory()</div>
   
   
 
@@ -4029,8 +4094,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Predefined name for a chain in attached task</p>
 
-
-  <div class='pre p1 fill-light mt0'>_CHAIN_</div>
+    <div class='pre p1 fill-light mt0'>_CHAIN_</div>
   
   
 
@@ -4070,6 +4134,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4089,8 +4155,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Maps collection for task matching</p>
 
-
-  <div class='pre p1 fill-light mt0'>maps</div>
+    <div class='pre p1 fill-light mt0'>maps</div>
   
   
 
@@ -4130,6 +4195,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4149,8 +4216,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Attached variables</p>
 
-
-  <div class='pre p1 fill-light mt0'>attached</div>
+    <div class='pre p1 fill-light mt0'>attached</div>
   
   
 
@@ -4190,6 +4256,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4209,8 +4277,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Initialized status</p>
 
-
-  <div class='pre p1 fill-light mt0'>initialized</div>
+    <div class='pre p1 fill-light mt0'>initialized</div>
   
   
 
@@ -4250,6 +4317,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4269,8 +4338,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets a task by registered map match</p>
 
-
-  <div class='pre p1 fill-light mt0'>task(args: any): <a href="#task">Task</a></div>
+    <div class='pre p1 fill-light mt0'>task(args: any): <a href="#task">Task</a></div>
   
   
 
@@ -4318,6 +4386,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4337,8 +4407,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets a sequence</p>
 
-
-  <div class='pre p1 fill-light mt0'>sequence(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#sequence">Sequence</a></div>
+    <div class='pre p1 fill-light mt0'>sequence(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#sequence">Sequence</a></div>
   
   
 
@@ -4395,6 +4464,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4414,8 +4485,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets a parallel</p>
 
-
-  <div class='pre p1 fill-light mt0'>parallel(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, completeOnFirst: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="#parallel">Parallel</a></div>
+    <div class='pre p1 fill-light mt0'>parallel(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, completeOnFirst: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="#parallel">Parallel</a></div>
   
   
 
@@ -4481,6 +4551,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4500,8 +4572,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets a loop</p>
 
-
-  <div class='pre p1 fill-light mt0'>loop(repeats: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, repeat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#loop">Loop</a></div>
+    <div class='pre p1 fill-light mt0'>loop(repeats: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, repeat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#loop">Loop</a></div>
   
   
 
@@ -4567,6 +4638,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4586,8 +4659,7 @@ Attach will also keep the variable from GC.</p>
 
   <p>Gets a limiter</p>
 
-
-  <div class='pre p1 fill-light mt0'>limiter(limit: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, completeOnFirst: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="#limiter">Limiter</a></div>
+    <div class='pre p1 fill-light mt0'>limiter(limit: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, completeOnFirst: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="#limiter">Limiter</a></div>
   
   
 
@@ -4662,6 +4734,8 @@ Attach will also keep the variable from GC.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4683,8 +4757,7 @@ Attach will also keep the variable from GC.</p>
 <p>Initializes the factory. Will be called automatically on first task
 or sequence call. Can be called explicitly with <em>force</em></p>
 
-
-  <div class='pre p1 fill-light mt0'>initialize(force: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
+    <div class='pre p1 fill-light mt0'>initialize(force: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
   
   
 
@@ -4725,6 +4798,8 @@ or sequence call. Can be called explicitly with <em>force</em></p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4744,8 +4819,7 @@ or sequence call. Can be called explicitly with <em>force</em></p>
 
   <p>Adds new map for tasks matching</p>
 
-
-  <div class='pre p1 fill-light mt0'>map(map: <a href="#map">Map</a>)</div>
+    <div class='pre p1 fill-light mt0'>map(map: <a href="#map">Map</a>)</div>
   
   
 
@@ -4785,6 +4859,8 @@ or sequence call. Can be called explicitly with <em>force</em></p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4804,8 +4880,7 @@ or sequence call. Can be called explicitly with <em>force</em></p>
 
   <p>Removes map from tasks matching</p>
 
-
-  <div class='pre p1 fill-light mt0'>unmap(map: <a href="#map">Map</a>)</div>
+    <div class='pre p1 fill-light mt0'>unmap(map: <a href="#map">Map</a>)</div>
   
   
 
@@ -4845,6 +4920,8 @@ or sequence call. Can be called explicitly with <em>force</em></p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4864,8 +4941,7 @@ or sequence call. Can be called explicitly with <em>force</em></p>
 
   <p>Removes all maps</p>
 
-
-  <div class='pre p1 fill-light mt0'>unmapAll()</div>
+    <div class='pre p1 fill-light mt0'>unmapAll()</div>
   
   
 
@@ -4874,6 +4950,8 @@ or sequence call. Can be called explicitly with <em>force</em></p>
   
   
   
+  
+
   
 
   
@@ -4913,8 +4991,7 @@ or sequence call. Can be called explicitly with <em>force</em></p>
 later on from anywhere. Or store anything you want
 in this predefined place</p>
 
-
-  <div class='pre p1 fill-light mt0'>attach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: any)</div>
+    <div class='pre p1 fill-light mt0'>attach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: any)</div>
   
   
 
@@ -4963,6 +5040,8 @@ in this predefined place</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -4982,8 +5061,7 @@ in this predefined place</p>
 
   <p>Detaches variable by name</p>
 
-
-  <div class='pre p1 fill-light mt0'>detach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+    <div class='pre p1 fill-light mt0'>detach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -5023,6 +5101,8 @@ in this predefined place</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -5042,8 +5122,7 @@ in this predefined place</p>
 
   <p>Gets variable by name</p>
 
-
-  <div class='pre p1 fill-light mt0'>get(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
+    <div class='pre p1 fill-light mt0'>get(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
   
   
 
@@ -5091,6 +5170,8 @@ in this predefined place</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -5103,12 +5184,14 @@ in this predefined place</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -5129,8 +5212,7 @@ selected.</p>
 <p>This class is the base for all Map classes. Cannot be used
 directly. Extend to use.</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Map()</div>
+    <div class='pre p1 fill-light mt0'>new Map()</div>
   
   
 
@@ -5171,8 +5253,7 @@ directly. Extend to use.</p>
 
   <p>Match argument with a specific tasks</p>
 
-
-  <div class='pre p1 fill-light mt0'>match(args: ...any): <a href="#match">Match</a></div>
+    <div class='pre p1 fill-light mt0'>match(args: ...any): <a href="#match">Match</a></div>
   
   
 
@@ -5219,6 +5300,8 @@ directly. Extend to use.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -5229,12 +5312,14 @@ directly. Extend to use.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -5253,8 +5338,7 @@ percentage from 0 to 1. In cases of overlapping
 of Matches the one with bigger percentage will be
 used</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Match(instance: <a href="#task">Task</a>, percentage: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
+    <div class='pre p1 fill-light mt0'>new Match(instance: <a href="#task">Task</a>, percentage: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
   
   
 
@@ -5318,8 +5402,7 @@ used</p>
 
   <p>Percentage setter</p>
 
-
-  <div class='pre p1 fill-light mt0'>percentage</div>
+    <div class='pre p1 fill-light mt0'>percentage</div>
   
   
 
@@ -5359,6 +5442,8 @@ used</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -5378,8 +5463,7 @@ used</p>
 
   <p>Percentage getter</p>
 
-
-  <div class='pre p1 fill-light mt0'>percentage</div>
+    <div class='pre p1 fill-light mt0'>percentage</div>
   
   
 
@@ -5413,6 +5497,8 @@ used</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -5423,12 +5509,14 @@ used</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -5444,8 +5532,7 @@ used</p>
   <p>Map for PromiseTask</p>
 <p>Maps the default ways to get a PromiseTask</p>
 
-
-  <div class='pre p1 fill-light mt0'>new PromiseMap()</div>
+    <div class='pre p1 fill-light mt0'>new PromiseMap()</div>
   
   
     <p>
@@ -5493,8 +5580,7 @@ used</p>
 
   <p>Match argument with a specific PromiseMap</p>
 
-
-  <div class='pre p1 fill-light mt0'>match(args: ...any, promise: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#match">Match</a></div>
+    <div class='pre p1 fill-light mt0'>match(args: ...any, promise: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#match">Match</a></div>
   
   
 
@@ -5568,6 +5654,8 @@ used</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -5578,12 +5666,14 @@ used</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -5599,8 +5689,7 @@ used</p>
   <p>Raw map for Task</p>
 <p>Maps the default ways to get a Task</p>
 
-
-  <div class='pre p1 fill-light mt0'>new RawMap()</div>
+    <div class='pre p1 fill-light mt0'>new RawMap()</div>
   
   
     <p>
@@ -5648,8 +5737,7 @@ used</p>
 
   <p>Match argument with a specific Task</p>
 
-
-  <div class='pre p1 fill-light mt0'>match(args: ...any, run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#match">Match</a></div>
+    <div class='pre p1 fill-light mt0'>match(args: ...any, run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#match">Match</a></div>
   
   
 
@@ -5723,6 +5811,8 @@ used</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -5733,12 +5823,14 @@ used</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -5754,8 +5846,7 @@ used</p>
   <p>Map for TimeoutTasks</p>
 <p>Maps the default ways to get a TimeoutTask</p>
 
-
-  <div class='pre p1 fill-light mt0'>new TimeoutMap()</div>
+    <div class='pre p1 fill-light mt0'>new TimeoutMap()</div>
   
   
     <p>
@@ -5803,8 +5894,7 @@ used</p>
 
   <p>Match argument with a specific TimeoutTask</p>
 
-
-  <div class='pre p1 fill-light mt0'>match(args: ...any, timeout: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#match">Match</a></div>
+    <div class='pre p1 fill-light mt0'>match(args: ...any, timeout: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="#match">Match</a></div>
   
   
 
@@ -5887,6 +5977,8 @@ used</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -5897,12 +5989,14 @@ used</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -5918,8 +6012,7 @@ used</p>
   <p>Map for TriggerTask</p>
 <p>Maps the default ways to get a TriggerTask</p>
 
-
-  <div class='pre p1 fill-light mt0'>new TriggerMap()</div>
+    <div class='pre p1 fill-light mt0'>new TriggerMap()</div>
   
   
     <p>
@@ -5967,8 +6060,7 @@ used</p>
 
   <p>Match argument with a specific TriggerTask</p>
 
-
-  <div class='pre p1 fill-light mt0'>match(args: ...any, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, marker: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="#match">Match</a></div>
+    <div class='pre p1 fill-light mt0'>match(args: ...any, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, marker: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="#match">Match</a></div>
   
   
 
@@ -6033,6 +6125,8 @@ used</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -6043,12 +6137,14 @@ used</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -6069,8 +6165,7 @@ Useful for triggers.</p>
 In run method first parameter will be complete callback, second self and
 ...args to follow. Does not care what run returns.</p>
 
-
-  <div class='pre p1 fill-light mt0'>new AsyncTask(run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
+    <div class='pre p1 fill-light mt0'>new AsyncTask(run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
     <p>
@@ -6158,8 +6253,7 @@ In run method first parameter will be complete callback, second self and
 <p>Executes the run function if defined. All arguments will be
 passed to it.</p>
 
-
-  <div class='pre p1 fill-light mt0'>run(args: any)</div>
+    <div class='pre p1 fill-light mt0'>run(args: any)</div>
   
   
 
@@ -6199,6 +6293,8 @@ passed to it.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -6209,12 +6305,14 @@ passed to it.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -6231,8 +6329,7 @@ passed to it.</p>
 <p>Injects functions into objects. Used internally.
 Not intended to be used on it's own.</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Injector()</div>
+    <div class='pre p1 fill-light mt0'>new Injector()</div>
   
   
 
@@ -6271,8 +6368,7 @@ Not intended to be used on it's own.</p>
 
   <p>Appends a function after complete and remembers the original</p>
 
-
-  <div class='pre p1 fill-light mt0'>afterComplete(task: <a href="#task">Task</a>, callback: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#task">Task</a></div>
+    <div class='pre p1 fill-light mt0'>afterComplete(task: <a href="#task">Task</a>, callback: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#task">Task</a></div>
   
   
 
@@ -6338,6 +6434,8 @@ Not intended to be used on it's own.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -6357,8 +6455,7 @@ Not intended to be used on it's own.</p>
 
   <p>Resets the complete method to it's original state</p>
 
-
-  <div class='pre p1 fill-light mt0'>resetAfterComplete(task: <a href="#task">Task</a>, key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#task">Task</a></div>
+    <div class='pre p1 fill-light mt0'>resetAfterComplete(task: <a href="#task">Task</a>, key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="#task">Task</a></div>
   
   
 
@@ -6415,6 +6512,8 @@ Not intended to be used on it's own.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -6435,8 +6534,7 @@ Not intended to be used on it's own.</p>
   <p>Adds a method called chain to get Factory.<em>CHAIN</em></p>
 <p>Shortcut for task.get(Factory.<em>CHAIN</em>)</p>
 
-
-  <div class='pre p1 fill-light mt0'>addChainGetter(task: <a href="#task">Task</a>): <a href="#task">Task</a></div>
+    <div class='pre p1 fill-light mt0'>addChainGetter(task: <a href="#task">Task</a>): <a href="#task">Task</a></div>
   
   
 
@@ -6473,6 +6571,8 @@ Not intended to be used on it's own.</p>
 
       
     
+  
+
   
 
   
@@ -6503,8 +6603,7 @@ Not intended to be used on it's own.</p>
 
   <p>Remove a method called chain to get Factory.<em>CHAIN</em></p>
 
-
-  <div class='pre p1 fill-light mt0'>removeChainGetter(task: <a href="#task">Task</a>): <a href="#task">Task</a></div>
+    <div class='pre p1 fill-light mt0'>removeChainGetter(task: <a href="#task">Task</a>): <a href="#task">Task</a></div>
   
   
 
@@ -6552,6 +6651,8 @@ Not intended to be used on it's own.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -6564,12 +6665,14 @@ Not intended to be used on it's own.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -6588,8 +6691,7 @@ Will attack to finally and complete.
 Useful for triggers.</p>
 <p>Similar with TriggerTask, but with set of complete and recover.</p>
 
-
-  <div class='pre p1 fill-light mt0'>new PromiseTask(promise: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
+    <div class='pre p1 fill-light mt0'>new PromiseTask(promise: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
     <p>
@@ -6670,8 +6772,7 @@ Useful for triggers.</p>
   <p>Runs a task</p>
 <p>Checks if promise already resolved. If not does nothing.</p>
 
-
-  <div class='pre p1 fill-light mt0'>run(args: any)</div>
+    <div class='pre p1 fill-light mt0'>run(args: any)</div>
   
   
 
@@ -6711,6 +6812,8 @@ Useful for triggers.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -6733,8 +6836,7 @@ Useful for triggers.</p>
 The checks for promise will be a bit loose - just checking for finally
 and assuming it's a Promise.</p>
 
-
-  <div class='pre p1 fill-light mt0'>_isPromise(promise: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>_isPromise(promise: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -6782,6 +6884,8 @@ and assuming it's a Promise.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -6801,8 +6905,7 @@ and assuming it's a Promise.</p>
 
   <p>Sets promise and attaches to finally</p>
 
-
-  <div class='pre p1 fill-light mt0'>_setPromise(promise: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
+    <div class='pre p1 fill-light mt0'>_setPromise(promise: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>)</div>
   
   
 
@@ -6842,6 +6945,8 @@ and assuming it's a Promise.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -6861,8 +6966,7 @@ and assuming it's a Promise.</p>
 
   <p>Handles promise finally resolved</p>
 
-
-  <div class='pre p1 fill-light mt0'>_promiseFinally()</div>
+    <div class='pre p1 fill-light mt0'>_promiseFinally()</div>
   
   
 
@@ -6871,6 +6975,8 @@ and assuming it's a Promise.</p>
   
   
   
+  
+
   
 
   
@@ -6898,12 +7004,14 @@ and assuming it's a Promise.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -6923,8 +7031,7 @@ call complete instantly. if run returns anything it will
 NOT call complete automatically and it's up to you to
 trigger complete.</p>
 
-
-  <div class='pre p1 fill-light mt0'>new Task(run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
+    <div class='pre p1 fill-light mt0'>new Task(run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
 
@@ -7011,8 +7118,7 @@ trigger complete.</p>
 
   <p>Attaches variable to the task</p>
 
-
-  <div class='pre p1 fill-light mt0'>attach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: any)</div>
+    <div class='pre p1 fill-light mt0'>attach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: any)</div>
   
   
 
@@ -7061,6 +7167,8 @@ trigger complete.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7080,8 +7188,7 @@ trigger complete.</p>
 
   <p>Detaches variable by name</p>
 
-
-  <div class='pre p1 fill-light mt0'>detach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+    <div class='pre p1 fill-light mt0'>detach(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -7121,6 +7228,8 @@ trigger complete.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7140,8 +7249,7 @@ trigger complete.</p>
 
   <p>Gets variable by name</p>
 
-
-  <div class='pre p1 fill-light mt0'>get(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
+    <div class='pre p1 fill-light mt0'>get(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
   
   
 
@@ -7189,6 +7297,8 @@ trigger complete.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7210,8 +7320,7 @@ trigger complete.</p>
 <p>Executes the run function if defined. All arguments will be
 passed to it.</p>
 
-
-  <div class='pre p1 fill-light mt0'>run(args: any)</div>
+    <div class='pre p1 fill-light mt0'>run(args: any)</div>
   
   
 
@@ -7236,6 +7345,8 @@ passed to it.</p>
         </div>
       
     </div>
+  
+
   
 
   
@@ -7272,8 +7383,7 @@ passed to it.</p>
 <p>Executes the complete function if defined. All arguments will be
 passed to it.</p>
 
-
-  <div class='pre p1 fill-light mt0'>complete(args: any)</div>
+    <div class='pre p1 fill-light mt0'>complete(args: any)</div>
   
   
 
@@ -7298,6 +7408,8 @@ passed to it.</p>
         </div>
       
     </div>
+  
+
   
 
   
@@ -7334,8 +7446,7 @@ passed to it.</p>
 <p>Executes the recover function if defined. All arguments will be
 passed to it.</p>
 
-
-  <div class='pre p1 fill-light mt0'>recover(args: any)</div>
+    <div class='pre p1 fill-light mt0'>recover(args: any)</div>
   
   
 
@@ -7375,6 +7486,8 @@ passed to it.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7394,8 +7507,7 @@ passed to it.</p>
 
   <p>Stops a task</p>
 
-
-  <div class='pre p1 fill-light mt0'>stop(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>stop(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -7429,6 +7541,8 @@ passed to it.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7450,8 +7564,7 @@ passed to it.</p>
 <p>If stopped will start it
 If running will respect stop()</p>
 
-
-  <div class='pre p1 fill-light mt0'>restart(args: ...any): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>restart(args: ...any): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -7498,6 +7611,8 @@ If running will respect stop()</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7517,8 +7632,7 @@ If running will respect stop()</p>
 
   <p>Gets the running status</p>
 
-
-  <div class='pre p1 fill-light mt0'>running</div>
+    <div class='pre p1 fill-light mt0'>running</div>
   
   
 
@@ -7552,6 +7666,8 @@ If running will respect stop()</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7571,8 +7687,7 @@ If running will respect stop()</p>
 
   <p>Gets the done status</p>
 
-
-  <div class='pre p1 fill-light mt0'>done</div>
+    <div class='pre p1 fill-light mt0'>done</div>
   
   
 
@@ -7606,6 +7721,8 @@ If running will respect stop()</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7625,8 +7742,7 @@ If running will respect stop()</p>
 
   <p>Gets the failed status</p>
 
-
-  <div class='pre p1 fill-light mt0'>failed</div>
+    <div class='pre p1 fill-light mt0'>failed</div>
   
   
 
@@ -7660,6 +7776,8 @@ If running will respect stop()</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7679,8 +7797,7 @@ If running will respect stop()</p>
 
   <p>Gets the exceptions if any</p>
 
-
-  <div class='pre p1 fill-light mt0'>exceptions</div>
+    <div class='pre p1 fill-light mt0'>exceptions</div>
   
   
 
@@ -7714,6 +7831,8 @@ If running will respect stop()</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7724,12 +7843,14 @@ If running will respect stop()</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -7746,8 +7867,7 @@ If running will respect stop()</p>
 <p>Timeout task with run, complete and recover.
 Executes after initial timeout</p>
 
-
-  <div class='pre p1 fill-light mt0'>new TimeoutTask(timeout: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
+    <div class='pre p1 fill-light mt0'>new TimeoutTask(timeout: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, run: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, recover: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
     <p>
@@ -7838,8 +7958,7 @@ Executes after initial timeout</p>
 <p>Executes the run function if defined. All arguments will be
 passed to it.</p>
 
-
-  <div class='pre p1 fill-light mt0'>run(args: any)</div>
+    <div class='pre p1 fill-light mt0'>run(args: any)</div>
   
   
 
@@ -7864,6 +7983,8 @@ passed to it.</p>
         </div>
       
     </div>
+  
+
   
 
   
@@ -7900,8 +8021,7 @@ passed to it.</p>
 <p>Executes the complete function if defined. All arguments will be
 passed to it.</p>
 
-
-  <div class='pre p1 fill-light mt0'>complete(args: any)</div>
+    <div class='pre p1 fill-light mt0'>complete(args: any)</div>
   
   
 
@@ -7941,6 +8061,8 @@ passed to it.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -7960,8 +8082,7 @@ passed to it.</p>
 
   <p>Stops a task</p>
 
-
-  <div class='pre p1 fill-light mt0'>stop(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>stop(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -7995,6 +8116,8 @@ passed to it.</p>
   
 
   
+
+  
 </section>
 
       </div>
@@ -8005,12 +8128,14 @@ passed to it.</p>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -8029,8 +8154,7 @@ Executes run and does not complete automatically.
 Need manual call of complete() method.
 Useful for triggers.</p>
 
-
-  <div class='pre p1 fill-light mt0'>new TriggerTask(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
+    <div class='pre p1 fill-light mt0'>new TriggerTask(complete: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
   
     <p>
@@ -8094,8 +8218,7 @@ Useful for triggers.</p>
 <p>Executes the run function if defined. All arguments will be
 passed to it.</p>
 
-
-  <div class='pre p1 fill-light mt0'>run(args: any)</div>
+    <div class='pre p1 fill-light mt0'>run(args: any)</div>
   
   
 
@@ -8135,12 +8258,16 @@ passed to it.</p>
   
 
   
+
+  
 </section>
 
       </div>
     </div>
   
 </div>
+
+  
 
   
 
