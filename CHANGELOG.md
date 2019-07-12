@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.3.24] - 2019-07-12
+### Summary
+update dependencies
+### Changes
+- update old packages
+- Merge branch 'master' of ranapat.org:/zone/repositories.git/tasksf
+- change readme
+- rebuild documentation
+- update package-lock
+- update keywords
+
 ## [1.3.22] - 2018-03-22
 Update dep versions and rebuild documentation
 ### Changes
