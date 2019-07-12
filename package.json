@@ -38,8 +38,8 @@
     "uglifyjs2": "0.0.1"
   },
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha --compilers js:babel-register --require babel-polyfill --recursive tests",
-    "tdd": "node_modules/mocha/bin/mocha --compilers js:babel-register --require babel-polyfill --recursive tests --watch src/ tests/",
+    "test": "node_modules/mocha/bin/mocha --require babel-register --require babel-polyfill --recursive tests",
+    "tdd": "node_modules/mocha/bin/mocha --require babel-register --require babel-polyfill --recursive tests --watch src/ tests/",
     "serve": "node_modules/babel-cli/bin/babel.js -w src -d lib | nodemon --watch lib",
     "watch": "node_modules/babel-cli/bin/babel.js -w src -d lib",
     "examples": "node_modules/babel-cli/bin/babel.js -w examples/src -d examples/bin | nodemon examples/bin/index.js --watch examples/bin --watch lib",
