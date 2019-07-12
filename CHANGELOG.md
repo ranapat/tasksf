@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+## [1.3.27] - 2019-07-12
+### Changes
+- update package.json
+- rebuild documentation
+- collections chain attach and detach
+
 ## [1.3.26] - 2019-07-12
 ### Changes
 - update package dependencies
