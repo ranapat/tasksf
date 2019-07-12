@@ -59,7 +59,7 @@ describe('Test Collection', () => {
     const something = 'something';
     const sequence = new Sequence();
     expect(sequence.get('something')).to.equal(undefined);
-    sequence.attach('something', something);
+    expect(sequence.attach('something', something)).to.equal(sequence);
     expect(sequence.get('something')).to.equal(something);
     sequence.detach('something');
     expect(sequence.get('something')).to.equal(undefined);
@@ -75,7 +75,7 @@ describe('Test Collection', () => {
     const collection = new Collection();
     const task = new Task();
     const test = 'test';
-    collection.attach('test', test);
+    expect(collection.attach('test', test)).to.equal(collection);
     collection.push(task);
     expect(collection.get('test')).to.equal(test);
     expect(collection.tasks.length).to.equal(1);
@@ -90,7 +90,7 @@ describe('Test Collection', () => {
     const task = new Task();
     const collection = new Collection();
     const test = 'test';
-    collection.attach('test', test);
+    expect(collection.attach('test', test)).to.equal(collection);
     collection.push(task);
     expect(collection.get('test')).to.equal(test);
     expect(collection.tasks.length).to.equal(1);

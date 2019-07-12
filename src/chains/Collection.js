@@ -44,18 +44,24 @@ class Collection {
    *
    * @param {string} key accessor for the variable
    * @param {any} value variable value
+   * @return {Collection} collection current collection
    */
   attach(key, value) {
     this._attached[key] = value;
+
+    return this;
   }
 
   /**
    * Detaches variable with a key
    *
    * @param {string} key accessor for the variable
+   * @return {Collection} collection current collection
    */
   detach(key) {
     delete this._attached[key];
+
+    return this;
   }
 
   /**
