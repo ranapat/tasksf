@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.28] - 2019-07-15
+### Changes
+- attach and detach chain in task
+- sanity
+
 ## [1.3.27] - 2019-07-12
 ### Changes
 - update package.json
