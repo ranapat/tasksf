@@ -49,18 +49,24 @@ class Task {
    *
    * @param {string} key accessor for the variable
    * @param {any} value variable value
+   * @return {Task} task current task
    */
   attach(key, value) {
     this._attached[key] = value;
+
+    return this;
   }
 
   /**
    * Detaches variable by name
    *
    * @param {string} key accessor for the variable
+   * @return {Task} task current task
    */
   detach(key) {
     delete this._attached[key];
+
+    return this;
   }
 
   /**

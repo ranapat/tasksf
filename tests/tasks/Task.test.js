@@ -192,7 +192,7 @@ describe('Test Task', () => {
       });
     };
     const task = new Task(run, undefined, undefined);
-    task.attach('test', test);
+    expect(task.attach('test', test)).to.equal(task);
     task.run();
   });
 
@@ -204,8 +204,8 @@ describe('Test Task', () => {
       });
     };
     const task = new Task(run, undefined, undefined);
-    task.attach('test', test);
-    task.detach('test');
+    expect(task.attach('test', test)).to.equal(task);
+    expect(task.detach('test')).to.equal(task);
     task.run();
   });
 
